@@ -1,0 +1,256 @@
+* {font-family: 'Ubuntu', sans-serif;}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+
+}
+*, ::before, ::after {margin: 0;padding: 0;outline: none;border: none;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.pure-g {letter-spacing: -.31em;*letter-spacing: normal;*word-spacing: -.43em;text-rendering: optimizespeed; display: -webkit-flex;-webkit-flex-flow: row wrap;display: -ms-flexbox;-ms-flex-flow: row wrap}
+
+.opera-only :-o-prefocus, .pure-g {word-spacing: -.43em}
+
+.pure-u {display: inline-block;*display: inline;zoom: 1;letter-spacing: normal;word-spacing: normal;vertical-align: top;text-rendering: auto}
+
+.pure-g [class *="pure-u"] {font-family: sans-serif}
+
+.pure-u-1 {display: inline-block;*display: inline;zoom: 1;letter-spacing: normal;word-spacing: normal;vertical-align: top;text-rendering: auto;}
+
+.opera-only :-o-prefocus, .pure-g-r {word-spacing: -.43em}
+
+.pure-g-r [class *="pure-u"] {font-family: sans-serif}
+
+.pure-g-r img {max-width: 100%;height: auto}
+
+@media (max-width: 480px) {
+    .pure-g-r > .pure-u, .pure-g-r > [class *="pure-u-"], .pure-u-1 {width: 100%}
+    }
+
+@media (max-width: 767px) {
+    .pure-g-r > .pure-u, .pure-g-r > [class *="pure-u-"], .pure-u-1 {width: 100%}
+}
+
+@media screen and (min-width: 48em) {
+    .pure-u-md-1-2 {display: inline-block;*display: inline;zoom: 1;letter-spacing: normal;word-spacing: normal;vertical-align: top;text-rendering: auto; width: 50%;*width: 49.969%}
+
+}
+#conversion header {display: block;margin: 0;padding: 30px 30px 20px;}
+
+.none {display: none;}
+
+#conversion header h3 {display: block;font-size: 24px;font-weight: bold;text-align: left;margin: 0 0 10px 0;padding: 0;}
+
+#conversion header h4 {display: block;font-size: 20px;font-weight: bold;text-align: left;margin: 0 0 10px 0;padding: 0;}
+
+#conversion header p {display: block;font-size: 16px;line-height: 1.2em;margin: 0 0 10px 0;padding: 0;}
+
+#conversion section {display: block;margin: 0;padding: 30px 30px 20px;}
+
+#conversion .social-conversion {padding-bottom: 0 !important;}
+
+#conversion .social-conversion + section {padding-top: 20px !important;}
+
+#conversion-modal .modal-content section p, #conversion section p {display: block;font-size: 12px;line-height: 1em;margin: 0;padding: 0 0 20px 0;}
+
+#conversion-modal .modal-content section p.notice, #conversion section p.notice {font-size: 12px; line-height: 16px; text-align: center !important;}
+
+/* FIELDS */
+#conversion section form div.field, #conversion-modal .modal-content section form div.field {margin: 0;padding: 0 0 12px 0;}
+
+#conversion section form div.field div, #conversion-modal .modal-content section form div.field div {clear: both;width: 100%;margin: 0 0 5px 0;}
+
+#conversion-modal .modal-content section form input, #conversion-modal .modal-content section form select, #conversion-modal .modal-content section form textarea, #conversion-modal .modal-content section form .select2-choice, #conversion section form input, #conversion section form button, #conversion section form select, #conversion section form textarea, #conversion section form .select2-choice {display: inline-block;background-color: #FFFFFF;vertical-align: middle;font-size: 18px;line-height: 20px;width: 100%;height: 36px;margin: 0;padding: 5px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
+
+#conversion-modal .modal-content section form label, #conversion section form label {display: block;min-height: 25px;margin: 0;padding: 0 0 5px 0;}
+
+#conversion-modal .modal-content section form select, #conversion section form select {width: 100%;height: 36px;line-height: 36px;}
+
+#conversion-modal .modal-content section form textarea, #conversion section form textarea {height: 104px;}
+
+#conversion-modal .modal-content section form input[type=radio], #conversion-modal .modal-content section form input[type=checkbox], #conversion section form input[type=radio], #conversion section form input[type=checkbox] {width: inherit;height: inherit;margin-top: 0 !important;margin-right: 8px;}
+
+#conversion-modal .modal-content section form input[type=radio] + label, #conversion-modal .modal-content section form input[type=radio] + label + label, #conversion-modal .modal-content section form input[type=checkbox] + label, #conversion section form input[type=radio] + label, #conversion section form input[type=radio] + label + label, #conversion section form input[type=checkbox] + label {display: block;width: auto;padding: 5px 0 4px 28px;}
+
+/* SOCIAL PAY */
+#conversion section div#pay-area {padding: 16px 0 0 0;}
+
+#conversion section div#pay-area p {font-size: 16px;}
+
+/* CALL TO ACTION */
+#conversion-modal .modal-content section div.actions, #conversion section div.actions {text-align: center;padding: 16px 0 8px 0;}
+
+#conversion-modal .modal-content section div.actions button.call_button, #conversion-modal .modal-content section div.actions a.call_button, #conversion section div.actions button.call_button, #conversion section div.actions a.call_button {display: block;cursor: pointer;height: auto;text-align: center;text-decoration: none;font-weight: bold;font-size: 20px;line-height: 1.2em;white-space: normal;vertical-align: middle;margin: 2px auto 24px auto;padding: 15px 20px 17px 20px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
+
+#conversion-modal .modal-content section div.actions img, #conversion section div.actions img {width: auto !important;}
+
+/* ERROR */
+#conversion-modal .modal-content section form label.error, #conversion section form label.error {display: none !important;}
+
+#conversion-modal .modal-content section form input.error, #conversion-modal .modal-content section form textarea.error, #conversion-modal .modal-content section form .select2-container.error .select2-choice, #conversion-modal .modal-content section form select.error, #conversion section form input.error, #conversion section form textarea.error, #conversion section form .select2-container.error .select2-choice, #conversion section form select.error {background-color: #FFDDDD;}
+
+#conversion-modal .modal-content section div#error-container, #conversion section div#error-container {display: none;background-color: #FFDDDD;margin: 0 0 24px 0;padding: 16px;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
+
+#conversion-modal .modal-content section div#error-container p, #conversion section div#error-container p {color: #463A33;text-align: center;font-size: 16px;margin: 0;padding: 0;}
+
+/* SELECT 2 */
+.select2-container .select2-choice {background: #FFFFFF;}
+
+.select2-container .select2-choice .select2-arrow {background: none;border: none;}
+
+.select2-container .select2-choice .select2-arrow b {background-position: 0 5px;}
+
+.hidden {display: none;}
+
+#conversion-modal .modal-content header {display: none;}
+
+#conversion-modal .modal-content section form input, #conversion-modal .modal-content section form select, #conversion-modal .modal-content section form textarea, #conversion-modal .modal-content section form .select2-choice {border: 1px solid #CCC;}
+
+/* MEDIA QUERY */
+@media screen and (min-width: 760px) {
+    #conversion {-webkit-border-radius: 15px;-moz-border-radius: 15px;border-radius: 15px;}
+
+    #conversion header {-webkit-border-radius: 15px 15px 0px 0px;-moz-border-radius: 15px 15px 0px 0px;border-radius: 15px 15px 0px 0px;}
+
+    #conversion section {-webkit-border-radius: 0px 0px 15px 15px;-moz-border-radius: 0px 0px 15px 15px;border-radius: 0px 0px 15px 15px;}
+
+    #conversion-modal .modal-content {width: 600px;margin: 30px auto;}
+}
+
+
+header, footer nav, section, article, figure {display: block;}
+
+html, body {font-family: 'Ubuntu', Arial, sans-serif;font-size: 16px;line-height: 1.6em;height: 100%;width: 100%;}
+
+h1 {font-size: 2.15em;line-height: 1.4em;margin-bottom: .5em;}
+
+h2 {font-size: 1.5em;line-height: 1.4em;margin-bottom: .5em;}
+
+h3 {font-family: 'Ubuntu', Arial, sans-serif;font-weight: bold;font-size: 1.5em;line-height: 1.4em;margin-bottom: .5em;}
+
+h4 {font-size: 1.15em;line-height: 1.3em;margin-bottom: .5em;}
+
+h5 {font-size: 1.2em;line-height: 1.4em;margin-bottom: .5em;}
+
+p {font-family: 'Ubuntu', Arial, sans-serif;margin-bottom: .5em;}
+
+img {max-width: 100%;height: auto;}
+
+em, i {font-style: italic;}
+
+strong, b {font-weight: bold;}
+
+ul, ol {margin-bottom: .5em;}
+
+ul li {list-style: initial;list-style-position: inside;}
+
+ol li {list-style: initial;list-style-position: inside;list-style-type: decimal;}
+
+.l-box {padding: 1.8em;}
+
+#logo img {width: auto; height: 60px; margin: 0;}
+
+#header-and-image, #content {word-break: break-word;}
+
+#second-text-block .l-box {padding-top: 0;}
+
+#logo, #header-and-image {text-align: center;}
+
+#header-and-image header {margin-bottom: 30px;}
+
+#header-and-image header h1 {font-weight: bold;}
+
+#header-and-image header, #header-and-image figure img {vertical-align: middle;}
+
+/* FORM */
+#fixed-form #conversion header {padding-bottom: 0;}
+
+#fixed-form #conversion header h1, #fixed-form #conversion header h2 {font-size: 25px;font-weight: bold;text-transform: uppercase;}
+
+#fixed-form #conversion header h3 {font-size: 23px;color: #f1f1f1;font-weight: 400;text-transform: uppercase;text-align: center;text-shadow: 2px 2px 5px #000000;}
+
+#conversion-modal .modal-content section div.actions input.call_button, #fixed-form #conversion .actions .call_button {border: none;}
+
+#fixed-form #conversion .actions .call_button:hover {-webkit-transition: all .2s ease-in-out;-moz-transition: all .2s ease-in-out;transition: all .2s ease-in-out;}
+
+/* COLOR */
+html {background-color: #F1F4F5;}
+
+#logo {background-color: #FFFFFF;}
+
+#header-and-image {background-color: #009EAA;}
+
+#header-and-image h1 {color: #FFFFFF;}
+
+#header-and-image h2 {color: #FFFFFF;}
+
+#content {color: #4D4D4D;}
+
+.color-hack, #fixed-form {background-color: #333;}
+
+#fixed-form #conversion header h1, #fixed-form #conversion header h2 {color: #FFFFFF;}
+
+#conversion section {color: #FFFFFF;}
+
+/* MEDIA QUERY */
+@media screen and (min-width: 48em) {
+    #second-text-block .l-box {padding-top: 1.8em;}
+}
+
+@media screen and (min-width: 64em) {
+    .container {width: 100%;max-width: 1300px;margin: 0 auto;}
+
+    #logo, #header-and-image {text-align: left;}
+
+    #header-and-image header, #header-and-image figure {display: inline-block;}
+
+    #header-and-image header {width: 50%;padding-right: 30px;margin-bottom: 0;}
+
+    #header-and-image figure {width: 40%;}
+
+    .color-hack, #fixed-form {width: 500px;height: 100%;top: 0;right: 0;position: fixed;overflow-y: auto;display: block;max-height: 100%;}
+
+    #logo, #header-and-image, #content {margin-right: 500px;}
+}

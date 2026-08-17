@@ -1,0 +1,244 @@
+$(function () {
+        //Oculta Trigger clicada
+    $('html').on('click', '.trigger_ajax, .trigger_modal', function () {
+        $(this).fadeOut('slow', function () {
+            $(this).remove();
+        });
+    });
+    
+    $('.mobile_menu').click(function () {
+        $('.main_nav').slideToggle();
+    });
+    
+    $("#search-open").click(function () {
+        $(".navbar-search").css('overflow', 'visible').slideToggle();
+        $('#search-input').focus();
+        
+    });
+    
+    //INSTALA - HELLOBAR
+    $.getScript(BASE + "/_cdn/widgets/hellobar/hellobar.wc.js", function () {
+        $("head").append("<link rel='stylesheet' href='" + BASE + "/_cdn/widgets/hellobar/hellobar.wc.css' />");
+    });
+    
+    //PLAY TAKE
+    $('.testimony_start').click(function () {
+        var Testimony = $(this).attr('id');
+        var Headding = $(this).find('h1').html();
+        $('.testimony_content h1').html(Headding);
+        $('.testimony_content .embed-container').html('<iframe width="640" height="360" src="https://www.youtube.com/embed/' + Testimony + '?rel=0&amp;showinfo=0&autoplay=1&origin=https://zen.ppg.br" frameborder="0" allowfullscreen></iframe>');
+        $('.testimony').fadeIn(200);
+    });
+    
+    $('.testimony_close').click(function () {
+        $('.testimony').fadeOut(200, function () {
+            $('.testimony_content .embed-container').html('');
+        });
+    });
+    //END PLAY TAKE
+    
+    //ENVIA FOMS VIA AJAX: SELETOR, EVENTO/EFEITO, CALLBACK, AÇÃO
+    $('.j_formsubmit').submit(function () {
+        var form = $(this);
+        
+        var data = $(this).serialize();
+        var callback = form.find('input[name="callback"]').val();
+        // var callback_action = form.find('input[name="callback_action"]').val();
+        
+        var url = BASE + "/themes/wc_icc/_ajax/" + callback + ".ajax.php";
+        
+        $.ajax({
+            url: url,
+            data: data,
+            type: 'POST',
+            dataType: 'json',
+            beforeSend: function () {
+                form.find('.form_load').fadeIn(500);
+            },
+            success: function (data) {
+                //REMOVE LOAD
+                form.find('.form_load').fadeOut('slow', function () {
+                    //EXIBE CALLBACKS
+                    if (data.trigger) {
+                        var CallBackPresent = $('.callback_return');
+                        if (CallBackPresent.length) {
+                            CallBackPresent.html(data.trigger);
+                            $('.trigger_ajax').fadeIn('slow');
+                        } else {
+                            Trigger(data.trigger);
+                        }
+                    }
+                    //Limpa border red de erros anteriores
+                    $("input").css("border", "1px solid #ccc");
+                    if (data.foco) {
+                        if (data.foco == 'senderHuman'){
+                            form.find("[name=" + data.foco + "]").val('');
+                        }
+                        //COLOCA O FOCO NO ITEM VAZIO
+                        $("input, select").css("border", "1px solid #ccc");
+                        form.find("[name=" + data.foco + "]").focus().css('border', '2px solid red');
+                    } else {
+                        $("input, select, textarea").css("border", "1px solid green ");
+                    }
+                    
+                    if (data.simulacao) {
+                        $('.retorno_simulacao').html(data.simulacao);
+                        $('html, body').animate({scrollTop: $('#print').offset().top}, 800);
+                    }
+                    
+                    if (data.tracking){
+                        window.dataLayer = window.dataLayer || [];
+                        dataLayer.push(data.tracking);
+                    }
+                    
+                    if (data.redirect) {
+                        window.location.href = data.redirect;
+                    }
+                    
+                });
+            }
+        });
+        return false;
+    });
+    
+    $(document).ready(function () {
+        
+        $('.curriculum').on('dragover', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(this).addClass('dragover');
+        });
+        
+        $('.curriculum').on('dragleave', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(this).removeClass('dragover');
+        });
+        
+        $('.curriculum').on('drop', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            $(this).addClass('dragover');
+            $('.curriculum img').prop('src', BASE + '/themes/wc_icc/images/curriculo-sucess.svg');
+            var cv = document.getElementById('cv_pdf');
+            cv.files = event.originalEvent.dataTransfer.files;
+        });
+        
+    });
+    
+    $('#curriculo_form').submit(function () {
+        var form = $(this);
+        var callback = $(this).find('.callback').attr('value');
+        var callback_action = $(this).find('.callback-action').attr('value');
+        var cv = $('#cv_pdf').prop('files')[0];
+        var url = BASE + "/themes/wc_icc/_ajax/" + callback + ".ajax.php";
+        
+        var formData;
+        
+        formData = new FormData($(this)[0]);
+        
+        $.ajax({
+            url: url,
+            data: formData,
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            beforeSend: function () {
+                form.find('.form_load').fadeIn(500);
+            },
+            success: function (data) {
+                //REMOVE LOAD
+                form.find('.form_load').fadeOut('slow', function () {
+                    //EXIBE CALLBACKS
+                    if (data.trigger) {
+                        var CallBackPresent = $('.callback_return');
+                        if (CallBackPresent.length) {
+                            CallBackPresent.html(data.trigger);
+                            $('.trigger_ajax').fadeIn('slow');
+                        } else {
+                            Trigger(data.trigger);
+                        }
+                    }
+                    //Limpa border red de erros anteriores
+                    $("input").css("border", "1px solid #ccc");
+                    if (data.foco) {
+                        if (data.foco == 'senderHuman'){
+                            form.find("[name=" + data.foco + "]").val('');
+                        }
+                        //COLOCA O FOCO NO ITEM VAZIO
+                        $("input, select").css("border", "1px solid #ccc");
+                        form.find("[name=" + data.foco + "]").focus().css('border', '2px solid red');
+                    } else {
+                        $("input, select, textarea").css("border", "1px solid green ");
+                    }
+                });
+            }
+        });
+        return false;
+    });
+    
+    //SHOW DIV OUVIDORIA
+    $('.ouvidoria a').click(function () {
+        
+        let destiny = $(this).attr('href');
+        let Goto = $($(this).attr("href"));
+        
+        switch (destiny) {
+            
+            case '#denuncia':
+                $('#icb-01').addClass('active');
+                $('#icb-02').removeClass('active');
+                $('#icb-03').removeClass('active');
+                break;
+            case '#reclamacao':
+                $('#icb-02').addClass('active');
+                $('#icb-01').removeClass('active');
+                $('#icb-03').removeClass('active');
+                break;
+            case '#sugestao':
+                $('#icb-03').addClass('active');
+                $('#icb-01').removeClass('active');
+                $('#icb-02').removeClass('active');
+                break;
+        }
+        
+        $('.destiny > form').hide();
+        $('.trigger_ajax').hide();
+        $(destiny).slideDown(400);
+        $('[name="privacy"]').prop('checked', false);
+        $('[name="first_name"], [name="last_name"], [name="email"]').val('');
+        
+        if (Goto.length) {
+            $('html, body').animate({scrollTop: Goto.offset().top - 20}, 800);
+            
+        } else {
+            $('html, body').animate({scrollTop: 0}, 800);
+        }
+        return false;
+    });
+    
+});
+
+function getBaseUrl() {
+    // Nome do host
+    var hostName = location.hostname;
+    
+    if (hostName === "localhost") {
+        // Endereço após o domínio do site
+        pathname = window.location.pathname;
+        // Separa o pathname com uma barra transformando o resultado em um array
+        splitPath = pathname.split('/');
+        
+        // Obtém o segundo valor do array, que é o nome da pasta do servidor local
+        path = splitPath[1];
+        
+        baseUrl = "https://" + hostName + "/" + path;
+    } else {
+        baseUrl = "https://" + hostName;
+    }
+    
+    return baseUrl;
+}
+
+$('.fadeOutLeft h2').addClass('animated bounceOutLeft');
