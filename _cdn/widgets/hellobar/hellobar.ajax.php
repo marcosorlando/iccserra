@@ -29,8 +29,19 @@ if (!empty($getPost)) {
     } elseif (!empty($getPost['url'])) {
         $HelloUrl = str_replace(BASE, '', $getPost['url']);
         $HelloArr = array_filter(explode('/', $HelloUrl));
-        $HelloClear = array_map('strip_tags', $HelloArr);
-        $HelloKeys = "'" . implode("','', ", array_map('strval', (array)$HelloClear)) . "'";
+        $HelloClear = array_values(array_map('strip_tags', $HelloArr));
+
+        // A lista do IN() vai por placeholder. Antes era montada com um implode
+        // de cola errada ("','', "), que gerava SQL inválido em qualquer URL com
+        // dois ou mais segmentos (/artigo/<slug>) e devolvia 500, além de jogar
+        // pedaço de URL cru dentro da consulta.
+        $HelloPlaces = [];
+        $HelloBinds = [];
+        foreach ($HelloClear as $Index => $Segment) {
+            $HelloPlaces[] = ':hk' . $Index;
+            $HelloBinds['hk' . $Index] = (string)$Segment;
+        }
+        $HelloKeys = empty($HelloPlaces) ? "''" : implode(',', $HelloPlaces);
 
         $WhereSession = null;
         if (!empty($_SESSION['wc_hello'])) {
@@ -57,7 +68,8 @@ if (!empty($getPost)) {
                 $HelloKeys
             )
             . 'AND hello_start <= NOW() AND hello_end >= NOW() AND hello_status = 1 '
-            . 'LIMIT 1'
+            . 'LIMIT 1',
+            http_build_query($HelloBinds)
         );
 
         if ($Read->getResult()) {

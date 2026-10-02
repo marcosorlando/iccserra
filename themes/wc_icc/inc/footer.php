@@ -10,12 +10,13 @@ $Read ??= new Read();
 		<div class="content">
 			<div class="content_left box box2">
 				<img
-						src="<?= INCLUDE_PATH; ?>/images/ebook-metas.jpg"
+						src="<?= INCLUDE_PATH; ?>/images/ebook-metas.jpg" width="350" height="402" loading="lazy"
+						decoding="async"
 						alt="Metas - O segredo das pessoas bem sucedidas"
 						title="Metas - O segredo das pessoas bem sucedidas"
 				/>
 				<div>
-					<h1>E-BOOK <b>METAS</b></h1>
+					<h2>E-BOOK <b>METAS</b></h2>
 					<p> Preparamos um excelente e-book com <b>CONTEÚDO PREMIUM</b> deguste ele foi feito carinhosamente
 						para você!</p>
 				</div>
@@ -23,7 +24,7 @@ $Read ??= new Read();
 			<div class="content_right box box2">
 				<p>O SEGREDO DAS PESSOAS<b> BEM SUCEDIDAS</b></p><br>
 				<a href="https://iccserra.org.br/metas-o-segredo-das-pessoas-bem-sucedidas" title="Clique para baixar!"
-				   style="display: block; text-align: center;" target="_blank" class="cta cta-red">DOWNLOAD GRATUITO</a>
+				   style="display: block; text-align: center;" target="_blank" rel="noopener" class="cta cta-red">DOWNLOAD GRATUITO</a>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -32,10 +33,10 @@ $Read ??= new Read();
 	<section class="box address" id="me" itemscope itemtype="http://microformats.org/profile/hcard">
 		<div class="content">
 			<header class="site_header">
-				<h1><b>Postos de Atendimento</b> <span itemprop="nickname">BANCO DO POVO</span><br/>
+				<h2><b>Postos de Atendimento</b> <span itemprop="nickname">BANCO DO POVO</span><br/>
 					<a rel="me" itemprop="url fn" href="<?= BASE; ?>">Instituição Comunitária de Crédito da Serra - ICC
 						Serra</a>
-				</h1>
+				</h2>
 				<span>Pessoa jurídica de direito privado, constituída sob forma de Organização da Sociedade Civil e de Interesse Público - OSCIP, CNPJ: 05.036/783/0002-68</span>
 				<div itemscope itemprop="adr">MATRIZ:
 					<span class="icon-location" itemprop="street‐address"><?= SITE_ADDR_ADDR; ?></span>, CEP:
@@ -46,15 +47,22 @@ $Read ??= new Read();
 					                                             title="Clique para LIGAR"><strong>+55 54 3217 8787</strong></a></span>
 				</div>
 
-				<h6 style="font-size: 0.97em; text-align: center; margin: 10px 0 20px 0;">
-					<span class="text_color_red">HORÁRIO DE ATENDIMENTO:</span> DE SEGUNDA À SEXTA-FEIRA DAS 9:00H AS
-					17:00H</h6>
+				<p class="address_hours">
+					<span>HORÁRIO DE ATENDIMENTO:</span> DE SEGUNDA À SEXTA-FEIRA DAS 9:00H AS
+					17:00H</p>
 
 				<a class="btn_cta_red icon-map" rel="shadowbox" href="<?= BASE; ?>/mapa.html" title="Como chegar?">Clique
 					para ver o mapa!</a>
 			</header>
 
-			<ul>
+			<div class="icc_postos_busca" data-postos-busca hidden>
+				<label for="icc-posto-busca">Encontre o posto mais perto de você</label>
+				<input type="search" id="icc-posto-busca" placeholder="Digite o nome da cidade" autocomplete="off"
+				       aria-describedby="icc-postos-status"/>
+				<p class="icc_postos_status" id="icc-postos-status" role="status" aria-live="polite"></p>
+			</div>
+
+			<ul id="icc-postos-lista">
 
                 <?php
 
@@ -95,12 +103,14 @@ $Read ??= new Read();
                 ?>
 
 			</ul>
+			<button type="button" class="icc_postos_toggle" aria-controls="icc-postos-lista" aria-expanded="false"
+			        hidden>Ver todos os postos</button>
 		</div>
 	</section>
 	<div class="clear"></div>
 	<div class="content">
 		<nav>
-			<h1 class="site_title"><?= SITE_SUBNAME; ?></h1>
+			<p class="site_title"><?= SITE_SUBNAME; ?></p>
             <?php
                 if (empty($URL[1]) || 'index' === $URL[0]) {
                     require REQUIRE_PATH . '/inc/menufooter.php';
@@ -110,7 +120,7 @@ $Read ??= new Read();
             ?>
 		</nav>
 		<section class="box box3">
-			<h1 class="section_title">Últimas <b>do site!</b></h1>
+			<h2 class="section_title">Últimas <b>do site!</b></h2>
             <?php
                 $Read->exeRead(
                     DB_POSTS,
@@ -119,13 +129,13 @@ $Read ??= new Read();
                 );
                 foreach (($Read->getResult() ?? []) as $Bora) {
                     extract($Bora);
-                    echo "<article><h1><a href='" . BASE
-                        . "/artigo/{$post_name}' title='{$post_title}'>{$post_title}</a></h1></article>";
+                    echo "<article><h3><a href='" . BASE
+                        . "/artigo/{$post_name}' title='{$post_title}'>{$post_title}</a></h3></article>";
                 }
             ?>
 		</section>
 		<section class="box box3">
-			<h1 class="section_title">Mais <b>acessados!</b></h1>
+			<h2 class="section_title">Mais <b>acessados!</b></h2>
             <?php
                 $Read->exeRead(
                     DB_POSTS,
@@ -134,13 +144,13 @@ $Read ??= new Read();
                 );
                 foreach (($Read->getResult() ?? []) as $Bora) {
                     extract($Bora);
-                    echo "<article><h1><a href='" . BASE
-                        . "/artigo/{$post_name}' title='{$post_title}'>{$post_title}</a></h1></article>";
+                    echo "<article><h3><a href='" . BASE
+                        . "/artigo/{$post_name}' title='{$post_title}'>{$post_title}</a></h3></article>";
                 }
             ?>
 		</section>
 		<section class="box box3 conect">
-			<h1 class="section_title">Conecte-se <b>conosco</b></h1>
+			<h2 class="section_title">Conecte-se <b>conosco</b></h2>
             <?php
                 require REQUIRE_PATH . '/inc/social.php'; ?>
 		</section>
@@ -154,7 +164,8 @@ $Read ??= new Read();
 
 			<div class="left">
 				<a href="<?= BASE; ?>" title="<?= SITE_NAME; ?> - <?= SITE_SUBNAME; ?>">
-					<img class="main_logo" src="<?= INCLUDE_PATH; ?>/images/iccserra-logo-h2.png"
+					<img class="main_logo" src="<?= INCLUDE_PATH; ?>/images/iccserra-logo-h2.png" width="300"
+					     height="105" loading="lazy" decoding="async"
 					     alt="<?= SITE_NAME; ?> - <?= SITE_SUBNAME; ?>"
 					     title="<?= SITE_NAME; ?> - <?= SITE_SUBNAME; ?>"/>
 
@@ -172,9 +183,19 @@ $Read ??= new Read();
                     <?= SITE_ADDR_CNPJ; ?> - Todos os direitos reservados.
 				</div>
 				<div class="box box2"><a class="zen" href="https://zen.ppg.br"
-				                         title="Zen Agência Web - Marketing Digital" target="_blank"></a></div>
+				                         title="Zen Agência Web - Marketing Digital" target="_blank" rel="noopener"
+				                         aria-label="Zen Agência Web - Marketing Digital (abre em nova aba)"></a></div>
 			</div>
 			<div class="clear"></div>
 		</div>
 	</div>
+	<?php
+        $WhatsFabMsg = urlencode(
+            'Olá estou no site da ICC SERRA agora, e quero conversar com um Agente de Crédito '
+            . "para ter mais informações sobre *MICROCRÉDITO*. \n\n *Aguardo um retorno em breve!*"
+        );
+    ?>
+	<a class="wa_fab icon-whatsapp" href="https://wa.me/<?= SITE_ADDR_WHATS_TRIM; ?>?text=<?= $WhatsFabMsg; ?>"
+	   target="_blank" rel="noopener"
+	   aria-label="Conversar com um Agente de Crédito pelo WhatsApp (abre em nova aba)"></a>
 </footer>

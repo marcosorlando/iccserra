@@ -88,7 +88,7 @@ if (
 	<meta charset="UTF-8">
 	<meta name="mit" content="2017-11-16T11:05:36-02:00+24186">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<title><?= $SEO->getTitle(); ?></title>
 	<meta name="description" content="<?= $SEO->getDescription(); ?>"/>
@@ -152,13 +152,17 @@ if (
             font-family: '<?= SITE_FONT_NAME; ?>', sans-serif;
         }</style>
 
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap">
+
 	<link rel="stylesheet" href="<?= BASE; ?>/_cdn/bootcss/reset.min.css"/>
 	<link rel="stylesheet" href="<?= BASE; ?>/_cdn/bootcss/fonticon.min.css"/>
 	<link rel="stylesheet" href="<?= BASE; ?>/_cdn/shadowbox/shadowbox.min.css"/>
     <?php
-    // ANIMATE + ESTILO PRINCIPAL DO TEMA
-    if (file_exists(REQUIRE_PATH . '/css/animate.min.css')) {
-        echo '<link rel="stylesheet" href="' . INCLUDE_PATH . '/css/animate.min.css"/>' . "\r\n";
+    // ESTILO PRINCIPAL DO TEMA (as animações usadas do animate.css foram incorporadas ao style.css)
+
+    if (file_exists(REQUIRE_PATH . '/css/icc-icons.min.css')) {
+        echo '<link rel="stylesheet" href="' . INCLUDE_PATH . '/css/icc-icons.min.css"/>' . "\r\n";
     }
 
     if (file_exists(REQUIRE_PATH . '/css/style.min.css')) {
@@ -330,7 +334,7 @@ if (
             }
 
             // CONTENT
-            echo "<main class='main-wrapper oh'>";
+            echo "<main id='conteudo' class='main-wrapper oh' tabindex='-1'>";
             $URL[1] = (empty($URL[1]) ? null : $URL[1]);
 
             if ('rss' === $URL[0] || 'feed' === $URL[0] || 'rss.xml' === $URL[0]) {

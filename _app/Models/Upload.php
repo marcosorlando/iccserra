@@ -19,7 +19,6 @@ use function imagecreatefromjpeg;
 use function imagecreatefrompng;
 use function imagecreatefromwebp;
 use function imagecreatetruecolor;
-use function imagedestroy;
 use function imagegif;
 use function imagejpeg;
 use function imagepng;
@@ -331,9 +330,9 @@ class Upload
         $this->result = $this->send . $this->name;
         $this->error = null;
 
-        imagedestroy($this->image);
+        // imagedestroy() é no-op desde o PHP 8.0 e foi descontinuada no 8.5: liberar a referência basta
         $this->image = null;
-        imagedestroy($newImage);
+        unset($newImage);
     }
 
     /**

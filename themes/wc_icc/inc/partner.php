@@ -1,7 +1,7 @@
 <article class="bg_dark text_color_white clear">
 	<div class="content al_center">
 		<header class="site_heade text_color_white al_center">
-			<h1>Torne-se um parceiro <b><?= SITE_SOCIAL_NAME; ?></b></h1>
+			<h2>Torne-se um parceiro <b><?= SITE_SOCIAL_NAME; ?></b></h2>
 			<p>Seja um parceiro comercial <b>ICC SERRA</b> na sua cidade e região</p>
 		</header>
 		<br/>

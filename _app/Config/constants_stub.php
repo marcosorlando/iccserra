@@ -89,6 +89,10 @@ if (!defined('APP_COMMENTS')) {
     define('APP_COMMENTS', 1);
 }
 
+if (!defined('APP_CRM')) {
+    define('APP_CRM', 1);
+}
+
 if (!defined('APP_CTAS')) {
     define('APP_CTAS', 1);
 }
@@ -283,6 +287,26 @@ if (!defined('DB_COMMENTS_LIKES')) {
 
 if (!defined('DB_CONF')) {
     define('DB_CONF', 'ws_config');
+}
+
+if (!defined('DB_CRM_CLIENTS')) {
+    define('DB_CRM_CLIENTS', 'ws_crm_clients');
+}
+
+if (!defined('DB_CRM_HISTORY')) {
+    define('DB_CRM_HISTORY', 'ws_crm_history');
+}
+
+if (!defined('DB_CRM_SIMULATIONS')) {
+    define('DB_CRM_SIMULATIONS', 'ws_crm_simulations');
+}
+
+if (!defined('DB_CRM_STAGES')) {
+    define('DB_CRM_STAGES', 'ws_crm_stages');
+}
+
+if (!defined('DB_CRM_TEMPLATES')) {
+    define('DB_CRM_TEMPLATES', 'ws_crm_templates');
 }
 
 if (!defined('DB_CURIOSITIES')) {
@@ -507,6 +531,10 @@ if (!defined('LEVEL_WC_CONFIG_CODES')) {
 
 if (!defined('LEVEL_WC_CONFIG_MASTER')) {
     define('LEVEL_WC_CONFIG_MASTER', 10);
+}
+
+if (!defined('LEVEL_WC_CRM')) {
+    define('LEVEL_WC_CRM', 6);
 }
 
 if (!defined('LEVEL_WC_CTAS')) {

@@ -1,0 +1,58 @@
+/* tokens extraídos de https://localhost/iccserra/artigos/linhas-de-credito
+ * gerado por za-web-design/capture.mjs em 2026-09-17
+ * PONTO DE PARTIDA, não verdade absoluta: revise nomes, arredonde valores e troque
+ * a cor/tipo da referência pela marca do cliente quando for tema derivado. */
+:root {
+  /* cor · semântica */
+  --ref-color-primary: #06173a;
+  --ref-color-on-primary: #ffffff;
+  --ref-color-accent: #d12421;
+  --ref-color-bg: #e6e6e6;
+  --ref-color-surface: #ffffff;
+  --ref-color-text: #555555;
+  --ref-color-text-muted: #000000;
+  --ref-color-border: #dedede;
+  /* cor · paleta bruta (por peso de uso) */
+  --ref-brand-1: #d12421;
+  --ref-brand-2: #006699;
+  --ref-brand-3: #b81f1c;
+  --ref-brand-4: #fc0000;
+  --ref-brand-5: #008068;
+  --ref-neutral-100: #ffffff;
+  --ref-neutral-200: #f1f1f1;
+  --ref-neutral-300: #e6e6e6;
+  --ref-neutral-400: #cccccc;
+  --ref-neutral-500: #888888;
+  --ref-neutral-600: #555555;
+  --ref-neutral-700: #303030;
+  --ref-neutral-800: #152024;
+  /* tipografia */
+  --ref-font-display: "Open Sans", system-ui, sans-serif;
+  --ref-font-body: "Open Sans", system-ui, sans-serif;
+  --ref-fs-1: 0.6875rem; /* 11px */
+  --ref-fs-2: 0.8125rem; /* 13px */
+  --ref-fs-3: 1rem; /* 16px */
+  --ref-fs-4: 1.1875rem; /* 19px */
+  --ref-fs-5: 1.375rem; /* 22px */
+  --ref-fs-6: 2rem; /* 32px */
+  /* espaçamento */
+  --ref-space-1: 0.3125rem; /* 5px */
+  --ref-space-2: 0.5rem; /* 8px */
+  --ref-space-3: 0.625rem; /* 10px */
+  --ref-space-4: 0.75rem; /* 12px */
+  --ref-space-5: 0.9375rem; /* 15px */
+  --ref-space-6: 1.25rem; /* 20px */
+  --ref-space-7: 1.5625rem; /* 25px */
+  --ref-space-8: 1.875rem; /* 30px */
+  --ref-space-9: 3.125rem; /* 50px */
+  --ref-space-10: 6.25rem; /* 100px */
+  /* forma e profundidade */
+  --ref-radius-xs: 12px;
+  --ref-radius-sm: 20px;
+  --ref-radius-pill: 999px;
+  --ref-shadow-1: rgba(0, 0, 0, 0.2) 0px 0px 5px 1px inset;
+  --ref-shadow-2: rgb(209, 36, 33) 0px -3px 0px 0px inset;
+  --ref-shadow-3: rgba(0, 0, 0, 0.3) 0px 2px 6px 0px, rgba(0, 0, 0, 0.2) 0px 6px 16px 0px;
+  /* layout e movimento */
+  --ref-container: 1123px;
+}

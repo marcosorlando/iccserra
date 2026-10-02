@@ -5,7 +5,6 @@ namespace App\Helpers;
 use App\Conn\Read;
 
 use function constant;
-use function curl_close;
 use function curl_exec;
 use function curl_init;
 use function curl_setopt;
@@ -288,7 +287,7 @@ class Sitemap
             curl_setopt($ch, CURLOPT_HEADER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_exec($ch);
-            curl_close($ch);
+            unset($ch);
         }
     }
 }

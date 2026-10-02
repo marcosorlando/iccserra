@@ -1,21 +1,25 @@
 <?php
-    
-    $AdminLevel = 6;
-    if (!APP_DOCUMENTS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel):
-        die('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
-    endif;
-    
-    $Read = new Read;
-    
-    //AUTO DELETE CATEGORIA DE MATERIAIS TRASH
-    if (DB_AUTO_TRASH):
-        $Delete = new Delete;
-        $Delete->ExeDelete(
-            DB_DOCS_CATEGORIES,
-            "WHERE category_title IS NULL AND category_content IS NULL AND category_id >= :st",
-            "st=1"
-        );
-    endif;
+
+use App\Conn\Delete;
+use App\Conn\Read;
+use App\Helpers\Check;
+
+$AdminLevel = LEVEL_WC_DOCUMENTS;
+if (!APP_DOCUMENTS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel) {
+    exit('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
+}
+
+$Read ??= new Read();
+
+// AUTO DELETE CATEGORIA DE DOCUMENTOS TRASH
+if (DB_AUTO_TRASH) {
+    $Delete ??= new Delete();
+    $Delete->exeDelete(
+        DB_DOCS_CATEGORIES,
+        'WHERE category_title IS NULL AND category_content IS NULL AND category_id >= :st',
+        'st=1'
+    );
+}
 ?>
 
 <header class="dashboard_header">
@@ -41,18 +45,18 @@
 <div class="dashboard_content">
     
     <?php
-        $Read->ExeRead(DB_DOCS_CATEGORIES, " ORDER BY category_title ASC");
-        if (!$Read->getResult()):
-            echo Erro(
+        $Read->exeRead(DB_DOCS_CATEGORIES, 'ORDER BY category_title ASC');
+        if (!$Read->getResult()) {
+            echo Check::erro(
                 "<span class='al_center icon-notification'>Ainda não existem categorias cadastradas {$Admin['user_name']}. Comece agora mesmo criando sua primera categoria de documentos!</span>",
                 E_USER_NOTICE
             );
-        else:
-            foreach ($Read->getResult() as $Sess):
+        } else {
+            foreach ($Read->getResult() as $Sess) {
                 echo "<article class='single_category box box100' id='{$Sess['category_id']}'>
                     <header>
                         <h1 class='icon-price-tags'>{$Sess['category_title']}:</h1>
-                        <p class='tagline'>" . Check::Words($Sess['category_content'], 60) . "</p>
+                        <p class='tagline'>" . Check::words((string)$Sess['category_content'], 60) . "</p>
                         <div class='single_category_actions'>
                             <a title='Editar Categoria!' href='dashboard.php?wc=documents/category&id={$Sess['category_id']}' class='btn btn_blue icon-pencil icon-notext'></a>
                             <span rel='single_category' class='j_delete_action btn btn_red icon-cancel-circle icon-notext' id='{$Sess['category_id']}'></span>
@@ -60,7 +64,7 @@
                         </div>
                     </header>";
                 echo "</article>";
-            endforeach;
-        endif;
+            }
+        }
     ?>
 </div>

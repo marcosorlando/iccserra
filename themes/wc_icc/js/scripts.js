@@ -1,3 +1,245 @@
+//MOVIMENTO REDUZIDO: desliga animações do jQuery (slide, fade, scroll animado)
+var ReducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+if (ReducedMotion) {
+    $.fx.off = true;
+}
+
+//ANIMAÇÕES DE ENTRADA (Design System): .reveal para blocos, .reveal-card escalonado para cards.
+//As classes são aplicadas só em tempo de execução; sem JS ou com movimento reduzido nada fica oculto.
+(function () {
+    if (ReducedMotion || !('IntersectionObserver' in window)) {
+        return;
+    }
+
+    var Blocks = '.site_header, #footeroptin .content, .wc_bio .bio_logo, .wc_bio .bio_content, '
+        + '.htmlchars form, .post_single .left_content, .page_single .htmlchars, .icc_linhas_nota, '
+        + '.icc_passos_actions, .icc_transparencia';
+    var Cards = '.wc_videos .post_list, .wc_more .post_list, .main_blog .post_list, #me ul li, '
+        + '.ouvidoria-options, .materiais, .partners .clients-area li, .main_footer > .content > section, '
+        + '.sidebar_widget, .sidebar_most, .icc_prova li, .icc_linha, .icc_passos_lista li, .icc_docs li';
+    var Step = 90;
+
+    document.documentElement.classList.add('js-motion');
+
+    //O gatilho é a borda superior do bloco cruzar 90% da janela (threshold 0), e não uma
+    //fração da área. Com fração, um bloco mais alto que ~7x a janela (um artigo longo)
+    //nunca alcança o limite e ficaria invisível para sempre.
+    var Observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+                return;
+            }
+            entry.target.classList.add('in-view');
+            Observer.unobserve(entry.target);
+        });
+    }, {threshold: 0, rootMargin: '0px 0px -10% 0px'});
+
+    //Rede de segurança: se o observador não disparar (layout tardio, imagem que muda a
+    //altura, aba em segundo plano), nada que já esteja na janela fica escondido.
+    function revealVisible() {
+        document.querySelectorAll('.reveal:not(.in-view), .reveal-card:not(.in-view)').forEach(function (el) {
+            var Box = el.getBoundingClientRect();
+            if (Box.top < window.innerHeight && Box.bottom > 0) {
+                el.classList.add('in-view');
+                Observer.unobserve(el);
+            }
+        });
+    }
+
+    window.addEventListener('load', function () {
+        window.setTimeout(revealVisible, 1200);
+    });
+
+    function prepare(selector, className) {
+        document.querySelectorAll(selector).forEach(function (el) {
+            var Siblings = Array.prototype.filter.call(el.parentElement.children, function (child) {
+                return child.matches(selector);
+            });
+            el.classList.add(className);
+            el.style.setProperty('--reveal-delay', (Siblings.indexOf(el) % 8) * Step + 'ms');
+            Observer.observe(el);
+        });
+    }
+
+    $(function () {
+        prepare(Blocks, 'reveal');
+        prepare(Cards, 'reveal-card');
+    });
+})();
+
+//MENU FIXO: a barra já é sticky no CSS; aqui só marcamos quando a página saiu do topo,
+//para a descida suave com fade e a sombra. Sem JS o menu continua fixo, só sem o efeito.
+(function () {
+    var Header = document.querySelector('.main_header');
+    if (!Header) {
+        return;
+    }
+
+    var Limite = 80;
+    var Marcado = false;
+    var Pendente = false;
+
+    function atualiza() {
+        Pendente = false;
+        var Passou = (window.pageYOffset || document.documentElement.scrollTop) > Limite;
+        if (Passou !== Marcado) {
+            Marcado = Passou;
+            Header.classList.toggle('is-stuck', Passou);
+        }
+    }
+
+    window.addEventListener('scroll', function () {
+        if (!Pendente) {
+            Pendente = true;
+            window.requestAnimationFrame(atualiza);
+        }
+    }, {passive: true});
+
+    atualiza();
+})();
+
+//TILT 3D (DS · seção 05 Motion): os cards de linha de crédito acompanham o ponteiro.
+//Só com mouse, JS ativo e movimento normal. No toque e no teclado nada muda.
+(function () {
+    var Fino = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (ReducedMotion || !Fino) {
+        return;
+    }
+
+    var Grau = 3;
+
+    $(function () {
+        var Cards = document.querySelectorAll('.icc_linha');
+        if (!Cards.length) {
+            return;
+        }
+
+        Cards.forEach(function (Card) {
+            Card.classList.add('icc_tilt');
+
+            Card.addEventListener('mousemove', function (e) {
+                var Box = Card.getBoundingClientRect();
+                var X = (e.clientX - Box.left) / Box.width - 0.5;
+                var Y = (e.clientY - Box.top) / Box.height - 0.5;
+                Card.classList.add('is-tilting');
+                Card.style.setProperty('--tilt-y', (X * Grau * 2).toFixed(2) + 'deg');
+                Card.style.setProperty('--tilt-x', (-Y * Grau * 2).toFixed(2) + 'deg');
+                Card.style.setProperty('--tilt-lift', 'var(--lift)');
+            });
+
+            Card.addEventListener('mouseleave', function () {
+                Card.classList.remove('is-tilting');
+                Card.style.removeProperty('--tilt-y');
+                Card.style.removeProperty('--tilt-x');
+                Card.style.removeProperty('--tilt-lift');
+            });
+        });
+    });
+})();
+
+//ESTADO DE ENVIO: bloqueia reenvio e expõe o carregamento para leitor de tela
+function formBusy(form, busy) {
+    form.attr('aria-busy', busy ? 'true' : 'false');
+    form.find('button:not([type="button"]), input[type="submit"]').prop('disabled', busy).attr('aria-busy', busy ? 'true' : 'false');
+}
+
+//COMPARADOR NO SIMULADOR: o CTA da linha preenche o formulário e leva o foco até ele
+//(sem JS o link só rola até o formulário)
+$(function () {
+    var Linha = document.getElementById('tipo_credito');
+    if (!Linha) {
+        return;
+    }
+
+    $(document).on('click', '[data-simular-linha]', function (e) {
+        var Valor = this.getAttribute('data-simular-linha');
+        if (!Linha.querySelector('option[value="' + Valor + '"]')) {
+            return;
+        }
+
+        e.preventDefault();
+        Linha.value = Valor;
+        Linha.dispatchEvent(new Event('change', {bubbles: true}));
+
+        (Linha.closest('label') || Linha).scrollIntoView({behavior: ReducedMotion ? 'auto' : 'smooth', block: 'center'});
+        Linha.focus({preventScroll: true});
+    });
+});
+
+//SOMA ANTISPAM: um par de números por formulário (a ouvidoria tem três na mesma página).
+//Ficava em lp/js/lp.js, que não é carregado em todas as páginas e só atendia ao primeiro campo por id.
+$(function () {
+    $('[name="senderHuman"]').each(function () {
+        var Campo = $(this);
+        var Form = Campo.closest('form');
+        var A = Math.ceil(Math.random() * 10) + 1;
+        var B = Math.ceil(Math.random() * 10) + 1;
+
+        Campo.attr('placeholder', A + ' + ' + B + ' = ?');
+        Form.find('[name="checkHuman_a"]').val(A);
+        Form.find('[name="checkHuman_b"]').val(B);
+    });
+});
+
+//POSTOS DE ATENDIMENTO: busca por cidade e lista recolhida (sem JS a lista aparece inteira)
+$(function () {
+    var Busca = document.querySelector('[data-postos-busca]');
+    var Lista = document.getElementById('icc-postos-lista');
+    if (!Busca || !Lista) {
+        return;
+    }
+
+    var Campo = Busca.querySelector('input');
+    var Status = document.getElementById('icc-postos-status');
+    var Toggle = document.querySelector('.icc_postos_toggle');
+    var Itens = Array.prototype.slice.call(Lista.children);
+    var Limite = 8;
+    var Aberto = false;
+
+    function normaliza(texto) {
+        return (texto || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+    }
+
+    Itens.forEach(function (item) {
+        var Titulo = item.querySelector('h3');
+        item.setAttribute('data-cidade', normaliza(Titulo ? Titulo.textContent : item.textContent));
+    });
+
+    function aplica() {
+        var Termo = normaliza(Campo.value);
+        var Visiveis = 0;
+
+        Itens.forEach(function (item) {
+            var Casa = !Termo || item.getAttribute('data-cidade').indexOf(Termo) !== -1;
+            var Mostra = Casa && (Termo || Aberto || Visiveis < Limite);
+            item.hidden = !Mostra;
+            if (Casa) {
+                Visiveis++;
+            }
+        });
+
+        if (Termo) {
+            Status.textContent = Visiveis === 0
+                ? 'Nenhum posto encontrado. Fale com a matriz: (54) 3217-8787.'
+                : Visiveis + (Visiveis === 1 ? ' posto encontrado.' : ' postos encontrados.');
+        } else {
+            Status.textContent = Itens.length + ' postos de atendimento no Rio Grande do Sul.';
+        }
+
+        Toggle.hidden = !!Termo || Itens.length <= Limite;
+        Toggle.setAttribute('aria-expanded', Aberto ? 'true' : 'false');
+        Toggle.textContent = Aberto ? 'Mostrar menos postos' : 'Ver todos os ' + Itens.length + ' postos';
+    }
+
+    Busca.hidden = false;
+    Campo.addEventListener('input', aplica);
+    Toggle.addEventListener('click', function () {
+        Aberto = !Aberto;
+        aplica();
+    });
+    aplica();
+});
+
 $(function () {
         //Oculta Trigger clicada
     $('html').on('click', '.trigger_ajax, .trigger_modal', function () {
@@ -6,14 +248,36 @@ $(function () {
         });
     });
     
-    $('.mobile_menu').click(function () {
-        $('.main_nav').slideToggle();
+    //MENU MOBILE: botão acessível (aria-expanded) e Esc fecha devolvendo o foco
+    var MenuButton = $('.mobile_menu');
+    
+    function toggleMenu(open) {
+        MenuButton.attr({
+            'aria-expanded': open ? 'true' : 'false',
+            'aria-label': open ? 'Fechar menu' : 'Abrir menu'
+        });
+        $('.main_nav').stop(true, true)[open ? 'slideDown' : 'slideUp']();
+    }
+    
+    MenuButton.on('click', function () {
+        toggleMenu($(this).attr('aria-expanded') !== 'true');
     });
     
-    $("#search-open").click(function () {
-        $(".navbar-search").css('overflow', 'visible').slideToggle();
-        $('#search-input').focus();
-        
+    $(document).on('keydown', function (e) {
+        if (e.key === 'Escape' && MenuButton.is(':visible') && MenuButton.attr('aria-expanded') === 'true') {
+            toggleMenu(false);
+            MenuButton.trigger('focus');
+        }
+    });
+    
+    $("#search-open").on('click', function (e) {
+        e.preventDefault();
+        var SearchOpen = $(this).attr('aria-expanded') !== 'true';
+        $(this).attr('aria-expanded', SearchOpen ? 'true' : 'false');
+        $(".navbar-search").css('overflow', 'visible').stop(true, true).slideToggle();
+        if (SearchOpen) {
+            $('#search-input').trigger('focus');
+        }
     });
     
     //INSTALA - HELLOBAR
@@ -53,7 +317,11 @@ $(function () {
             type: 'POST',
             dataType: 'json',
             beforeSend: function () {
+                formBusy(form, true);
                 form.find('.form_load').fadeIn(500);
+            },
+            complete: function () {
+                formBusy(form, false);
             },
             success: function (data) {
                 //REMOVE LOAD
@@ -68,17 +336,14 @@ $(function () {
                             Trigger(data.trigger);
                         }
                     }
-                    //Limpa border red de erros anteriores
-                    $("input").css("border", "1px solid #ccc");
+                    //Limpa erros anteriores (estado visual vem do CSS via aria-invalid)
+                    form.find('[aria-invalid]').removeAttr('aria-invalid');
                     if (data.foco) {
                         if (data.foco == 'senderHuman'){
                             form.find("[name=" + data.foco + "]").val('');
                         }
                         //COLOCA O FOCO NO ITEM VAZIO
-                        $("input, select").css("border", "1px solid #ccc");
-                        form.find("[name=" + data.foco + "]").focus().css('border', '2px solid red');
-                    } else {
-                        $("input, select, textarea").css("border", "1px solid green ");
+                        form.find("[name=" + data.foco + "]").attr('aria-invalid', 'true').focus();
                     }
                     
                     if (data.simulacao) {
@@ -145,7 +410,11 @@ $(function () {
             contentType: false,
             dataType: 'json',
             beforeSend: function () {
+                formBusy(form, true);
                 form.find('.form_load').fadeIn(500);
+            },
+            complete: function () {
+                formBusy(form, false);
             },
             success: function (data) {
                 //REMOVE LOAD
@@ -160,17 +429,14 @@ $(function () {
                             Trigger(data.trigger);
                         }
                     }
-                    //Limpa border red de erros anteriores
-                    $("input").css("border", "1px solid #ccc");
+                    //Limpa erros anteriores (estado visual vem do CSS via aria-invalid)
+                    form.find('[aria-invalid]').removeAttr('aria-invalid');
                     if (data.foco) {
                         if (data.foco == 'senderHuman'){
                             form.find("[name=" + data.foco + "]").val('');
                         }
                         //COLOCA O FOCO NO ITEM VAZIO
-                        $("input, select").css("border", "1px solid #ccc");
-                        form.find("[name=" + data.foco + "]").focus().css('border', '2px solid red');
-                    } else {
-                        $("input, select, textarea").css("border", "1px solid green ");
+                        form.find("[name=" + data.foco + "]").attr('aria-invalid', 'true').focus();
                     }
                 });
             }

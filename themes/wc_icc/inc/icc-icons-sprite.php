@@ -1,0 +1,37 @@
+<?php
+/**
+ * Sprite de icones do ICC Serra. Inclua UMA vez por pagina, logo depois da
+ * abertura do <body>:
+ *
+ *   <?php require_once REQUIRE_PATH . '/inc/icc-icons-sprite.php'; ?>
+ *
+ * Uso:
+ *   <svg class="icc-ic"><use href="#icc-i-limite"/></svg>          (linha)
+ *   <svg class="icc-ic icc-ic-3x"><use href="#icc-i-limite-solid"/></svg>
+ *
+ * A cor vem do `color` do elemento; o tamanho, da classe .icc-ic*.
+ * Gerado por fonts/build_sprite.py - nao edite a mao.
+ */
+?>
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0"
+     style="position:absolute;width:0;height:0;overflow:hidden"
+     aria-hidden="true" focusable="false">
+  <!-- linha - interface (24x24, stroke 1.6) -->
+  <symbol id="icc-i-coin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.6v10.8"/><path d="M14.5 9.7c0-.9-1.1-1.6-2.5-1.6s-2.5.7-2.5 1.6 1.1 1.4 2.5 1.7 2.5.8 2.5 1.7-1.1 1.6-2.5 1.6-2.5-.7-2.5-1.6"/></symbol>
+  <symbol id="icc-i-limite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#icc-i-coin"/></symbol>
+  <symbol id="icc-i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 2.8v4.4"/><path d="M16 2.8v4.4"/><path d="M3 10h18"/><path d="M7.5 13.6h.01"/><path d="M12 13.6h.01"/><path d="M16.5 13.6h.01"/><path d="M7.5 17.4h.01"/><path d="M12 17.4h.01"/><path d="M16.5 17.4h.01"/></symbol>
+  <symbol id="icc-i-prazo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#icc-i-calendar"/></symbol>
+  <symbol id="icc-i-calculator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><rect x="8" y="5" width="8" height="4" rx="1"/><path d="M8.5 13h.01"/><path d="M12 13h.01"/><path d="M15.5 13h.01"/><path d="M8.5 17.2h.01"/><path d="M12 17.2h.01"/><path d="M15.5 17.2h.01"/></symbol>
+  <symbol id="icc-i-taxa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#icc-i-calculator"/></symbol>
+  <symbol id="icc-i-user-tie" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6.4" r="3.3"/><path d="M4.8 21v-1.2A5.2 5.2 0 0 1 10 14.6"/><path d="M19.2 21v-1.2A5.2 5.2 0 0 0 14 14.6"/><path d="M10 14.6 12 17.2l2-2.6"/><path d="m12 17.2 1 1.4-1 2.4-1-2.4z"/></symbol>
+  <symbol id="icc-i-avalista" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#icc-i-user-tie"/></symbol>
+  <symbol id="icc-i-tags" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.6 9.2V4.4a1.8 1.8 0 0 1 1.8-1.8h4.8c.5 0 .9.2 1.3.5l8.4 8.4a1.8 1.8 0 0 1 0 2.5l-4.9 4.9a1.8 1.8 0 0 1-2.5 0L3.1 10.5a1.8 1.8 0 0 1-.5-1.3z"/><path d="M14.6 3.5l5.9 5.9a2.2 2.2 0 0 1 0 3.1l-3.9 3.9"/><circle cx="6.9" cy="6.9" r="1.15"/></symbol>
+  <symbol id="icc-i-tac" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#icc-i-tags"/></symbol>
+  <symbol id="icc-i-pie-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v9h9"/></symbol>
+  <symbol id="icc-i-renda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#icc-i-pie-chart"/></symbol>
+  <symbol id="icc-i-facebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+  <symbol id="icc-i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="icc-i-x-twitter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.9 2.4h3.3l-7.2 8.2 8.5 11.2h-6.6l-5.2-6.8-5.9 6.8H1.5l7.7-8.8L1.3 2.4h6.8l4.7 6.2 5.1-6.2z"/></symbol>
+  <symbol id="icc-i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#icc-i-x-twitter"/></symbol>
+  <symbol id="icc-i-whatsapp" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 11.6a8.5 8.5 0 0 1-12.7 7.4l-4.7 1.6 1.6-4.6A8.5 8.5 0 1 1 20.6 11.6z"/><path d="M9 9.4c0 3 2.5 5.5 5.5 5.5.4 0 .8-.2 1-.6l.5-.8a.6.6 0 0 0-.2-.8l-1.5-.9a.6.6 0 0 0-.8.2l-.3.4a4.5 4.5 0 0 1-1.9-1.9l.4-.3a.6.6 0 0 0 .2-.8l-.9-1.5a.6.6 0 0 0-.8-.2l-.8.5c-.3.2-.6.6-.6 1z"/></symbol>
+</svg>

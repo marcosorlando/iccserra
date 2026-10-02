@@ -1,36 +1,40 @@
 <?php
-    
-    $AdminLevel = LEVEL_WC_DOCUMENTS;
-    if (!APP_DOCUMENTS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel):
-        die('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
-    endif;
-    
-    // AUTO INSTANCE OBJECT READ
-    if (empty($Read)):
-        $Read = new Read;
-    endif;
-    
-    //AUTO DELETE DOC TRASH
-    if (DB_AUTO_TRASH):
-        $Delete = new Delete;
-        
-        //AUTO TRASH IMAGES
-        $Read->FullRead(
-            "SELECT doc_cover FROM " . DB_DOCUMENTS . " WHERE doc_title IS NULL AND doc_status = :st",
-            "st=0"
-        );
-        
-        if ($Read->getResult()):
-            foreach ($Read->getResult() as $docImage):
-                $CoverRemove = "../../uploads/documents/{$docImage['doc_cover']}";
-                
-                if (file_exists($CoverRemove) && !is_dir($CoverRemove)):
-                    unlink($CoverRemove);
-                endif;
-            endforeach;
-        endif;
-        $Delete->ExeDelete(DB_DOCUMENTS, "WHERE doc_title IS NULL AND doc_status = :st", "st=0");
-    endif;
+
+use App\Conn\Delete;
+use App\Conn\Read;
+use App\Helpers\Check;
+use App\Models\Pager;
+
+$AdminLevel = LEVEL_WC_DOCUMENTS;
+if (!APP_DOCUMENTS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel) {
+    exit('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
+}
+
+// AUTO INSTANCE OBJECT READ
+$Read ??= new Read();
+
+// AUTO DELETE DOC TRASH
+if (DB_AUTO_TRASH) {
+    $Delete ??= new Delete();
+
+    // AUTO TRASH IMAGES
+    $Read->fullRead(
+        'SELECT doc_cover FROM ' . DB_DOCUMENTS . ' WHERE doc_title IS NULL AND doc_status = :st',
+        'st=0'
+    );
+
+    if ($Read->getResult()) {
+        foreach ($Read->getResult() as $docImage) {
+            $CoverRemove = "../../uploads/documents/{$docImage['doc_cover']}";
+
+            if (file_exists($CoverRemove) && !is_dir($CoverRemove)) {
+                unlink($CoverRemove);
+            }
+        }
+    }
+
+    $Delete->exeDelete(DB_DOCUMENTS, 'WHERE doc_title IS NULL AND doc_status = :st', 'st=0');
+}
 ?>
 
 <header class="dashboard_header">
@@ -55,23 +59,23 @@
 <div class="dashboard_content">
     <?php
         $getPage = filter_input(INPUT_GET, 'pg', FILTER_VALIDATE_INT);
-        $doc = ($getPage ? $getPage : 1);
+        $doc = ($getPage ?: 1);
         $Paginator = new Pager('dashboard.php?wc=documents/home&pg=', '<<', '>>', 10);
-        $Paginator->ExePager($doc, 12);
-        
-        $Read->ExeRead(
+        $Paginator->exePager($doc, 12);
+
+        $Read->exeRead(
             DB_DOCUMENTS,
-            "ORDER BY doc_order, doc_title ASC LIMIT :limit OFFSET :offset",
+            'ORDER BY doc_order, doc_title ASC LIMIT :limit OFFSET :offset',
             "limit={$Paginator->getLimit()}&offset={$Paginator->getOffset()}"
         );
-        if (!$Read->getResult()):
-            $Paginator->ReturnPage();
-            echo Erro(
+        if (!$Read->getResult()) {
+            $Paginator->returnPage();
+            echo Check::erro(
                 "<span class='al_center icon-notification'>Ainda não existem documentos cadastrados {$Admin['user_name']}. Comece agora mesmo criando seu primeiro!</span>",
                 E_USER_NOTICE
             );
-        else:
-            foreach ($Read->getResult() as $Doc):
+        } else {
+            foreach ($Read->getResult() as $Doc) {
                 extract($Doc);
             
                 $doc_status = ($doc_status == 1 ? '<span class="icon-checkmark font_green">Publicado</span>' : '<span class="icon-warning font_yellow">Rascunho</span>');
@@ -92,10 +96,10 @@
                                 <span rel='post_single' callback='Documents' callback_action='delete' class='j_delete_action_confirm icon-warning btn btn_yellow' style='display: none' id='{$doc_id}'>Confirmar?</span>
                             </div>
                 </article>";
-            endforeach;
+            }
             
-            $Paginator->ExePaginator(DB_DOCUMENTS);
+            $Paginator->exePaginator(DB_DOCUMENTS);
             echo $Paginator->getPaginator();
-        endif;
+        }
     ?>
 </div>

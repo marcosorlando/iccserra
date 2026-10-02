@@ -1,0 +1,686 @@
+{
+  "url": "https://localhost/iccserra/materiais",
+  "title": "Materiais - ICC SERRA",
+  "lang": "pt-br",
+  "viewport": {
+    "width": 390,
+    "height": 900
+  },
+  "scannedElements": 495,
+  "overflowX": false,
+  "pageHeight": 11395,
+  "meta": {
+    "description": "Ebooks, infográficos, planilhas em excel e muito material de qualidade e gratuito sobre microcrédito e microfinanças.",
+    "themeColor": null,
+    "viewportMeta": "width=device-width,initial-scale=1",
+    "favicon": "https://localhost/iccserra/themes/wc_icc/images/favicon.png",
+    "colorScheme": "normal"
+  },
+  "colors": {
+    "background": [
+      {
+        "value": "#ffffff",
+        "weight": 1316.7
+      },
+      {
+        "value": "#e6e6e6",
+        "weight": 739.4
+      },
+      {
+        "value": "#eeeeee",
+        "weight": 360.3
+      },
+      {
+        "value": "#152024",
+        "weight": 351
+      },
+      {
+        "value": "#333333",
+        "weight": 222.5
+      },
+      {
+        "value": "#303030",
+        "weight": 212
+      },
+      {
+        "value": "#d12421",
+        "weight": 47.1
+      },
+      {
+        "value": "#fbfbfb",
+        "weight": 30.3
+      },
+      {
+        "value": "#fc0000",
+        "weight": 28.6
+      },
+      {
+        "value": "#008068",
+        "weight": 3.1
+      },
+      {
+        "value": "#5b74a9",
+        "weight": 2
+      },
+      {
+        "value": "#1eb1a5",
+        "weight": 2
+      },
+      {
+        "value": "#0066cc",
+        "weight": 2
+      },
+      {
+        "value": "#222222",
+        "weight": 2
+      }
+    ],
+    "text": [
+      {
+        "value": "#555555",
+        "weight": 1027
+      },
+      {
+        "value": "#006699",
+        "weight": 621
+      },
+      {
+        "value": "#b81f1c",
+        "weight": 426
+      },
+      {
+        "value": "#cccccc",
+        "weight": 409
+      },
+      {
+        "value": "#fbfbfb",
+        "weight": 339
+      },
+      {
+        "value": "#152024",
+        "weight": 195
+      },
+      {
+        "value": "#ffffff",
+        "weight": 157
+      },
+      {
+        "value": "#000000",
+        "weight": 107
+      },
+      {
+        "value": "#ff8a85",
+        "weight": 59
+      },
+      {
+        "value": "#333333",
+        "weight": 55
+      }
+    ],
+    "border": [
+      {
+        "value": "#dedede",
+        "weight": 832.5
+      },
+      {
+        "value": "#eeeeee",
+        "weight": 351
+      },
+      {
+        "value": "#888888",
+        "weight": 264.8
+      },
+      {
+        "value": "#d12421",
+        "weight": 138.3
+      },
+      {
+        "value": "#333333",
+        "weight": 35.1
+      },
+      {
+        "value": "#84171d",
+        "weight": 24.5
+      },
+      {
+        "value": "#06173a",
+        "weight": 12
+      }
+    ],
+    "gradients": []
+  },
+  "typography": {
+    "families": [
+      {
+        "value": "Open Sans",
+        "weight": 3432
+      }
+    ],
+    "sizes": [
+      {
+        "value": "16px",
+        "weight": 2280
+      },
+      {
+        "value": "22.4px",
+        "weight": 378
+      },
+      {
+        "value": "18.72px",
+        "weight": 271
+      },
+      {
+        "value": "15.2px",
+        "weight": 98
+      },
+      {
+        "value": "12.8px",
+        "weight": 94
+      },
+      {
+        "value": "19.2px",
+        "weight": 70
+      },
+      {
+        "value": "15.52px",
+        "weight": 67
+      },
+      {
+        "value": "32px",
+        "weight": 61
+      },
+      {
+        "value": "14.56px",
+        "weight": 55
+      },
+      {
+        "value": "8.4px",
+        "weight": 47
+      },
+      {
+        "value": "24px",
+        "weight": 11
+      }
+    ],
+    "weights": [
+      {
+        "value": "400",
+        "weight": 1702
+      },
+      {
+        "value": "700",
+        "weight": 1201
+      },
+      {
+        "value": "300",
+        "weight": 499
+      },
+      {
+        "value": "900",
+        "weight": 30
+      }
+    ],
+    "lineHeights": [
+      {
+        "value": "normal",
+        "weight": 3200
+      },
+      {
+        "value": "1.50",
+        "weight": 196
+      },
+      {
+        "value": "1.40",
+        "weight": 36
+      }
+    ],
+    "letterSpacings": [],
+    "byTag": {
+      "a": [
+        {
+          "value": "Open Sans | 16px | 400 | normal | normal | none",
+          "weight": 621
+        },
+        {
+          "value": "Open Sans | 22.4px | 300 | normal | normal | none",
+          "weight": 327
+        },
+        {
+          "value": "Open Sans | 14.56px | 300 | normal | normal | uppercase",
+          "weight": 55
+        }
+      ],
+      "h1": [
+        {
+          "value": "Open Sans | 32px | 300 | 1.40 | normal | none",
+          "weight": 36
+        },
+        {
+          "value": "Open Sans | 32px | 700 | normal | normal | none",
+          "weight": 25
+        }
+      ],
+      "h4": [
+        {
+          "value": "Open Sans | 16px | 700 | normal | normal | none",
+          "weight": 339
+        }
+      ],
+      "h2": [
+        {
+          "value": "Open Sans | 19.2px | 700 | normal | normal | uppercase",
+          "weight": 21
+        },
+        {
+          "value": "Open Sans | 24px | 700 | normal | normal | none",
+          "weight": 6
+        }
+      ],
+      "p": [
+        {
+          "value": "Open Sans | 16px | 400 | 1.50 | normal | none",
+          "weight": 148
+        },
+        {
+          "value": "Open Sans | 15.2px | 400 | normal | normal | none",
+          "weight": 82
+        },
+        {
+          "value": "Open Sans | 15.52px | 700 | normal | normal | uppercase",
+          "weight": 44
+        }
+      ],
+      "h3": [
+        {
+          "value": "Open Sans | 18.72px | 700 | normal | normal | none",
+          "weight": 271
+        }
+      ]
+    },
+    "fontFaces": [
+      "icomoon 400"
+    ],
+    "loadedFonts": [
+      "Open Sans 300 normal",
+      "Open Sans 400 normal",
+      "Open Sans 600 normal",
+      "Open Sans 700 normal",
+      "icomoon 400 normal"
+    ]
+  },
+  "spacing": {
+    "values": [
+      {
+        "value": "12px",
+        "weight": 152
+      },
+      {
+        "value": "10px",
+        "weight": 126
+      },
+      {
+        "value": "20px",
+        "weight": 105
+      },
+      {
+        "value": "15px",
+        "weight": 88
+      },
+      {
+        "value": "8px",
+        "weight": 69
+      },
+      {
+        "value": "5px",
+        "weight": 32
+      },
+      {
+        "value": "6px",
+        "weight": 10
+      },
+      {
+        "value": "30px",
+        "weight": 8
+      },
+      {
+        "value": "100px",
+        "weight": 8
+      },
+      {
+        "value": "50px",
+        "weight": 3
+      },
+      {
+        "value": "16px",
+        "weight": 2
+      },
+      {
+        "value": "8.26562px",
+        "weight": 2
+      },
+      {
+        "value": "33.0938px",
+        "weight": 2
+      },
+      {
+        "value": "40px",
+        "weight": 2
+      },
+      {
+        "value": "25px",
+        "weight": 2
+      },
+      {
+        "value": "24px",
+        "weight": 1
+      }
+    ],
+    "gaps": []
+  },
+  "shape": {
+    "radii": [
+      {
+        "value": "12px",
+        "weight": 25
+      },
+      {
+        "value": "20px",
+        "weight": 8
+      },
+      {
+        "value": "5px",
+        "weight": 5
+      },
+      {
+        "value": "999px",
+        "weight": 1
+      }
+    ],
+    "shadows": [
+      {
+        "value": "rgba(0, 0, 0, 0.2) 0px 0px 5px 1px inset",
+        "weight": 8
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.3) 0px 2px 6px 0px, rgba(0, 0, 0, 0.2) 0px 6px 16px 0px",
+        "weight": 1
+      }
+    ]
+  },
+  "motion": {
+    "durations": [
+      {
+        "value": "0.3s",
+        "weight": 5
+      }
+    ],
+    "easings": [
+      {
+        "value": "ease",
+        "weight": 5
+      }
+    ]
+  },
+  "layout": {
+    "containers": [],
+    "breakpoints": [
+      {
+        "value": "max 768px",
+        "weight": 4
+      },
+      {
+        "value": "max 544px",
+        "weight": 2
+      },
+      {
+        "value": "max 1280px",
+        "weight": 2
+      },
+      {
+        "value": "min 544px",
+        "weight": 1
+      },
+      {
+        "value": "min 768px",
+        "weight": 1
+      },
+      {
+        "value": "max 1024px",
+        "weight": 1
+      },
+      {
+        "value": "max 960px",
+        "weight": 1
+      },
+      {
+        "value": "min 1024px",
+        "weight": 1
+      },
+      {
+        "value": "max 1056px",
+        "weight": 1
+      },
+      {
+        "value": "max 928px",
+        "weight": 1
+      },
+      {
+        "value": "max 375px",
+        "weight": 1
+      }
+    ],
+    "zIndexes": [
+      {
+        "value": "97",
+        "weight": 1
+      },
+      {
+        "value": "1000",
+        "weight": 1
+      },
+      {
+        "value": "9999",
+        "weight": 1
+      }
+    ],
+    "header": {
+      "el": "header#h.main_header",
+      "height": 96,
+      "position": "static",
+      "bg": "#e6e6e6",
+      "backdrop": "none",
+      "shadow": "none"
+    }
+  },
+  "components": {
+    "buttons": [
+      {
+        "value": "bg #06173a · color #ffffff · radius 0px · pad 6px 10px · fs 19.2px · fw 600 · tt uppercase · border 2px #06173a · h 16px",
+        "weight": 5
+      },
+      {
+        "value": "bg #cccccc · color #d12421 · radius 0px · pad 5px 10px · fs 19.2px · fw 400 · tt none · border 0px #d12421 · h 44px",
+        "weight": 1
+      },
+      {
+        "value": "bg #d12421 · color #ffffff · radius 0px · pad 8.26562px 33.0938px · fs 22.4px · fw 700 · tt uppercase · border 0px #ffffff · h 48px",
+        "weight": 1
+      }
+    ],
+    "inputs": [],
+    "inlineLinks": [
+      {
+        "value": "#006699 · none · fw 400",
+        "weight": 621
+      },
+      {
+        "value": "#cccccc · none · fw 300",
+        "weight": 327
+      },
+      {
+        "value": "#ffffff · none · fw 400",
+        "weight": 48
+      },
+      {
+        "value": "#152024 · none · fw 300",
+        "weight": 47
+      }
+    ]
+  },
+  "existingTokens": {},
+  "blockedStylesheets": 1,
+  "stack": {
+    "bootstrap": false,
+    "tailwind": false,
+    "jquery": true,
+    "owlCarousel": false,
+    "swiper": false,
+    "slick": false,
+    "aos": false,
+    "gsap": false,
+    "wordpress": false,
+    "elementor": false,
+    "workcontrol": true,
+    "vue": false,
+    "react": false,
+    "googleFonts": [
+      "https://fonts.googleapis.com/css?family=Open%20Sans:300,400,600,700"
+    ],
+    "generator": null
+  },
+  "a11y": {
+    "imgNoAlt": 0,
+    "buttonsNoName": 0,
+    "inputsNoLabel": 0,
+    "headings": [
+      "h1: ICC SERRA - Banco do Povo",
+      "h1: Biblioteca do Microcrédito ICC SERRA",
+      "h4: Metas: O Segredo das pessoas bem sucedidas",
+      "h4: Microcrédito: Como realizar seu sonho",
+      "h4: Dúvidas sobre o microcrédito?",
+      "h4: Microempreendedor individual: Entenda o que é MEI",
+      "h4: Cartilha do Microempreendedor Individual - MEI",
+      "h4: 6 Dicas Essenciais Para Quem Trabalha em Casa",
+      "h4: Manual do Vendedor Vencedor",
+      "h4: Planilha de Controle Financeiro",
+      "h4: Como elaborar um Plano de Negócio",
+      "h2: E-BOOK METAS",
+      "h2: POSTOS DE ATENDIMENTO BANCO DO POVO\nINSTITUIÇÃO COMUNITÁRIA DE CRÉDITO",
+      "h3: CAXIAS DO SUL",
+      "h3: FLORES DA CUNHA",
+      "h3: FARROUPILHA",
+      "h3: BENTO GONÇALVES",
+      "h3: GARIBALDI",
+      "h3: CARLOS BARBOSA",
+      "h3: COTIPORÃ",
+      "h3: SERAFINA CORRÊA",
+      "h3: GUAPORÉ",
+      "h3: NOVA PRATA",
+      "h3: NOVA ARAÇA",
+      "h3: VERANÓPOLIS",
+      "h3: IBIRUBÁ E REGIÃO",
+      "h3: LAJEADO",
+      "h3: ESTRELA",
+      "h3: VALE DO TAQUARI",
+      "h3: CANDIOTA",
+      "h3: CHARQUEADAS",
+      "h3: SAPIRANGA",
+      "h3: CRUZEIRO DO SUL",
+      "h3: SÃO JERÔNIMO",
+      "h3: NOVA PETRÓPOLIS",
+      "h3: FELIZ",
+      "h3: GRAMADO",
+      "h3: CANELA",
+      "h2: ÚLTIMAS DO SITE!",
+      "h3: Fluxo de Caixa apertado? Veja como usar Capital de Giro com segurança"
+    ],
+    "h1": 2,
+    "landmarks": {
+      "header": 3,
+      "main": 1,
+      "footer": 1
+    },
+    "lowContrast": [
+      {
+        "el": "p.site_title",
+        "text": "Banco do Povo",
+        "fg": "#000000",
+        "bg": "#152024",
+        "ratio": 1.26,
+        "size": "16px"
+      },
+      {
+        "el": "span",
+        "text": "☰",
+        "fg": "#d12421",
+        "bg": "#cccccc",
+        "ratio": 3.28,
+        "size": "19.2px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      }
+    ]
+  }
+}

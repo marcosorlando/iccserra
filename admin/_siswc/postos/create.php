@@ -1,43 +1,57 @@
 <?php
 
-    $AdminLevel = LEVEL_WC_SERVICES_STATIONS;
-    if (!APP_SERVICES_STATIONS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel):
-        die('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
-    endif;
+use App\Conn\Create;
+use App\Conn\Read;
+use App\Helpers\Check;
 
-    // AUTO INSTANCE OBJECT READ
-    if (empty($Read)):
-        $Read = new Read;
-    endif;
+$AdminLevel = LEVEL_WC_SERVICES_STATIONS;
+if (!APP_SERVICES_STATIONS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel) {
+    exit('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
+}
 
-    // AUTO INSTANCE OBJECT CREATE
-    if (empty($Create)):
-        $Create = new Create;
-    endif;
+// AUTO INSTANCE OBJECT READ
+$Read ??= new Read();
 
-    $StationId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-    if ($StationId):
-        $Read->ExeRead(DB_SERVICES_STATIONS, "WHERE id = :id", "id={$StationId}");
-        if ($Read->getResult()):
-            $FormData = array_map('htmlspecialchars', $Read->getResult()[0]);
-            extract($FormData);
-        else:
-            $_SESSION['trigger_controll'] = Erro(
-                "<b>OPPSS {$Admin['user_name']}</b>, você tentou editar um posto de atendimento que não existe ou que foi removido recentemente!",
-                E_USER_NOTICE
-            );
-            header('Location: dashboard.php?wc=postos/home');
-            exit;
-        endif;
-    else:
-        $StationCreate = [
-            'created_at' => date('Y-m-d H:i:s'),
-            'status' => 0
-        ];
-        $Create->ExeCreate(DB_SERVICES_STATIONS, $StationCreate);
-        header('Location: dashboard.php?wc=postos/create&id=' . $Create->getResult());
+// AUTO INSTANCE OBJECT CREATE
+$Create ??= new Create();
+
+$StationId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+if ($StationId) {
+    $Read->exeRead(DB_SERVICES_STATIONS, 'WHERE id = :id', 'id=' . $StationId);
+    if ($Read->getResult()) {
+        $FormData = array_map(
+            static fn($value) => Check::safeHtmlChars(is_scalar($value) ? (string)$value : null),
+            $Read->getResult()[0]
+        );
+        extract($FormData);
+    } else {
+        $_SESSION['trigger_controll'] = sprintf(
+            '<b>OPPSS %s</b>, você tentou editar um posto de atendimento que não existe ou que foi removido recentemente!',
+            $Admin['user_name']
+        );
+        header('Location: dashboard.php?wc=postos/home');
+
         exit;
-    endif;
+    }
+} else {
+    $StationCreate = [
+        'created_at' => date('Y-m-d H:i:s'),
+        'status' => 0,
+    ];
+    $Create->exeCreate(DB_SERVICES_STATIONS, $StationCreate);
+    if (!$Create->getResult()) {
+        $_SESSION['trigger_controll'] = sprintf(
+            '<b>OPPSS %s</b>, não foi possível criar o posto de atendimento. Tente novamente!',
+            $Admin['user_name']
+        );
+        header('Location: dashboard.php?wc=postos/home');
+
+        exit;
+    }
+    header('Location: dashboard.php?wc=postos/create&id=' . $Create->getResult());
+
+    exit;
+}
 ?>
 
 <header class="dashboard_header">

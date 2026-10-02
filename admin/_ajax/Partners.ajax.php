@@ -51,10 +51,11 @@ if (isset($PostData['callback_action'], $PostData['callback']) && $PostData['cal
     // SELECIONA AÇÃO
     switch ($Case) {
         case 'manager':
-            $PartnerID = $PostData['partner_id'];
+            $PostData = array_map(static fn($v) => is_string($v) ? strip_tags($v) : $v, $PostData);
+            $PartnerID = (int)($PostData['partner_id'] ?? 0);
 
-            $Image = (empty($_FILES['partner_image']) ? null : $_FILES['partner_image']);
-            unset($PostData['partner_id'], $PostData['partner_image']);
+            $Image = (empty($_FILES['partner_image']['tmp_name']) ? null : $_FILES['partner_image']);
+            unset($PostData['partner_id'], $PostData['partner_image'], $PostData['public']);
 
             $Read->fullRead('SELECT partner_image FROM ' . DB_PARTNERS . ' WHERE partner_id = :id', 'id=' . $PartnerID);
 
@@ -73,16 +74,22 @@ if (isset($PostData['callback_action'], $PostData['callback']) && $PostData['cal
                 $PostData['partner_date'] = date('Y-m-d H:i:s');
 
                 if (!empty($Image)) {
-                    if (
-                        $Read->getResult() && !empty($Read->getResult()[0]['partner_image']) && file_exists(
-                            '../../uploads/partners/' . $Read->getResult()[0]['partner_image']
-                        ) && !is_dir('../../uploads/partners/' . $Read->getResult()[0]['partner_image'])
-                    ) {
-                        unlink('../../uploads/partners/' . $Read->getResult()[0]['partner_image']);
-                    }
+                    $OldImage = (string)($Read->getResult()[0]['partner_image'] ?? '');
 
                     $Upload = new Upload('../../uploads/');
                     $Upload->image($Image, Check::name($PostData['partner_name']), SLIDE_W, 'partners');
+                    if (!$Upload->getResult()) {
+                        $jSON['trigger'] = Check::ajaxErro(
+                            '<b>ERRO AO ENVIAR FOTO:</b> ' . ($Upload->getError() ?? 'Selecione uma imagem JPG, PNG ou WEBP!'),
+                            E_USER_WARNING
+                        );
+
+                        break;
+                    }
+
+                    if ('' !== $OldImage && file_exists('../../uploads/' . $OldImage) && !is_dir('../../uploads/' . $OldImage)) {
+                        unlink('../../uploads/' . $OldImage);
+                    }
                     $PostData['partner_image'] = $Upload->getResult();
                 }
 
@@ -114,7 +121,7 @@ if (isset($PostData['callback_action'], $PostData['callback']) && $PostData['cal
             break;
 
         case 'delete':
-            $PartnerID = $PostData['del_id'];
+            $PartnerID = (int)($PostData['del_id'] ?? 0);
             $Read->fullRead('SELECT partner_image FROM ' . DB_PARTNERS . ' WHERE partner_id = :id', 'id=' . $PartnerID);
             if ($Read->getResult()) {
                 $PartnerImage = (empty($Read->getResult()[0]['partner_image']) ? null : $Read->getResult(

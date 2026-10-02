@@ -1,40 +1,54 @@
 <?php
-    
-    $AdminLevel = LEVEL_WC_DOCUMENTS;
-    if (!APP_DOCUMENTS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel):
-        die('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
-    endif;
-    
-    // AUTO INSTANCE OBJECT READ
-    if (empty($Read)):
-        $Read = new Read;
-    endif;
-    
-    // AUTO INSTANCE OBJECT CREATE
-    if (empty($Create)):
-        $Create = new Create;
-    endif;
-    
-    $docId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-    if ($docId):
-        $Read->ExeRead(DB_DOCUMENTS, "WHERE doc_id = :id", "id={$docId}");
-        if ($Read->getResult()):
-            $FormData = array_map('htmlspecialchars', $Read->getResult()[0]);
-            extract($FormData);
-        else:
-            $_SESSION['trigger_controll'] = Erro(
-                "<b>OPPSS {$Admin['user_name']}</b>, você tentou editar uma página que não existe ou que foi removida recentemente!",
-                E_USER_NOTICE
-            );
-            header('Location: dashboard.php?wc=documents/home');
-            exit;
-        endif;
-    else:
-        $docCreate = ['doc_create' => date('Y-m-d H:i:s'), 'doc_status' => 0];
-        $Create->ExeCreate(DB_DOCUMENTS, $docCreate);
-        header('Location: dashboard.php?wc=documents/create&id=' . $Create->getResult());
+
+use App\Conn\Create;
+use App\Conn\Read;
+use App\Helpers\Check;
+
+$AdminLevel = LEVEL_WC_DOCUMENTS;
+if (!APP_DOCUMENTS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel) {
+    exit('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
+}
+
+// AUTO INSTANCE OBJECT READ
+$Read ??= new Read();
+
+// AUTO INSTANCE OBJECT CREATE
+$Create ??= new Create();
+
+$docId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+if ($docId) {
+    $Read->exeRead(DB_DOCUMENTS, 'WHERE doc_id = :id', 'id=' . $docId);
+    if ($Read->getResult()) {
+        $FormData = array_map(
+            static fn($value) => Check::safeHtmlChars(is_scalar($value) ? (string)$value : null),
+            $Read->getResult()[0]
+        );
+        extract($FormData);
+    } else {
+        $_SESSION['trigger_controll'] = sprintf(
+            '<b>OPPSS %s</b>, você tentou editar uma página que não existe ou que foi removida recentemente!',
+            $Admin['user_name']
+        );
+        header('Location: dashboard.php?wc=documents/home');
+
         exit;
-    endif;
+    }
+} else {
+    $docCreate = ['doc_create' => date('Y-m-d H:i:s'), 'doc_status' => 0];
+    $Create->exeCreate(DB_DOCUMENTS, $docCreate);
+    if (!$Create->getResult()) {
+        $_SESSION['trigger_controll'] = sprintf(
+            '<b>OPPSS %s</b>, não foi possível criar o documento. Tente novamente!',
+            $Admin['user_name']
+        );
+        header('Location: dashboard.php?wc=documents/home');
+
+        exit;
+    }
+    header('Location: dashboard.php?wc=documents/create&id=' . $Create->getResult());
+
+    exit;
+}
 ?>
 
 <header class="dashboard_header">
@@ -151,7 +165,7 @@
                         <select name="doc_category" id="doc_category" required>
                             
                             <?php
-                                $Read->ExeRead(DB_DOCS_CATEGORIES);
+                                $Read->exeRead(DB_DOCS_CATEGORIES);
                                 if (!$Read->getResult()) {
                                     echo "<option value='' disabled selected>Cadastre algumas Categorias</option>";
                                 } else {
@@ -172,14 +186,14 @@
                 </div>
                 
                 <?php
-                    if (APP_LINK_PAGES): ?>
+                    if (APP_LINK_PAGES) { ?>
                         <label class="label">
                             <span class="legend">Link Alternativo (Opcional):</span>
                             <input id="doc_add" type="text" name="doc_name" value="<?= $doc_name; ?>"
                                    placeholder="Link do Documento:"/>
                         </label>
                     <?php
-                    endif; ?>
+                    } ?>
 
                 <div class="clear"></div>
             </div>

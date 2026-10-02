@@ -299,36 +299,6 @@ extract($Read->getResult()[0]);
 		</div>
 	</div>
 </div>
-<script>
-    $(function () {
-        $(window).on('load', function () {
-            /* --------------------------------------------
-			SECURITY CHECK HUMAN
-		   -------------------------------------------- */
-            if($("#denuncia").length > 0 ) {
-                var a = Math.ceil(Math.random() * 10) + 1;
-                var b = Math.ceil(Math.random() * 10) + 1;
-                $('#denuncia #senderHuman').attr('placeholder', a +" + "+ b +" = ?" );
-                $('#denuncia #checkHuman_a').val(a);
-                $('#denuncia #checkHuman_b').val(b);
-            }
-
-            if($("#reclamacao").length > 0 ) {
-                var a = Math.ceil(Math.random() * 10) + 1;
-                var b = Math.ceil(Math.random() * 10) + 1;
-                $('#reclamacao #senderHuman').attr('placeholder', a +" + "+ b +" = ?" );
-                $('#reclamacao #checkHuman_a').val(a);
-                $('#reclamacao #checkHuman_b').val(b);
-            }
-
-            if($("#sugestao").length > 0 ) {
-                var a = Math.ceil(Math.random() * 10) + 1;
-                var b = Math.ceil(Math.random() * 10) + 1;
-                $('#sugestao #senderHuman').attr('placeholder', a +" + "+ b +" = ?" );
-                $('#sugestao #checkHuman_a').val(a);
-                $('#sugestao #checkHuman_b').val(b);
-            }
-        });
-    });
-</script>
-<script src="<?= BASE;?>/_cdn/formattext.js"></script>
+<?php /* A soma antispam dos três formulários é gerada em js/scripts.js (Onda 4).
+   O bloco inline que ficava aqui rodava antes do jQuery e só produzia "$ is not defined". */ ?>
+<script defer src="<?= BASE;?>/_cdn/formattext.js"></script>

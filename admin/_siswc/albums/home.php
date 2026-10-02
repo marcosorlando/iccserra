@@ -4,6 +4,7 @@ use App\Conn\Delete;
 use App\Conn\Read;
 use App\Helpers\Check;
 use App\Models\Pager;
+use App\Conn\Create;
 
 $AdminLevel = LEVEL_WC_ALBUMS;
 if (!APP_ALBUMS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel) {

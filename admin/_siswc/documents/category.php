@@ -1,29 +1,45 @@
 <?php
-if (!APP_DOCUMENTS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < LEVEL_WC_DOCUMENTS):
-    die('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
-endif;
 
-$Read = new Read();
-$Create = new Create();
+use App\Conn\Create;
+use App\Conn\Read;
+use App\Helpers\Check;
+
+$AdminLevel = LEVEL_WC_DOCUMENTS;
+if (!APP_DOCUMENTS || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel) {
+    exit('<div style="text-align: center; margin: 5% 0; color: #C54550; font-size: 1.6em; font-weight: 400; background: #fff; float: left; width: 100%; padding: 30px 0;"><b>ACESSO NEGADO:</b> Você não esta logado<br>ou não tem permissão para acessar essa página!</div>');
+}
+
+$Read ??= new Read();
+$Create ??= new Create();
 
 $CatId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-if ($CatId):
-    $Read->ExeRead(DB_DOCS_CATEGORIES, "WHERE category_id = :id", "id={$CatId}");
-    if ($Read->getResult()):
-        $FormData = array_map('htmlspecialchars', $Read->getResult()[0]);
+if ($CatId) {
+    $Read->exeRead(DB_DOCS_CATEGORIES, 'WHERE category_id = :id', 'id=' . $CatId);
+    if ($Read->getResult()) {
+        $FormData = array_map(
+            static fn($value) => Check::safeHtmlChars(is_scalar($value) ? (string)$value : null),
+            $Read->getResult()[0]
+        );
         extract($FormData);
-    else:
-        $_SESSION['trigger_controll'] = Erro("<b>OPPSS {$Admin['user_name']}</b>, você tentou editar uma categoria que não existe ou que foi removida recentemente!", E_USER_NOTICE);
+    } else {
+        $_SESSION['trigger_controll'] = sprintf(
+            '<b>OPPSS %s</b>, você tentou editar uma categoria que não existe ou que foi removida recentemente!',
+            $Admin['user_name']
+        );
         header('Location: dashboard.php?wc=documents/categories');
-    endif;
-else:
+
+        exit;
+    }
+} else {
     $Date = date('Y-m-d H:i:s');
     $Title = "Nova Categoria - {$Date}";
-    $Name = Check::Name($Title);
+    $Name = Check::name($Title);
     $CatCreate = ['category_name' => $Name, 'category_date' => $Date];
-    $Create->ExeCreate(DB_DOCS_CATEGORIES, $CatCreate);
+    $Create->exeCreate(DB_DOCS_CATEGORIES, $CatCreate);
     header('Location: dashboard.php?wc=documents/category&id=' . $Create->getResult());
-endif;
+
+    exit;
+}
 ?>
 
 <header class="dashboard_header">

@@ -8,12 +8,11 @@
 		<label>
 			<span>*E-mail:</span>
 			<input type="email" name="email" value="<?= isset($email) ? $email : ''; ?>"
-			       placeholder="Informe seu E-mail:" required tabindex="1"/>
+			       placeholder="Informe seu E-mail:" required/>
 		</label>
 		<label>
 			<span>*Selecione seu enquadramento:</span>
-			<select id="cb_enquadramento" name="cb_enquadramento" required="required"
-			        tabindex="2">
+			<select id="cb_enquadramento" name="cb_enquadramento" required="required">
 				<option value="" disabled selected>Escolha a aqui!</option>
 				<option value="mei" <?= isset($cb_enquadramento) && $cb_enquadramento == 'mei' ? 'selected' : '';
                 ?>>Microempreendedor
@@ -31,12 +30,12 @@
 		<label>
 			<span>*Nome:</span>
 			<input type="text" name="nome" value="<?= empty($nome) ? '' : $nome; ?>" placeholder="Informe seu Nome:"
-			       required tabindex="3"/>
+			       required/>
 		</label>
 		<label>
 			<span>*Telefone:</span>
 			<input type="text" class="formPhone" name="telefone" value="<?= empty($telefone) ? '' : $telefone; ?>"
-			       placeholder="Informe seu Telefone:" required tabindex="4"/>
+			       placeholder="Informe seu Telefone:" required/>
 		</label>
 	</div>
 
@@ -44,11 +43,11 @@
 		<label>
 			<span>*Cidade:</span>
 			<input type="text" name="cidade" value="<?= empty($cidade) ? '' : $cidade; ?>"
-			       placeholder="Informe sua cidade:" required tabindex="5"/>
+			       placeholder="Informe sua cidade:" required/>
 		</label>
 		<label>
 			<span>*Estado:</span>
-			<select name="estado" id="estado" tabindex="6">
+			<select name="estado" id="estado">
 				<option value="AC">AC</option>
 				<option value="AL">AL</option>
 				<option value="AP">AP</option>
@@ -81,7 +80,7 @@
 	<div class="label_50">
 		<label>
 			<span>*Tipo de Capital:</span>
-			<select id="modalidade" name="modalidade" onChange="showDiv();" required="required" tabindex="7">
+			<select id="modalidade" name="modalidade" onChange="showDiv();" required="required">
 				<option value="" disabled selected>Escolha a finalidade</option>
 				<option value="giro">Capital de Giro</option>
 				<option value="fixo">Capital Fixo</option>
@@ -90,7 +89,7 @@
 
 		<label>
 			<span>*Linha de Crédito:</span>
-			<select name="tipo_credito" id="tipo_credito" onChange="showDiv();" required="required" tabindex="8">
+			<select name="tipo_credito" id="tipo_credito" onChange="showDiv();" required="required">
 				<option value="" disabled selected>Escolha a Modalidade</option>
 				<option value="microcredito">Microcrédito Produtivo</option>
 				<option value="mulher">Microcrédito Mulher</option>
@@ -104,12 +103,12 @@
 	<div class="label_50">
 		<label>
 			<span>*Valor em R$:</span>
-			<input name="valor" id="valor" type="number" min="600" max="30000" maxlength="5" required tabindex="9">
+			<input name="valor" id="valor" type="number" min="600" max="30000" maxlength="5" required>
 		</label>
 
 		<label id="n_parcelas" class="invisivel">
 			<span>*Número de Parcelas:</span>
-			<select name="parcelas" id="parcelas" tabindex="10" required="required"> </select>
+			<select name="parcelas" id="parcelas" required="required"> </select>
 		</label>
 	</div>
 	<!--end #n_parcelas -->
@@ -118,7 +117,7 @@
 	<div class="capcha">
 		<span>Realize a Soma * antes de enviar sua Simulação</span>
 		<input type="text" name="senderHuman" id="senderHuman" class="input-md input-rounded form-control"
-		       placeholder="" required tabindex="11">
+		       placeholder="" required>
 		<input type="hidden" name="checkHuman_a" id="checkHuman_a">
 		<input type="hidden" name="checkHuman_b" id="checkHuman_b">
 	</div>
@@ -137,7 +136,7 @@
 	<div class="clear"></div>
 	<div class="btn_simulator">
 		<p id="p_msg" style="font-size: 14px; margin:10px auto;" class="invisivel"></p>
-		<button class="btn btn_red" style="margin-top: 30px;" tabindex="12">
+		<button class="btn btn_red" style="margin-top: 30px;">
 			<i class="icon-calculator"></i> <img class="form_load" style="margin-left: 10px;"
 			                                     src="<?= BASE; ?>/themes/wc_icc/images/icons/load_w.gif"
 			                                     alt="Aguarde, enviando simulação!"

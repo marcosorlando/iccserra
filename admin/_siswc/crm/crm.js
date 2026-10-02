@@ -1,0 +1,117 @@
+/*
+ * CRM do Simulador - quadro do funil e tela de atendimento
+ * Author: Zen Agência Web
+ */
+$(function () {
+    var money = new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'});
+
+    function crmPost(action, data, done) {
+        $.post('_ajax/Crm.ajax.php', $.extend({callback: 'Crm', callback_action: action}, data), function (resp) {
+            if (resp.trigger) {
+                Trigger(resp.trigger);
+            }
+            if (resp.content) {
+                $.each(resp.content, function (selector, html) {
+                    $(selector).html(html);
+                });
+            }
+            if (done) {
+                done(resp);
+            }
+        }, 'json').fail(function () {
+            Trigger("<div class='trigger trigger_ajax trigger_error'><span><b>ERRO:</b> Não foi possível salvar. Tente novamente!</span></div>");
+            if (done) {
+                done({});
+            }
+        });
+    }
+
+    // ############## QUADRO (DRAG AND DROP)
+    function refreshColumn(column) {
+        var cards = column.find('.crm_card');
+        var total = 0;
+        cards.each(function () {
+            total += parseFloat($(this).attr('data-amount')) || 0;
+        });
+        column.closest('.crm_column').find('.j_crm_count').text(cards.length);
+        column.closest('.crm_column').find('.j_crm_total').text(money.format(total));
+    }
+
+    var dragged = null;
+    var origin = null;
+
+    $('.j_crm_board').on('dragstart', '.crm_card', function (e) {
+        dragged = $(this);
+        origin = dragged.parent();
+        dragged.addClass('crm_card_dragging');
+        e.originalEvent.dataTransfer.effectAllowed = 'move';
+        e.originalEvent.dataTransfer.setData('text/plain', dragged.attr('data-client'));
+    }).on('dragend', '.crm_card', function () {
+        $(this).removeClass('crm_card_dragging');
+        $('.j_crm_drop').removeClass('crm_drop_over');
+    }).on('dragover', '.j_crm_drop', function (e) {
+        e.preventDefault();
+        $(this).addClass('crm_drop_over');
+    }).on('dragleave', '.j_crm_drop', function () {
+        $(this).removeClass('crm_drop_over');
+    }).on('drop', '.j_crm_drop', function (e) {
+        e.preventDefault();
+        var target = $(this).removeClass('crm_drop_over');
+
+        if (!dragged || target.is(origin)) {
+            return;
+        }
+
+        var card = dragged;
+        var from = origin;
+        target.prepend(card);
+        refreshColumn(target);
+        refreshColumn(from);
+
+        crmPost('stage_move', {client_id: card.attr('data-client'), stage_id: target.attr('data-stage')}, function (resp) {
+            if (!resp.success) {
+                from.prepend(card);
+                refreshColumn(target);
+                refreshColumn(from);
+            }
+        });
+        dragged = null;
+    });
+
+    // ############## ABAS DE CONTATO
+    $('.crm_tab').click(function (e) {
+        e.preventDefault();
+        $('.crm_tab, .crm_tab_target').removeClass('crm_tab_active');
+        $(this).addClass('crm_tab_active');
+        $($(this).attr('href')).addClass('crm_tab_active');
+    });
+
+    // ############## MENSAGENS PRÉ-DEFINIDAS
+    $('.j_crm_template').change(function () {
+        var option = $(this).find('option:selected');
+        if ($(this).attr('data-target') === 'email') {
+            $('.j_crm_email_subject').val(option.attr('data-subject') || '');
+            $('.j_crm_email_body').val(option.attr('data-body') || '');
+        } else {
+            $('.j_crm_whats_body').val(option.attr('data-body') || '');
+        }
+    });
+
+    // ############## WHATSAPP (abre o app e registra no histórico)
+    $('.j_crm_whats').submit(function (e) {
+        e.preventDefault();
+        var form = $(this);
+        var message = $.trim(form.find('.j_crm_whats_body').val());
+
+        if (!message) {
+            Trigger("<div class='trigger trigger_ajax trigger_info'><span><b>OPPSSS:</b> Escreva ou escolha uma mensagem!</span></div>");
+            return false;
+        }
+
+        // abre na mesma ação do clique para não ser bloqueado como pop-up
+        window.open('https://api.whatsapp.com/send/?phone=' + form.attr('data-phone') + '&text=' + encodeURIComponent(message), '_blank');
+
+        crmPost('whatsapp_log', {client_id: form.attr('data-client'), message: message});
+        return false;
+    });
+});

@@ -1,0 +1,792 @@
+{
+  "url": "http://127.0.0.1:8585/",
+  "title": "ICC SERRA - Banco do Povo",
+  "lang": "pt-br",
+  "viewport": {
+    "width": 390,
+    "height": 900
+  },
+  "scannedElements": 720,
+  "overflowX": false,
+  "pageHeight": 23630,
+  "meta": {
+    "description": "A ICC SERRA - Banco do Povo é uma OSCIP de Microcrédito, nosso negócio é ofertar crédito para micros e pequenos empreendedores que operam no Rio Grande do Sul.",
+    "themeColor": null,
+    "viewportMeta": "width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0",
+    "favicon": "http://127.0.0.1:8585/themes/wc_icc/images/favicon.png",
+    "colorScheme": "normal"
+  },
+  "colors": {
+    "background": [
+      {
+        "value": "#303030",
+        "weight": 873.8
+      },
+      {
+        "value": "#152024",
+        "weight": 857.5
+      },
+      {
+        "value": "#e6e6e6",
+        "weight": 737.1
+      },
+      {
+        "value": "#84171d",
+        "weight": 397.3
+      },
+      {
+        "value": "#3f0425",
+        "weight": 351
+      },
+      {
+        "value": "#cccccc",
+        "weight": 108.6
+      },
+      {
+        "value": "#00000080",
+        "weight": 105.5
+      },
+      {
+        "value": "#fc0000",
+        "weight": 28.6
+      },
+      {
+        "value": "#ff0000",
+        "weight": 27.7
+      },
+      {
+        "value": "#f45563",
+        "weight": 21.8
+      },
+      {
+        "value": "#0e96e5",
+        "weight": 18.9
+      },
+      {
+        "value": "#ffffff",
+        "weight": 12.6
+      },
+      {
+        "value": "#008068",
+        "weight": 11.3
+      },
+      {
+        "value": "#eeeeee",
+        "weight": 9.3
+      }
+    ],
+    "text": [
+      {
+        "value": "#ffffff",
+        "weight": 2064
+      },
+      {
+        "value": "#555555",
+        "weight": 1759
+      },
+      {
+        "value": "#000000",
+        "weight": 874
+      },
+      {
+        "value": "#cccccc",
+        "weight": 728
+      },
+      {
+        "value": "#d12421",
+        "weight": 704
+      },
+      {
+        "value": "#006699",
+        "weight": 644
+      },
+      {
+        "value": "#84171d",
+        "weight": 514
+      },
+      {
+        "value": "#152024",
+        "weight": 195
+      },
+      {
+        "value": "#333333",
+        "weight": 131
+      },
+      {
+        "value": "#888888",
+        "weight": 94
+      }
+    ],
+    "border": [
+      {
+        "value": "#dedede",
+        "weight": 832.5
+      },
+      {
+        "value": "#f1f1f1",
+        "weight": 631.8
+      },
+      {
+        "value": "#cccccc",
+        "weight": 264.8
+      },
+      {
+        "value": "#888888",
+        "weight": 264.8
+      },
+      {
+        "value": "#84171d",
+        "weight": 263.3
+      },
+      {
+        "value": "#d12421",
+        "weight": 177.3
+      },
+      {
+        "value": "#333333",
+        "weight": 35.1
+      },
+      {
+        "value": "#096397",
+        "weight": 30.5
+      }
+    ],
+    "gradients": []
+  },
+  "typography": {
+    "families": [
+      {
+        "value": "Open Sans",
+        "weight": 7835
+      }
+    ],
+    "sizes": [
+      {
+        "value": "16px",
+        "weight": 3925
+      },
+      {
+        "value": "12.8px",
+        "weight": 898
+      },
+      {
+        "value": "14.4px",
+        "weight": 713
+      },
+      {
+        "value": "22.4px",
+        "weight": 636
+      },
+      {
+        "value": "14px",
+        "weight": 418
+      },
+      {
+        "value": "18.72px",
+        "weight": 347
+      },
+      {
+        "value": "24px",
+        "weight": 168
+      },
+      {
+        "value": "32px",
+        "weight": 121
+      },
+      {
+        "value": "15.2px",
+        "weight": 98
+      },
+      {
+        "value": "19.2px",
+        "weight": 89
+      },
+      {
+        "value": "19.6px",
+        "weight": 88
+      },
+      {
+        "value": "28px",
+        "weight": 69
+      },
+      {
+        "value": "20.8px",
+        "weight": 69
+      },
+      {
+        "value": "15.52px",
+        "weight": 67
+      }
+    ],
+    "weights": [
+      {
+        "value": "400",
+        "weight": 4952
+      },
+      {
+        "value": "700",
+        "weight": 1242
+      },
+      {
+        "value": "600",
+        "weight": 835
+      },
+      {
+        "value": "300",
+        "weight": 741
+      },
+      {
+        "value": "900",
+        "weight": 65
+      }
+    ],
+    "lineHeights": [
+      {
+        "value": "normal",
+        "weight": 7482
+      },
+      {
+        "value": "1.50",
+        "weight": 196
+      },
+      {
+        "value": "1.53",
+        "weight": 88
+      },
+      {
+        "value": "1.07",
+        "weight": 69
+      }
+    ],
+    "letterSpacings": [
+      {
+        "value": "0.042em",
+        "weight": 40
+      }
+    ],
+    "byTag": {
+      "h1": [
+        {
+          "value": "Open Sans | 22.4px | 300 | normal | normal | uppercase",
+          "weight": 129
+        },
+        {
+          "value": "Open Sans | 32px | 700 | normal | normal | none",
+          "weight": 58
+        },
+        {
+          "value": "Open Sans | 19.2px | 700 | normal | normal | uppercase",
+          "weight": 21
+        }
+      ],
+      "h2": [
+        {
+          "value": "Open Sans | 24px | 700 | normal | normal | none",
+          "weight": 60
+        }
+      ],
+      "a": [
+        {
+          "value": "Open Sans | 16px | 400 | normal | normal | none",
+          "weight": 621
+        },
+        {
+          "value": "Open Sans | 14px | 400 | normal | normal | uppercase",
+          "weight": 346
+        },
+        {
+          "value": "Open Sans | 22.4px | 300 | normal | normal | none",
+          "weight": 327
+        }
+      ],
+      "p": [
+        {
+          "value": "Open Sans | 16px | 400 | normal | normal | none",
+          "weight": 2078
+        },
+        {
+          "value": "Open Sans | 12.8px | 600 | normal | normal | uppercase",
+          "weight": 795
+        },
+        {
+          "value": "Open Sans | 14.4px | 400 | normal | normal | none",
+          "weight": 693
+        }
+      ],
+      "h6": [
+        {
+          "value": "Open Sans | 15.52px | 700 | normal | normal | none",
+          "weight": 44
+        }
+      ],
+      "h3": [
+        {
+          "value": "Open Sans | 18.72px | 700 | normal | normal | none",
+          "weight": 271
+        }
+      ]
+    },
+    "fontFaces": [
+      "icomoon 400"
+    ],
+    "loadedFonts": [
+      "Open Sans 300 normal",
+      "Open Sans 400 normal",
+      "Open Sans 600 normal",
+      "Open Sans 700 normal",
+      "icomoon 400 normal"
+    ]
+  },
+  "spacing": {
+    "values": [
+      {
+        "value": "10px",
+        "weight": 210
+      },
+      {
+        "value": "20px",
+        "weight": 179
+      },
+      {
+        "value": "15px",
+        "weight": 160
+      },
+      {
+        "value": "12px",
+        "weight": 150
+      },
+      {
+        "value": "8px",
+        "weight": 40
+      },
+      {
+        "value": "5px",
+        "weight": 36
+      },
+      {
+        "value": "50px",
+        "weight": 23
+      },
+      {
+        "value": "30px",
+        "weight": 18
+      },
+      {
+        "value": "40px",
+        "weight": 14
+      },
+      {
+        "value": "6px",
+        "weight": 10
+      },
+      {
+        "value": "18px",
+        "weight": 8
+      },
+      {
+        "value": "100px",
+        "weight": 8
+      },
+      {
+        "value": "2.5px",
+        "weight": 4
+      },
+      {
+        "value": "39.2px",
+        "weight": 4
+      },
+      {
+        "value": "10.5156px",
+        "weight": 4
+      },
+      {
+        "value": "56px",
+        "weight": 2
+      }
+    ],
+    "gaps": []
+  },
+  "shape": {
+    "radii": [
+      {
+        "value": "12px",
+        "weight": 25
+      },
+      {
+        "value": "20px",
+        "weight": 8
+      },
+      {
+        "value": "3px",
+        "weight": 1
+      }
+    ],
+    "shadows": [
+      {
+        "value": "rgba(0, 0, 0, 0.2) 0px 0px 5px 1px inset",
+        "weight": 8
+      }
+    ]
+  },
+  "motion": {
+    "durations": [
+      {
+        "value": "0.3s",
+        "weight": 3
+      }
+    ],
+    "easings": [
+      {
+        "value": "ease",
+        "weight": 3
+      }
+    ]
+  },
+  "layout": {
+    "containers": [],
+    "breakpoints": [
+      {
+        "value": "max 768px",
+        "weight": 3
+      },
+      {
+        "value": "max 544px",
+        "weight": 2
+      },
+      {
+        "value": "min 544px",
+        "weight": 2
+      },
+      {
+        "value": "min 768px",
+        "weight": 2
+      },
+      {
+        "value": "max 1280px",
+        "weight": 2
+      },
+      {
+        "value": "max 1024px",
+        "weight": 1
+      },
+      {
+        "value": "max 960px",
+        "weight": 1
+      },
+      {
+        "value": "min 1024px",
+        "weight": 1
+      },
+      {
+        "value": "max 1056px",
+        "weight": 1
+      },
+      {
+        "value": "max 928px",
+        "weight": 1
+      },
+      {
+        "value": "max 480px",
+        "weight": 1
+      },
+      {
+        "value": "min 960px",
+        "weight": 1
+      }
+    ],
+    "zIndexes": [
+      {
+        "value": "9999",
+        "weight": 1
+      }
+    ],
+    "header": {
+      "el": "header#h.main_header",
+      "height": 90,
+      "position": "static",
+      "bg": "#e6e6e6",
+      "backdrop": "none",
+      "shadow": "none"
+    }
+  },
+  "components": {
+    "buttons": [
+      {
+        "value": "bg #06173a · color #ffffff · radius 0px · pad 6px 10px · fs 19.2px · fw 600 · tt uppercase · border 2px #06173a · h 16px",
+        "weight": 5
+      },
+      {
+        "value": "bg #ff0000 · color #ffffff · radius 0px · pad 2.5% 10% · fs 22.4px · fw 700 · tt uppercase · border 0px #ffffff · h 48px",
+        "weight": 1
+      },
+      {
+        "value": "bg #0e96e5 · color #ffffff · radius 3px · pad 15px 30px · fs 19.2px · fw 700 · tt uppercase · border 0px #ffffff · h 62px",
+        "weight": 1
+      },
+      {
+        "value": "bg #008068 · color #ffffff · radius 0px · pad 2.5% 10% · fs 14.4px · fw 700 · tt uppercase · border 1px #008068 · h 41px",
+        "weight": 1
+      },
+      {
+        "value": "bg #ff0000 · color #ffffff · radius 0px · pad 8.26562px 33.0938px · fs 22.4px · fw 700 · tt uppercase · border 0px #ffffff · h 48px",
+        "weight": 1
+      }
+    ],
+    "inputs": [],
+    "inlineLinks": [
+      {
+        "value": "#006699 · none · fw 400",
+        "weight": 621
+      },
+      {
+        "value": "#555555 · none · fw 400",
+        "weight": 346
+      },
+      {
+        "value": "#cccccc · none · fw 300",
+        "weight": 327
+      },
+      {
+        "value": "#cccccc · none · fw 400",
+        "weight": 157
+      }
+    ]
+  },
+  "existingTokens": {},
+  "blockedStylesheets": 1,
+  "stack": {
+    "bootstrap": false,
+    "tailwind": false,
+    "jquery": true,
+    "owlCarousel": true,
+    "swiper": false,
+    "slick": false,
+    "aos": false,
+    "gsap": false,
+    "wordpress": false,
+    "elementor": false,
+    "workcontrol": true,
+    "vue": false,
+    "react": false,
+    "googleFonts": [
+      "https://fonts.googleapis.com/css?family=Open%20Sans:300,400,600,700"
+    ],
+    "generator": null
+  },
+  "a11y": {
+    "imgNoAlt": 0,
+    "buttonsNoName": 0,
+    "inputsNoLabel": 0,
+    "headings": [
+      "h1: ICC SERRA - Banco do Povo",
+      "h2: Acesse nosso simulador, e realize uma simulação de crédito agora mesmo",
+      "h2: DESCUBRA A MODALIDADE DE CRÉDITO IDEAL PARA VOCÊ",
+      "h1: MICROCRÉDITO PRODUTIVO",
+      "h1: MICROCRÉDITO MULHER",
+      "h1: REFORMA E AMPLIAÇÃO",
+      "h1: CRÉDITO AGRÍCOLA",
+      "h1: ÚLTIMAS NOVIDADES DA ICC SERRA!",
+      "h1: QUAIS SÃO AS PRINCIPAIS LINHAS DE CRÉDITO?",
+      "h3: MICROCRÉDITO PRODUTIVO:",
+      "h3: REFORMA & AMPLIACÃO:",
+      "h3: CRÉDITO AGRICOLA:",
+      "h3: TROCA DE CHEQUE:",
+      "h1: ALGUNS DE NOSSOS PARCEIROS",
+      "h1: Torne-se um parceiro ICC SERRA - BANCO DO POVO",
+      "h1: SIGA O ICC SERRA - BANCO DO POVO NO FACEBOOK",
+      "h1: DESCUBRA O QUE É MICROCRÉDITO PRODUTIVO",
+      "h1: QUER SABER MAIS? ENTÃO VEJA TAMBÉM!",
+      "h1: O QUE É MAIS VANTAJOSO CONSTRUIR OU REFORMAR?",
+      "h1: MICROCRÉDITO: FINANCIAMENTO PARA PEQUENOS NEGÓCIOS",
+      "h1: 6 MOTIVOS PARA ADQUIRIR MICROCRÉDITO",
+      "h1: COMO QUALIFICAR O CLIENTE IDEAL",
+      "h1: PASSO A PASSO PARA CRIAR UM PROCESSO DE VENDAS",
+      "h1: EMPREENDEDOR: APRENDA A CRIAR SEU PLANO DE NEGÓCIO",
+      "h1: COMO SE TORNAR UM EMPREENDEDOR DE SUCESSO EM 2019?",
+      "h1: O EMPREENDEDOR COMO AGENTE DE INOVAÇÃO",
+      "h1: E-BOOK METAS",
+      "h1: POSTOS DE ATENDIMENTO BANCO DO POVO\nINSTITUIÇÃO COMUNITÁRIA DE CRÉDITO",
+      "h6: HORÁRIO DE ATENDIMENTO: DE SEGUNDA À SEXTA-FEIRA DAS 9:00H AS 17:00H",
+      "h3: CAXIAS DO SUL",
+      "h3: FLORES DA CUNHA",
+      "h3: FARROUPILHA",
+      "h3: BENTO GONÇALVES",
+      "h3: GARIBALDI",
+      "h3: CARLOS BARBOSA",
+      "h3: COTIPORÃ",
+      "h3: SERAFINA CORRÊA",
+      "h3: GUAPORÉ",
+      "h3: NOVA PRATA",
+      "h3: NOVA ARAÇA"
+    ],
+    "h1": 34,
+    "landmarks": {
+      "header": 13,
+      "main": 1,
+      "aside": 1,
+      "footer": 1
+    },
+    "lowContrast": [
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#ffffff",
+        "bg": "#ffffff",
+        "ratio": 1,
+        "size": "12.25px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#ffffff",
+        "bg": "#ffffff",
+        "ratio": 1,
+        "size": "8.575px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#ffffff",
+        "bg": "#ffffff",
+        "ratio": 1,
+        "size": "8.575px"
+      },
+      {
+        "el": "a",
+        "text": "Fluxo de Caixa apertado? Veja como usar ",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "28px"
+      },
+      {
+        "el": "a",
+        "text": "Banco do Povo inspira Candiota com apoio",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "19.6px"
+      },
+      {
+        "el": "a",
+        "text": "Microcrédito Mulher",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "19.6px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "14px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "14px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "14px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "14px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "14px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "14px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "14px"
+      },
+      {
+        "el": "a.link.icon-eye",
+        "text": "LER MAIS!",
+        "fg": "#cccccc",
+        "bg": "#ffffff",
+        "ratio": 1.61,
+        "size": "14px"
+      },
+      {
+        "el": "b",
+        "text": "Reforma",
+        "fg": "#d12421",
+        "bg": "#84171d",
+        "ratio": 1.88,
+        "size": "22.4px"
+      },
+      {
+        "el": "a.btn_cta_red.icon-map",
+        "text": "Clique para ver o mapa!",
+        "fg": "#006699",
+        "bg": "#f45563",
+        "ratio": 1.88,
+        "size": "19.2px"
+      },
+      {
+        "el": "b",
+        "text": "simulador,",
+        "fg": "#d12421",
+        "bg": "#303030",
+        "ratio": 2.5,
+        "size": "24px"
+      },
+      {
+        "el": "b",
+        "text": "METAS",
+        "fg": "#d12421",
+        "bg": "#303030",
+        "ratio": 2.5,
+        "size": "24px"
+      },
+      {
+        "el": "b",
+        "text": "CONTEÚDO PREMIUM",
+        "fg": "#d12421",
+        "bg": "#303030",
+        "ratio": 2.5,
+        "size": "15.2px"
+      },
+      {
+        "el": "b",
+        "text": "BEM SUCEDIDAS",
+        "fg": "#d12421",
+        "bg": "#303030",
+        "ratio": 2.5,
+        "size": "16px"
+      }
+    ]
+  }
+}

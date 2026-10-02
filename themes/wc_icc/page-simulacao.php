@@ -32,12 +32,10 @@ extract($Read->getResult()[0]);
 
 
                 <div class="clear"></div>
-                <section class="wc_line">
-                    <h1 class="title" style="margin-bottom: -80px;">CONHEÇA NOSSAS LINHAS DE CRÉDITO</h1>
-                    <?php require REQUIRE_PATH . '/inc/linha_microcredito_produtivo.php'; ?>
-                    <?php require REQUIRE_PATH . '/inc/linha_reforma.php'; ?>
-                    <?php require REQUIRE_PATH . '/inc/linha_agricola.php'; ?>
-                </section>
+                <?php
+                    $LinhasEmbutido = true;
+                    require REQUIRE_PATH . '/inc/linhas-comparativo.php';
+                ?>
             </div>
         </div><?php require REQUIRE_PATH . '/inc/sidebar_lines.php'; ?>
         <div class="clear"></div>

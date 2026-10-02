@@ -1,0 +1,34 @@
+/*!
+ * icc-icons v1.1.0 - icones do ICC Serra Banco do Povo
+ *
+ * Dois conjuntos, mesmos nomes:
+ *   SOLIDO (fonte)  .icc-icon-limite      cards de condicoes, numeros grandes
+ *   LINHA  (sprite) #icc-i-limite         interface: menus, botoes, listas
+ *
+ * Solido:  <i class="icc-icon-limite" aria-hidden="true"></i>
+ * Linha:   <svg class="icc-ic"><use href="#icc-i-limite"/></svg>
+ *          (exige o partial inc/icc-icons-sprite.php incluido na pagina)
+ *
+ * O prefixo e `icc-icon-`/`icc-ic` para nao colidir com o icomoon do core
+ * (`_cdn/bootcss/fonticon.min.css`), que usa `.icon-`.
+ */
+
+@font-face{font-family:"icc-icons";src:url(../fonts/icc-icons.woff2) format("woff2"),url(../fonts/icc-icons.woff) format("woff"),url(../fonts/icc-icons.ttf) format("truetype");font-weight:normal;font-style:normal;font-display:block}
+
+[class^="icc-icon-"],[class*=" icc-icon-"]{font-family:"icc-icons"!important;speak:never;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;display:inline-block;vertical-align:middle;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+.icc-icon-lg{font-size:1.5em}.icc-icon-2x{font-size:2em}.icc-icon-3x{font-size:3em}.icc-icon-4x{font-size:4em}
+
+.icc-ic{width:1.5rem;height:1.5rem;display:inline-block;vertical-align:middle;flex:none}.icc-ic-sm{width:1rem;height:1rem}.icc-ic-lg{width:2rem;height:2rem}.icc-ic-2x{width:3rem;height:3rem}.icc-ic-3x{width:4rem;height:4rem}.icc-ic-4x{width:5rem;height:5rem}
+
+/* glifos */
+.icc-icon-coin:before, .icc-icon-limite:before { content: "\e900"; }  /* Limite / valor */
+.icc-icon-calendar:before, .icc-icon-prazo:before { content: "\e901"; }  /* Prazos */
+.icc-icon-calculator:before, .icc-icon-taxa:before { content: "\e902"; }  /* Taxa de juros */
+.icc-icon-user-tie:before, .icc-icon-avalista:before { content: "\e903"; }  /* Avalista */
+.icc-icon-tags:before, .icc-icon-tac:before { content: "\e904"; }  /* TAC / taxa de abertura */
+.icc-icon-pie-chart:before, .icc-icon-renda:before { content: "\e905"; }  /* Comprometimento de renda */
+.icc-icon-facebook:before { content: "\e906"; }  /* Facebook */
+.icc-icon-linkedin:before { content: "\e907"; }  /* LinkedIn */
+.icc-icon-x-twitter:before, .icc-icon-x:before { content: "\e908"; }  /* X (Twitter) */
+.icc-icon-whatsapp:before { content: "\e909"; }  /* WhatsApp */

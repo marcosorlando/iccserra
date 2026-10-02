@@ -107,7 +107,7 @@
 	<div class="capcha">
 		<span>Realize a Soma * antes de enviar sua Mensagem</span>
 		<input type="text" name="senderHuman" id="senderHuman" class="input-md input-rounded form-control"
-		       placeholder="" required tabindex="11">
+		       placeholder="" required>
 		<input type="hidden" name="checkHuman_a" id="checkHuman_a">
 		<input type="hidden" name="checkHuman_b" id="checkHuman_b">
 	</div>

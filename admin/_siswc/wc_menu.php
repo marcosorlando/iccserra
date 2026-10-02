@@ -74,148 +74,35 @@
 		</li>
         <?php
     }
-    if (APP_DOCUMENTS && $Admin['user_level'] >= LEVEL_WC_DOCUMENTS) {
-        $docs_alerts = null;
-        $Read->FullRead('SELECT count(doc_id) as total FROM ' . DB_DOCUMENTS . ' WHERE doc_status = 1');
-        if ($Read->getResult() && $Read->getResult()[0]['total'] >= 1) {
-            $docs_alerts .= "<span class='wc_alert bar_yellow'>{$Read->getResult()[0]['total']}</span>";
-        }
-        ?>
-		<li class="dashboard_nav_menu_li <?= strstr(
-            $getViewInput,
-            'documents/'
-        ) ? 'dashboard_nav_menu_active' : ''; ?>">
-			<a class="icon-file-pdf" title="Documentos"
-			   href="dashboard.php?wc=documents/home">Documentos <?= $docs_alerts; ?></a>
-			<ul class="dashboard_nav_menu_sub">
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'documents/home' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Ver Documentos" href="dashboard.php?wc=documents/home">&raquo; Ver
-						Documento</a>
-				</li>
-				<li class="dashboard_nav_menu_sub_li <?= strstr(
-                    $getViewInput,
-                    'documents/categories'
-                ) ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Categorias" href="dashboard.php?wc=documents/categories">&raquo; Categorias</a>
-				</li>
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'documents/create' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Novo Documento" href="dashboard.php?wc=documents/create">&raquo; Novo Documento</a>
-				</li>
-			</ul>
-		</li>
-        <?php
-    }
-
-    if (APP_SERVICES_STATIONS && $Admin['user_level'] >= LEVEL_WC_SERVICES_STATIONS) {
-        $wc_services_stations = null;
-        $Read->FullRead('SELECT count(id) as total FROM ' . DB_SERVICES_STATIONS . ' WHERE status != 1');
-        if ($Read->getResult() && $Read->getResult()[0]['total'] >= 1) {
-            $wc_services_stations .= "<span class='wc_alert bar_yellow'>{$Read->getResult()[0]['total']}</span>";
-        }
-        ?>
-		<li class="dashboard_nav_menu_li <?= strstr($getViewInput, 'postos/') ? 'dashboard_nav_menu_active' : ''; ?>">
-			<a class="icon-location" title="Postos de Atendimento" href="dashboard.php?wc=postos/home">Postos de
-				Atendimento <?= $wc_services_stations; ?></a>
-			<ul class="dashboard_nav_menu_sub">
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'postos/create' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Novo Posto" href="dashboard.php?wc=postos/create">&raquo; Novo Posto</a>
-				</li>
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'postos/home' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Ver Postos" href="dashboard.php?wc=postos/home">&raquo; Ver Postos</a>
-				</li>
-			</ul>
-		</li>
-        <?php
-    }
-
-    if (APP_CTAS && $Admin['user_level'] >= LEVEL_WC_CTAS) {
-        ?>
-		<li class="dashboard_nav_menu_li <?= strstr($getViewInput, 'ctas/home') ? 'dashboard_nav_menu_active' : ''; ?>">
-			<a class="icon-download" href="dashboard.php?wc=ctas/home">Call to actions</a>
-
-			<ul class="dashboard_nav_menu_sub">
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'ctas/create' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a href="dashboard.php?wc=ctas/create">&raquo; Novo CTA</a>
-				</li>
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'ctas/home' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a href="dashboard.php?wc=ctas/home">&raquo; Call to actions </a>
-				</li>
-			</ul>
-		</li>
-        <?php
-    }
-    if (APP_DOCUMENTS && $Admin['user_level'] >= LEVEL_WC_DOCUMENTS) {
-        $docs_alerts = null;
-        $Read->FullRead('SELECT count(doc_id) as total FROM ' . DB_DOCUMENTS . ' WHERE doc_status = 1');
-        if ($Read->getResult() && $Read->getResult()[0]['total'] >= 1) {
-            $docs_alerts .= "<span class='wc_alert bar_yellow'>{$Read->getResult()[0]['total']}</span>";
-        }
-        ?>
-		<li class="dashboard_nav_menu_li <?= strstr(
-            $getViewInput,
-            'documents/'
-        ) ? 'dashboard_nav_menu_active' : ''; ?>">
-			<a class="icon-file-pdf" title="Documentos"
-			   href="dashboard.php?wc=documents/home">Documentos <?= $docs_alerts; ?></a>
-			<ul class="dashboard_nav_menu_sub">
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'documents/home' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Ver Documentos" href="dashboard.php?wc=documents/home">&raquo; Ver
-						Documento</a>
-				</li>
-				<li class="dashboard_nav_menu_sub_li <?= strstr(
-                    $getViewInput,
-                    'documents/categories'
-                ) ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Categorias" href="dashboard.php?wc=documents/categories">&raquo; Categorias</a>
-				</li>
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'documents/create' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Novo Documento" href="dashboard.php?wc=documents/create">&raquo; Novo Documento</a>
-				</li>
-			</ul>
-		</li>
-        <?php
-    }
-
-    if (APP_SERVICES_STATIONS && $Admin['user_level'] >= LEVEL_WC_SERVICES_STATIONS) {
-        $wc_services_stations = null;
-        $Read->FullRead('SELECT count(id) as total FROM ' . DB_SERVICES_STATIONS . ' WHERE status != 1');
-        if ($Read->getResult() && $Read->getResult()[0]['total'] >= 1) {
-            $wc_services_stations .= "<span class='wc_alert bar_yellow'>{$Read->getResult()[0]['total']}</span>";
-        }
-        ?>
-		<li class="dashboard_nav_menu_li <?= strstr($getViewInput, 'postos/') ? 'dashboard_nav_menu_active' : ''; ?>">
-			<a class="icon-location" title="Postos de Atendimento" href="dashboard.php?wc=postos/home">Postos de
-				Atendimento <?= $wc_services_stations; ?></a>
-			<ul class="dashboard_nav_menu_sub">
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'postos/create' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Novo Posto" href="dashboard.php?wc=postos/create">&raquo; Novo Posto</a>
-				</li>
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'postos/home' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a title="Ver Postos" href="dashboard.php?wc=postos/home">&raquo; Ver Postos</a>
-				</li>
-			</ul>
-		</li>
-        <?php
-    }
-
-    if (APP_CTAS && $Admin['user_level'] >= LEVEL_WC_CTAS) {
-        ?>
-		<li class="dashboard_nav_menu_li <?= strstr($getViewInput, 'ctas/home') ? 'dashboard_nav_menu_active' : ''; ?>">
-			<a class="icon-download" href="dashboard.php?wc=ctas/home">Call to actions</a>
-
-			<ul class="dashboard_nav_menu_sub">
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'ctas/create' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a href="dashboard.php?wc=ctas/create">&raquo; Novo CTA</a>
-				</li>
-				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'ctas/home' ? 'dashboard_nav_menu_active' : ''; ?>">
-					<a href="dashboard.php?wc=ctas/home">&raquo; Call to actions </a>
-				</li>
-			</ul>
-		</li>
-        <?php
-    }
 
     /*IMPORTADOS 👆🏻*/
+
+    if (APP_CRM && $Admin['user_level'] >= LEVEL_WC_CRM) {
+        $wc_crm_alerts = null;
+        $Read->fullRead(
+            'SELECT count(c.client_id) as total FROM ' . DB_CRM_CLIENTS . ' c'
+            . ' WHERE c.client_status = 1 AND c.stage_id = (SELECT stage_id FROM ' . DB_CRM_STAGES . ' ORDER BY stage_order ASC, stage_id ASC LIMIT 1)'
+        );
+        if ($Read->getResult() && $Read->getResult()[0]['total'] >= 1) {
+            $wc_crm_alerts .= "<span class='wc_alert bar_yellow'>{$Read->getResult()[0]['total']}</span>";
+        }
+        ?>
+		<li class="dashboard_nav_menu_li <?= strstr((string)$getViewInput, 'crm/') ? 'dashboard_nav_menu_active' : ''; ?>">
+			<a class="icon-filter" title="CRM do Simulador" href="dashboard.php?wc=crm/home">CRM Simulador <?= $wc_crm_alerts; ?></a>
+			<ul class="dashboard_nav_menu_sub">
+				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'crm/home' || $getViewInput == 'crm/cliente' ? 'dashboard_nav_menu_active' : ''; ?>">
+					<a title="Funil de atendimento" href="dashboard.php?wc=crm/home">&raquo; Funil</a>
+				</li>
+				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'crm/etapas' ? 'dashboard_nav_menu_active' : ''; ?>">
+					<a title="Etapas do funil" href="dashboard.php?wc=crm/etapas">&raquo; Etapas</a>
+				</li>
+				<li class="dashboard_nav_menu_sub_li <?= $getViewInput == 'crm/mensagens' ? 'dashboard_nav_menu_active' : ''; ?>">
+					<a title="Mensagens pré-definidas" href="dashboard.php?wc=crm/mensagens">&raquo; Mensagens</a>
+				</li>
+			</ul>
+		</li>
+        <?php
+    }
 
     if (APP_CV && $Admin['user_level'] >= LEVEL_WC_CV) {
         ?>

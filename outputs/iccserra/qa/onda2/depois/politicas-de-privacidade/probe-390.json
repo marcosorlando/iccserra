@@ -1,0 +1,721 @@
+{
+  "url": "https://localhost/iccserra/politicas-de-privacidade",
+  "title": "Políticas de Privacidade - ICC SERRA",
+  "lang": "pt-br",
+  "viewport": {
+    "width": 390,
+    "height": 900
+  },
+  "scannedElements": 444,
+  "overflowX": false,
+  "pageHeight": 9817,
+  "meta": {
+    "description": "A Política de Privacidade da ICC SERRA - BANCO DO POVO foi formulada com o intuito de manter a privacidade e a segurança das informações coletadas de nossos clientes e usuários",
+    "themeColor": null,
+    "viewportMeta": "width=device-width,initial-scale=1",
+    "favicon": "https://localhost/iccserra/themes/wc_icc/images/favicon.png",
+    "colorScheme": "light"
+  },
+  "colors": {
+    "background": [
+      {
+        "value": "#ffffff",
+        "weight": 1712.1
+      },
+      {
+        "value": "#152024",
+        "weight": 569.9
+      },
+      {
+        "value": "#eeeeee",
+        "weight": 351
+      },
+      {
+        "value": "#f4f4f1",
+        "weight": 351
+      },
+      {
+        "value": "#e6e6e6",
+        "weight": 351
+      },
+      {
+        "value": "#d12421",
+        "weight": 59.5
+      },
+      {
+        "value": "#fc0000",
+        "weight": 37.7
+      },
+      {
+        "value": "#303030",
+        "weight": 30.8
+      },
+      {
+        "value": "#008068",
+        "weight": 3.1
+      },
+      {
+        "value": "#06173a",
+        "weight": 1.9
+      }
+    ],
+    "text": [
+      {
+        "value": "#666666",
+        "weight": 1412
+      },
+      {
+        "value": "#555555",
+        "weight": 1027
+      },
+      {
+        "value": "#006699",
+        "weight": 645
+      },
+      {
+        "value": "#b81f1c",
+        "weight": 426
+      },
+      {
+        "value": "#cccccc",
+        "weight": 409
+      },
+      {
+        "value": "#152024",
+        "weight": 196
+      },
+      {
+        "value": "#ffffff",
+        "weight": 166
+      },
+      {
+        "value": "#000000",
+        "weight": 62
+      },
+      {
+        "value": "#ff8a85",
+        "weight": 59
+      },
+      {
+        "value": "#333333",
+        "weight": 55
+      }
+    ],
+    "border": [
+      {
+        "value": "#0000001a",
+        "weight": 832.5
+      },
+      {
+        "value": "#ffffff29",
+        "weight": 364.1
+      },
+      {
+        "value": "#d12421",
+        "weight": 78
+      },
+      {
+        "value": "#333333",
+        "weight": 35.1
+      },
+      {
+        "value": "#06173a",
+        "weight": 12
+      },
+      {
+        "value": "#00000047",
+        "weight": 4.4
+      }
+    ],
+    "gradients": [
+      {
+        "value": "radial-gradient(circle at 100% 50%, rgba(209, 36, 33, 0.14), rgba(0, 0, 0, 0) 60%), none",
+        "weight": 218.9
+      }
+    ]
+  },
+  "typography": {
+    "families": [
+      {
+        "value": "Open Sans",
+        "weight": 4447
+      },
+      {
+        "value": "Archivo Black",
+        "weight": 45
+      }
+    ],
+    "sizes": [
+      {
+        "value": "16px",
+        "weight": 1872
+      },
+      {
+        "value": "16.8px",
+        "weight": 1398
+      },
+      {
+        "value": "22.4px",
+        "weight": 378
+      },
+      {
+        "value": "18.72px",
+        "weight": 271
+      },
+      {
+        "value": "19.2px",
+        "weight": 118
+      },
+      {
+        "value": "12.8px",
+        "weight": 117
+      },
+      {
+        "value": "15.2px",
+        "weight": 98
+      },
+      {
+        "value": "15.52px",
+        "weight": 67
+      },
+      {
+        "value": "14.56px",
+        "weight": 55
+      },
+      {
+        "value": "8.4px",
+        "weight": 47
+      },
+      {
+        "value": "12px",
+        "weight": 35
+      },
+      {
+        "value": "32px",
+        "weight": 25
+      },
+      {
+        "value": "24px",
+        "weight": 11
+      }
+    ],
+    "weights": [
+      {
+        "value": "300",
+        "weight": 1812
+      },
+      {
+        "value": "400",
+        "weight": 1694
+      },
+      {
+        "value": "700",
+        "weight": 912
+      },
+      {
+        "value": "800",
+        "weight": 40
+      },
+      {
+        "value": "900",
+        "weight": 25
+      },
+      {
+        "value": "600",
+        "weight": 9
+      }
+    ],
+    "lineHeights": [
+      {
+        "value": "normal",
+        "weight": 2769
+      },
+      {
+        "value": "1.65",
+        "weight": 1398
+      },
+      {
+        "value": "1.50",
+        "weight": 148
+      },
+      {
+        "value": "1.15",
+        "weight": 89
+      },
+      {
+        "value": "1.20",
+        "weight": 88
+      }
+    ],
+    "letterSpacings": [
+      {
+        "value": "0.040em",
+        "weight": 1398
+      },
+      {
+        "value": "0.060em",
+        "weight": 155
+      },
+      {
+        "value": "-0.020em",
+        "weight": 45
+      }
+    ],
+    "byTag": {
+      "a": [
+        {
+          "value": "Open Sans | 16px | 400 | normal | normal | none",
+          "weight": 621
+        },
+        {
+          "value": "Open Sans | 22.4px | 300 | normal | normal | none",
+          "weight": 327
+        },
+        {
+          "value": "Open Sans | 14.56px | 400 | 1.15 | normal | none",
+          "weight": 55
+        }
+      ],
+      "h1": [
+        {
+          "value": "Open Sans | 19.2px | 700 | normal | normal | none",
+          "weight": 48
+        },
+        {
+          "value": "Open Sans | 32px | 700 | normal | normal | none",
+          "weight": 25
+        }
+      ],
+      "p": [
+        {
+          "value": "Open Sans | 16.8px | 300 | 1.65 | 0.672px | none",
+          "weight": 1374
+        },
+        {
+          "value": "Open Sans | 16px | 400 | 1.50 | normal | none",
+          "weight": 148
+        },
+        {
+          "value": "Open Sans | 15.2px | 400 | normal | normal | none",
+          "weight": 82
+        }
+      ],
+      "h4": [
+        {
+          "value": "Open Sans | 12.8px | 300 | normal | normal | none",
+          "weight": 14
+        }
+      ],
+      "h2": [
+        {
+          "value": "Open Sans | 19.2px | 700 | normal | normal | uppercase",
+          "weight": 21
+        },
+        {
+          "value": "Archivo Black | 24px | 400 | normal | -0.48px | none",
+          "weight": 6
+        }
+      ],
+      "h3": [
+        {
+          "value": "Open Sans | 18.72px | 700 | normal | normal | none",
+          "weight": 271
+        }
+      ]
+    },
+    "fontFaces": [
+      "icomoon 400",
+      "icc-icons 400"
+    ],
+    "loadedFonts": [
+      "Open Sans 300 normal",
+      "Open Sans 400 normal",
+      "Open Sans 600 normal",
+      "Open Sans 700 normal",
+      "Archivo Black 400 normal",
+      "icomoon 400 normal",
+      "icc-icons 400 normal"
+    ]
+  },
+  "spacing": {
+    "values": [
+      {
+        "value": "12px",
+        "weight": 152
+      },
+      {
+        "value": "10px",
+        "weight": 107
+      },
+      {
+        "value": "15px",
+        "weight": 85
+      },
+      {
+        "value": "20px",
+        "weight": 73
+      },
+      {
+        "value": "8px",
+        "weight": 23
+      },
+      {
+        "value": "6px",
+        "weight": 10
+      },
+      {
+        "value": "30px",
+        "weight": 7
+      },
+      {
+        "value": "50px",
+        "weight": 3
+      },
+      {
+        "value": "40px",
+        "weight": 3
+      },
+      {
+        "value": "16px",
+        "weight": 2
+      },
+      {
+        "value": "5px",
+        "weight": 2
+      },
+      {
+        "value": "8.26562px",
+        "weight": 2
+      },
+      {
+        "value": "33.0938px",
+        "weight": 2
+      },
+      {
+        "value": "25px",
+        "weight": 2
+      },
+      {
+        "value": "24px",
+        "weight": 1
+      },
+      {
+        "value": "88px",
+        "weight": 1
+      }
+    ],
+    "gaps": [
+      {
+        "value": "9.6px",
+        "weight": 18
+      }
+    ]
+  },
+  "shape": {
+    "radii": [
+      {
+        "value": "4px",
+        "weight": 39
+      },
+      {
+        "value": "999px",
+        "weight": 6
+      }
+    ],
+    "shadows": [
+      {
+        "value": "rgba(0, 0, 0, 0.2) 0px 0px 5px 1px inset",
+        "weight": 8
+      },
+      {
+        "value": "rgba(209, 36, 33, 0.22) 0px 0px 38.4px 0px",
+        "weight": 2
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.1) 0px 1px 0px 0px",
+        "weight": 1
+      },
+      {
+        "value": "rgba(0, 0, 0, 0.3) 0px 2px 6px 0px, rgba(0, 0, 0, 0.2) 0px 6px 16px 0px",
+        "weight": 1
+      }
+    ]
+  },
+  "motion": {
+    "durations": [
+      {
+        "value": "0.3s",
+        "weight": 28
+      },
+      {
+        "value": "0.15s",
+        "weight": 24
+      }
+    ],
+    "easings": [
+      {
+        "value": "cubic-bezier(0.16",
+        "weight": 28
+      },
+      {
+        "value": "linear",
+        "weight": 24
+      }
+    ]
+  },
+  "layout": {
+    "containers": [],
+    "breakpoints": [
+      {
+        "value": "max 768px",
+        "weight": 4
+      },
+      {
+        "value": "max 544px",
+        "weight": 2
+      },
+      {
+        "value": "max 1280px",
+        "weight": 2
+      },
+      {
+        "value": "min 544px",
+        "weight": 1
+      },
+      {
+        "value": "min 768px",
+        "weight": 1
+      },
+      {
+        "value": "max 1024px",
+        "weight": 1
+      },
+      {
+        "value": "max 960px",
+        "weight": 1
+      },
+      {
+        "value": "min 1024px",
+        "weight": 1
+      },
+      {
+        "value": "max 1056px",
+        "weight": 1
+      },
+      {
+        "value": "max 928px",
+        "weight": 1
+      },
+      {
+        "value": "max 375px",
+        "weight": 1
+      }
+    ],
+    "zIndexes": [
+      {
+        "value": "97",
+        "weight": 1
+      },
+      {
+        "value": "1000",
+        "weight": 1
+      },
+      {
+        "value": "9999",
+        "weight": 1
+      }
+    ],
+    "header": {
+      "el": "header#h.main_header",
+      "height": 96,
+      "position": "static",
+      "bg": "#ffffff",
+      "backdrop": "none",
+      "shadow": "rgba(0, 0, 0, 0.1) 0px 1px 0px 0px"
+    }
+  },
+  "components": {
+    "buttons": [
+      {
+        "value": "bg #06173a · color #ffffff · radius 0px · pad 6px 10px · fs 19.2px · fw 600 · tt uppercase · border 2px #06173a · h 16px",
+        "weight": 5
+      },
+      {
+        "value": "bg #00000000 · color #152024 · radius 4px · pad 5px 10px · fs 19.2px · fw 400 · tt none · border 1px #00000047 · h 44px",
+        "weight": 1
+      },
+      {
+        "value": "bg #d12421 · color #ffffff · radius 4px · pad 8.26562px 33.0938px · fs 22.4px · fw 800 · tt uppercase · border 1px #00000000 · h 72px",
+        "weight": 1
+      }
+    ],
+    "inputs": [],
+    "inlineLinks": [
+      {
+        "value": "#006699 · none · fw 400",
+        "weight": 621
+      },
+      {
+        "value": "#cccccc · none · fw 300",
+        "weight": 327
+      },
+      {
+        "value": "#ffffff · none · fw 700",
+        "weight": 48
+      },
+      {
+        "value": "#152024 · none · fw 300",
+        "weight": 47
+      }
+    ]
+  },
+  "existingTokens": {},
+  "blockedStylesheets": 2,
+  "stack": {
+    "bootstrap": false,
+    "tailwind": false,
+    "jquery": true,
+    "owlCarousel": false,
+    "swiper": false,
+    "slick": false,
+    "aos": false,
+    "gsap": false,
+    "wordpress": false,
+    "elementor": false,
+    "workcontrol": true,
+    "vue": false,
+    "react": false,
+    "googleFonts": [
+      "https://fonts.googleapis.com/css?family=Open%20Sans:300,400,600,700",
+      "https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap"
+    ],
+    "generator": null
+  },
+  "a11y": {
+    "imgNoAlt": 0,
+    "buttonsNoName": 0,
+    "inputsNoLabel": 0,
+    "headings": [
+      "h1: ICC SERRA - Banco do Povo",
+      "h1: Políticas de Privacidade",
+      "h1: POLÍTICA DE PRIVACIDADE:",
+      "h4: ICC SERRA BANCO DO POVO.",
+      "h2: E-BOOK METAS",
+      "h2: Postos de Atendimento BANCO DO POVO\nInstituição Comunitária de Crédito",
+      "h3: CAXIAS DO SUL",
+      "h3: FLORES DA CUNHA",
+      "h3: FARROUPILHA",
+      "h3: BENTO GONÇALVES",
+      "h3: GARIBALDI",
+      "h3: CARLOS BARBOSA",
+      "h3: COTIPORÃ",
+      "h3: SERAFINA CORRÊA",
+      "h3: GUAPORÉ",
+      "h3: NOVA PRATA",
+      "h3: NOVA ARAÇA",
+      "h3: VERANÓPOLIS",
+      "h3: IBIRUBÁ E REGIÃO",
+      "h3: LAJEADO",
+      "h3: ESTRELA",
+      "h3: VALE DO TAQUARI",
+      "h3: CANDIOTA",
+      "h3: CHARQUEADAS",
+      "h3: SAPIRANGA",
+      "h3: CRUZEIRO DO SUL",
+      "h3: SÃO JERÔNIMO",
+      "h3: NOVA PETRÓPOLIS",
+      "h3: FELIZ",
+      "h3: GRAMADO",
+      "h3: CANELA",
+      "h2: ÚLTIMAS DO SITE!",
+      "h3: Fluxo de Caixa apertado? Veja como usar Capital de Giro com segurança",
+      "h3: Banco do Povo inspira Candiota com apoio real ao pequeno empreendedor",
+      "h3: Microcrédito Mulher",
+      "h3: O QUE É MAIS VANTAJOSO CONSTRUIR OU REFORMAR?",
+      "h2: MAIS ACESSADOS!",
+      "h3: Microcrédito Produtivo",
+      "h3: A importância do microcrédito para o desenvolvimento econômico e socia",
+      "h3: Troca de cheques"
+    ],
+    "h1": 3,
+    "landmarks": {
+      "header": 2,
+      "main": 1,
+      "footer": 1
+    },
+    "lowContrast": [
+      {
+        "el": "p.site_title",
+        "text": "Banco do Povo",
+        "fg": "#000000",
+        "bg": "#152024",
+        "ratio": 1.26,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      },
+      {
+        "el": "a.btn_docs",
+        "text": "BAIXAR",
+        "fg": "#ffffff",
+        "bg": "#fc0000",
+        "ratio": 4.09,
+        "size": "16px"
+      }
+    ]
+  }
+}

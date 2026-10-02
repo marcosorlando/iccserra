@@ -282,6 +282,7 @@
                 /*@TODO MÓDULOS PARA MIGRAR*/
                 'APP_DOCUMENTS' => 1,
                 'APP_SERVICES_STATIONS' => 1,
+                'APP_CRM' => 1,
                 'APP_DEBUG' => self::env('APP_DEBUG'),
             ];
 
@@ -295,6 +296,7 @@
                 'LEVEL_WC_CTAS' => 6,
                 'LEVEL_WC_DOCUMENTS' => 6,
                 'LEVEL_WC_SERVICES_STATIONS' => 6,
+                'LEVEL_WC_CRM' => 6,
 
                 'LEVEL_WC_POSTS' => 6,
                 'LEVEL_WC_COMMENTS' => 6,
@@ -436,6 +438,12 @@
                 'DB_DOCS_CATEGORIES' => 'ws_docs_categories',
                 'DB_DOCUMENTS' => 'ws_docs',
                 'DB_SERVICES_STATIONS' => 'ws_services_stations',
+                /*CRM DO SIMULADOR*/
+                'DB_CRM_STAGES' => 'ws_crm_stages',
+                'DB_CRM_CLIENTS' => 'ws_crm_clients',
+                'DB_CRM_SIMULATIONS' => 'ws_crm_simulations',
+                'DB_CRM_HISTORY' => 'ws_crm_history',
+                'DB_CRM_TEMPLATES' => 'ws_crm_templates',
             ];
 
             self::defineConstants(self::withEnvOverrides($tables));

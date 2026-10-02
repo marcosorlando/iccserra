@@ -1,0 +1,168 @@
+/*
+ * WC SLIDE · carrossel de destaque em tela cheia.
+ * A troca é um cross-fade feito em CSS (classe .is-current); aqui ficam só o
+ * relógio, os controles e o estado. Requer jQuery.
+ *
+ * Acessibilidade: pausa no hover/foco, botão pausar (WCAG 2.2.2), setas,
+ * paginação, arraste no toque, slides fora de cena inertes e sem autoplay
+ * quando o usuário prefere movimento reduzido.
+ */
+$(function () {
+    $('.wc_slides').each(function () {
+        var Slider = $(this);
+        var Items = Slider.find('.wc_slide_item');
+        var Dots = Slider.find('.wc_slide_pager button');
+        var Toggle = Slider.find('.wc_slide_toggle');
+        var Progress = Slider.find('.wc_slide_progress');
+        var Seconds = parseInt(Slider.data('seconds'), 10) || 5;
+        var ReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var Timer = null;
+        var Current = 0;
+        var PausedByUser = ReducedMotion;
+        var Hover = false;
+
+        if (Items.length < 2) {
+            marcaInerte();
+            return;
+        }
+
+        Slider.css('--slide-duration', Seconds + 's');
+
+        //Slides fora de cena não recebem foco nem leitura.
+        function marcaInerte() {
+            Items.each(function (index) {
+                var Fora = index !== Current;
+                if ('inert' in this) {
+                    this.inert = Fora;
+                } else {
+                    $(this).find('a, button').attr('tabindex', Fora ? '-1' : null);
+                }
+                $(this).attr('aria-hidden', Fora ? 'true' : null);
+            });
+        }
+
+        function reiniciaProgresso() {
+            if (!Progress.length) {
+                return;
+            }
+            Progress.removeClass('is-running');
+            void Progress[0].offsetWidth; // força o reinício da animação
+            if (!PausedByUser && !Hover) {
+                Progress.addClass('is-running');
+            }
+        }
+
+        function show(index) {
+            if (index === Current) {
+                return;
+            }
+
+            Items.eq(Current).removeClass('is-current');
+            Current = (index + Items.length) % Items.length;
+            Items.eq(Current).addClass('is-current');
+
+            Dots.removeClass('active').removeAttr('aria-current');
+            Dots.eq(Current).addClass('active').attr('aria-current', 'true');
+
+            marcaInerte();
+            reiniciaProgresso();
+        }
+
+        function next() {
+            show(Current + 1);
+        }
+
+        function stop() {
+            clearInterval(Timer);
+            Timer = null;
+            if (Progress.length) {
+                Progress.removeClass('is-running');
+            }
+        }
+
+        function start() {
+            clearInterval(Timer);
+            Timer = null;
+            if (!PausedByUser && !Hover) {
+                Timer = setInterval(next, Seconds * 1000);
+                reiniciaProgresso();
+            }
+        }
+
+        function syncToggle() {
+            Toggle.attr({
+                'aria-pressed': PausedByUser ? 'true' : 'false',
+                'aria-label': PausedByUser ? 'Reproduzir destaques' : 'Pausar destaques'
+            });
+            Slider.toggleClass('is-paused', PausedByUser);
+        }
+
+        Dots.on('click', function () {
+            show(Dots.index(this));
+            start();
+        });
+
+        Slider.find('.wc_slide_prev').on('click', function () {
+            show(Current - 1);
+            start();
+        });
+
+        Slider.find('.wc_slide_next').on('click', function () {
+            show(Current + 1);
+            start();
+        });
+
+        Toggle.on('click', function () {
+            PausedByUser = !PausedByUser;
+            syncToggle();
+            if (PausedByUser) {
+                stop();
+            } else {
+                start();
+            }
+        });
+
+        Slider.on('mouseenter focusin', function () {
+            Hover = true;
+            stop();
+        }).on('mouseleave focusout', function (e) {
+            if (e.type === 'focusout' && Slider[0].contains(e.relatedTarget)) {
+                return;
+            }
+            Hover = false;
+            start();
+        });
+
+        //Arraste horizontal no toque
+        var TouchX = null;
+        Slider.on('touchstart', function (e) {
+            TouchX = e.originalEvent.touches[0].clientX;
+        }).on('touchend', function (e) {
+            if (null === TouchX) {
+                return;
+            }
+            var Delta = e.originalEvent.changedTouches[0].clientX - TouchX;
+            TouchX = null;
+            if (Math.abs(Delta) < 40) {
+                return;
+            }
+            show(Current + (Delta < 0 ? 1 : -1));
+            start();
+        });
+
+        //Setas do teclado quando o foco está no carrossel
+        Slider.on('keydown', function (e) {
+            if ('ArrowLeft' === e.key) {
+                show(Current - 1);
+                start();
+            } else if ('ArrowRight' === e.key) {
+                show(Current + 1);
+                start();
+            }
+        });
+
+        marcaInerte();
+        syncToggle();
+        start();
+    });
+});

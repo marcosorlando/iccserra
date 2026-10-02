@@ -1,331 +1,460 @@
-/* CAROUSEL */
-.carousel {
+/*
+ * WC SLIDE · carrossel de destaque em tela cheia.
+ * Usa os tokens do tema quando existem (themes/<tema>/css/tokens.css), com fallback
+ * para quem usar o widget fora do tema ICC.
+ */
+.wc_slides {
+    position: relative;
+    display: block;
+    width: 100%;
     overflow: hidden;
+    background: var(--icc-ink-900, #152024);
+    isolation: isolate;
 }
 
-.carousel .content {
+.wc_slide_track {
+    position: relative;
+    display: grid;
+    /* todos os slides no mesmo lugar da grade: a troca é um cross-fade */
+    grid-template-areas: "slide";
+    /* `width: 100%` é obrigatório: com `aspect-ratio` e `max-height` juntos e a
+       largura automática, o navegador reduz a LARGURA para respeitar a altura —
+       acima de ~1500px o slide encolhia e ficava encostado à esquerda. */
     width: 100%;
+    aspect-ratio: 1920 / 900;
+    max-height: min(88svh, 56rem);
+    min-height: 16rem;
+}
+
+.wc_slide_item {
+    position: relative;
+    grid-area: slide;
+    display: block;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 700ms var(--ease-apple, cubic-bezier(0.16, 1, 0.3, 1)), visibility 0s linear 700ms;
+}
+
+.wc_slide_item.is-current {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 700ms var(--ease-apple, cubic-bezier(0.16, 1, 0.3, 1)), visibility 0s;
+}
+
+.wc_slide_link,
+.wc_slide_media {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.wc_slide_media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* véu escuro da esquerda para a direita: o texto sempre cai na parte cheia */
+.wc_slide_scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+        rgba(21, 32, 36, 0.92) 0%,
+        rgba(21, 32, 36, 0.78) 34%,
+        rgba(21, 32, 36, 0.48) 66%,
+        rgba(21, 32, 36, 0.38) 100%);
+    pointer-events: none;
+}
+
+/* Fios em espiral (decoração da referência). A arte vem do tema por
+   `--slide-shape`; sem ela a camada simplesmente não aparece. */
+.wc_slide_wave {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: clamp(0px, 8vw, 200px);
+    width: 616px;
+    max-width: 46%;
+    height: 100%;
+    background-image: var(--slide-shape, none);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .wc_slide_wave {
+        animation: wc-shape-spin 15s linear infinite;
+    }
+}
+
+/* Giro no eixo Y, como o `service_hexagon_2` da referência (css/animate.css). */
+@keyframes wc-shape-spin {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.wc_slide_content {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    padding: var(--space-5, 24px) var(--gutter, 1.5rem);
+}
+
+.wc_slide_inner {
+    width: min(100%, var(--container, 74rem));
+    margin: 0 auto;
     max-width: 100%;
 }
 
-.carousel:hover .owl-theme .owl-nav .owl-prev {
-    left: 0;
+.wc_slide_title,
+.wc_slide_headline,
+.wc_slide_text,
+.wc_slide_cta {
+    max-width: 34rem;
 }
 
-.carousel:hover .owl-theme .owl-nav .owl-next {
-    right: 0;
+.wc_slide_title {
+    margin: 0 0 var(--space-3, 12px);
+    color: var(--color-text-on-dark, #ffffff);
+    font-family: var(--font-display, sans-serif);
+    font-weight: 400;
+    font-synthesis: none;
+    font-size: clamp(1.5rem, 4vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-h1, -0.025em);
+    text-wrap: balance;
 }
 
-.carousel .owl-theme .owl-nav {
-    width: 100%;
+.wc_slide_title b {
+    color: var(--color-highlight-display-on-dark, #dd302d);
+    font-weight: inherit;
+}
+
+.wc_slide_headline {
+    margin: 0 0 var(--space-3, 12px);
+    color: var(--color-text-on-dark, #ffffff);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.wc_slide_text {
+    margin: 0 0 var(--space-5, 24px);
+    color: var(--color-text-on-dark-muted, #cccccc);
+    font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+    line-height: 1.6;
+}
+
+.wc_slide_cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--tap-min, 44px);
+    padding: var(--btn-pad-y, 0.9rem) var(--btn-pad-x, 1.8rem);
+    border-radius: var(--radius, 4px);
+    background: var(--grad-cta-accent, linear-gradient(90deg, #d12421, #781f1c));
+    color: var(--color-on-action, #ffffff);
+    font-size: var(--font-size-min, 0.875rem);
+    font-weight: var(--btn-font-weight, 800);
+    letter-spacing: var(--tracking-button, 0.1em);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: transform var(--duration-ui, 300ms) var(--ease-apple, ease), box-shadow var(--duration-ui, 300ms) var(--ease-apple, ease);
+}
+
+.wc_slide_cta:hover,
+.wc_slide_cta:focus-visible {
+    color: var(--color-on-action, #ffffff);
+    text-decoration: none;
+    transform: translateY(var(--lift-button, -1px));
+    box-shadow: var(--shadow-brand, 0 0 2.4rem rgba(209, 36, 33, 0.22));
+}
+
+/* ---------- Setas ---------- */
+.wc_slide_arrow {
     position: absolute;
     top: 50%;
-    left: 0;
-    margin-top: -30px;
-}
-
-.carousel .owl-theme .owl-nav .owl-prev, .carousel .owl-theme .owl-nav .owl-next {
-    display: flex;
-    justify-content: center;
+    z-index: 2;
+    display: none;
     align-items: center;
-    width: 60px;
-    height: 60px;
-    position: absolute;
+    justify-content: center;
+    width: var(--tap-min, 44px);
+    height: var(--tap-min, 44px);
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 0;
-    transition: background-color 0.2s ease-in-out;
+    padding: 0;
+    transform: translateY(-50%);
+    border: 1px solid var(--color-line-on-dark, rgba(255, 255, 255, 0.16));
+    border-radius: var(--radius-pill, 999px);
+    background: rgba(21, 32, 36, 0.45);
+    color: var(--icc-white, #ffffff);
+    cursor: pointer;
+    transition: background-color var(--duration-ui, 300ms) ease, transform var(--duration-ui, 300ms) ease;
 }
 
-.carousel .owl-theme .owl-nav .owl-prev {
-    left: -60px;
-    transition: left 0.2s ease-in-out;
+.wc_slide_arrow:hover {
+    background: var(--color-action, #d12421);
 }
 
-.carousel .owl-theme .owl-nav .owl-next {
-    right: -60px;
-    transition: right 0.2s ease-in-out;
+.wc_slide_prev {
+    left: var(--space-4, 16px);
 }
 
-.carousel .owl-theme .owl-nav .owl-prev:hover, .carousel .owl-theme .owl-nav .owl-next:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+.wc_slide_next {
+    right: var(--space-4, 16px);
 }
 
-.carousel .owl-theme .owl-nav .owl-prev i, .carousel .owl-theme .owl-nav .owl-next i {
-    font-size: 1.2em;
+.wc_slide_arrow span {
+    display: block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
 }
 
-.carousel .owl-theme .owl-dots {
+.wc_slide_prev span {
+    margin-left: 0.2rem;
+    transform: rotate(-135deg);
+}
+
+.wc_slide_next span {
+    margin-right: 0.2rem;
+    transform: rotate(45deg);
+}
+
+@media (min-width: 48em) {
+    .wc_slide_arrow {
+        display: flex;
+    }
+}
+
+/* ---------- Pausa e paginação ---------- */
+.wc_slide_controls {
     position: absolute;
-    bottom: 5px;
-    /* right: 5px; */
+    left: 50%;
+    bottom: var(--space-4, 16px);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2, 8px);
+    width: min(100%, var(--container, 74rem));
+    padding: 0 var(--gutter, 1.5rem);
+    transform: translateX(-50%);
 }
 
-.carousel .owl-theme .owl-dots .owl-dot span {
-    margin-top: 0;
-    margin-bottom: 0;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+.wc_slide_pager {
+    display: flex;
+    align-items: center;
 }
 
-.owl-carousel {
-    position: relative !important;
-}
-
-.owl-carousel a {
+.wc_slide_pager button,
+.wc_slide_toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--tap-min, 44px);
+    height: var(--tap-min, 44px);
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
     cursor: pointer;
 }
 
-/*SLIDES TEXT + BUTTONS*/
-.owl-carousel .slide-text {
+/* ponto visual pequeno dentro de um alvo de toque de 44px */
+.wc_slide_pager button::after {
+    content: "";
+    width: var(--slide-dot-size, 12px);
+    height: var(--slide-dot-size, 12px);
+    border: var(--slide-dot-border, 2px) solid var(--icc-white, #ffffff);
+    border-radius: var(--radius-pill, 999px);
+    background: transparent;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    transition: background-color var(--duration-fast, 200ms) ease, transform var(--duration-fast, 200ms) ease;
+}
+
+.wc_slide_pager button:hover::after {
+    transform: scale(1.2);
+}
+
+.wc_slide_pager button.active::after {
+    background: var(--icc-white, #ffffff);
+    transform: scale(1.15);
+}
+
+.wc_slide_toggle_icon {
+    width: var(--slide-dot-size, 12px);
+    height: var(--slide-dot-size, 12px);
+    border-left: var(--slide-pause-bar, 4px) solid var(--icc-white, #ffffff);
+    border-right: var(--slide-pause-bar, 4px) solid var(--icc-white, #ffffff);
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.55));
+}
+
+.wc_slides.is-paused .wc_slide_toggle_icon {
+    width: 0;
+    height: 0;
+    border-top: calc(var(--slide-dot-size, 12px) / 2 + 1px) solid transparent;
+    border-bottom: calc(var(--slide-dot-size, 12px) / 2 + 1px) solid transparent;
+    border-left: var(--slide-dot-size, 12px) solid var(--icc-white, #ffffff);
+    border-right: 0;
+}
+
+.wc_slide_pager button:focus-visible,
+.wc_slide_toggle:focus-visible,
+.wc_slide_arrow:focus-visible {
+    outline: var(--focus-width, 3px) solid var(--color-focus-on-dark, #ffffff);
+    outline-offset: 2px;
+    border-radius: var(--radius-pill, 999px);
+}
+
+/* barra de progresso do intervalo */
+.wc_slide_progress {
     position: absolute;
-    top: 30%;
-    left: 19%;
-    text-transform: uppercase;
-    z-index: 99;
-    max-width: 90vw;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    height: 3px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: var(--grad-cta-accent, linear-gradient(90deg, #d12421, #781f1c));
 }
 
-.owl-carousel .slide-text h1 {
-    color: #FFFFFF;
-    font-size: 4.2rem;
-    font-weight: 800;
-    padding: 0;
-    margin: 0 0 30px 0;
-    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
-}
-
-.owl-carousel .slide-text p {
-    color: #F1F4F5;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
-}
-
-.owl-carousel .slide-text .slide-buttons {
-    margin-top: 60px;
-}
-
-.owl-carousel .slide-text .slide-buttons a.ind_btn {
-    height: 52px;
-    min-width: 150px;
-    padding: 20px 20px;
-    text-align: center;
-    line-height: .9;
-    margin-bottom: 6px;
-}
-
-@media screen and (max-width: 30em) {
-    .owl-carousel .slide-text {
-        top: 30%;
-        left: 5%;
+/* ---------- Movimento (DS · seção 05) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+    /* aproximação suave da imagem enquanto o slide está no ar.
+       Só nos slides com texto sobreposto: nas artes que já trazem texto
+       gravado o zoom cortaria o que está escrito na imagem. */
+    .wc_slide_item.has-text.is-current .wc_slide_media img {
+        animation: wc-slide-zoom 8s linear forwards;
     }
 
-    .owl-carousel .slide-text h1 {
-        font-size: 1.3rem;
-        text-align: center;
+    /* texto entra escalonado, como o Staggered Lines do DS */
+    .wc_slide_item.is-current .wc_slide_inner > * {
+        animation: wc-slide-rise 900ms var(--ease-expo, cubic-bezier(0.19, 1, 0.22, 1)) backwards;
     }
 
-    .owl-carousel .slide-text p {
-        font-size: 0.875rem;
-        text-align: center;
+    .wc_slide_item.is-current .wc_slide_inner > :nth-child(2) {
+        animation-delay: 120ms;
     }
 
-    .owl-carousel .slide-text .slide-buttons {
-        text-align: center;
+    .wc_slide_item.is-current .wc_slide_inner > :nth-child(3) {
+        animation-delay: 240ms;
     }
 
-    .owl-carousel .slide-text .slide-buttons a.ind_btn {
-        font-size: 0.875rem;
+    .wc_slide_item.is-current .wc_slide_inner > :nth-child(4) {
+        animation-delay: 360ms;
+    }
+
+    .wc_slides:not(.is-paused) .wc_slide_progress.is-running {
+        animation: wc-slide-progress linear forwards;
+        animation-duration: var(--slide-duration, 5s);
     }
 }
 
-@media screen and (min-width: 34em) {
-
-    .owl-carousel .slide-text {
-        top: 8%;
-        left: 8%
+@keyframes wc-slide-zoom {
+    from {
+        transform: scale(1);
     }
-
-    .owl-carousel .slide-text h1 {
-        font-size: 1.5rem;
-        text-align: left;
-        margin: 0 0 10px 0;
-    }
-
-    .owl-carousel .slide-text p {
-        font-size: 0.875rem;
-        text-align: center;
-    }
-
-    .owl-carousel .slide-text .slide-buttons {
-        margin-top: 20px;
-        text-align: left;
-    }
-
-    .owl-carousel .slide-text .slide-buttons a.ind_btn {
-        font-size: 0.875rem;
+    to {
+        transform: scale(1.25);
     }
 }
 
-@media screen and (min-width: 48em) {
-
-     .owl-carousel .slide-text {
-        top: 18%;
-        left: 8%
+@keyframes wc-slide-rise {
+    from {
+        opacity: 0;
+        transform: translateY(1.2rem);
+        filter: blur(6px);
     }
-
-    .owl-carousel .slide-text h1 {
-        font-size: 1.6rem;
-        text-align: left;
-        margin: 0 0 10px 0;
-    }
-
-    .owl-carousel .slide-text p {
-        font-size: 0.975rem;
-        text-align: left;
-    }
-
-    .owl-carousel .slide-text .slide-buttons {
-        margin-top: 20px;
-        text-align: left;
-    }
-
-    .owl-carousel .slide-text .slide-buttons a.ind_btn {
-        font-size: 0.875rem;
+    to {
+        opacity: 1;
+        transform: none;
+        filter: none;
     }
 }
 
-@media screen and (min-width: 60em) {
-
-    .owl-carousel .slide-text {
-        top: 28%;
-        left: 8%
+@keyframes wc-slide-progress {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
     }
 }
 
-@media screen and (min-width: 75em) {
-
-    .owl-carousel .slide-text h1 {
-        font-size: 4rem;
-        text-align: left;
-        margin: 0 0 30px 0;
+/* No celular a imagem aparece inteira (as artes do cliente trazem texto
+   gravado) e o texto do slide desce para uma faixa logo abaixo dela. */
+@media (max-width: 48em) {
+    .wc_slide_track {
+        aspect-ratio: auto;
+        max-height: none;
+        min-height: 0;
     }
 
-    .owl-carousel .slide-text p {
-        font-size: 1.5rem;
-        text-align: left;
+    .wc_slide_item {
+        display: flex;
+        flex-direction: column;
     }
 
-    .owl-carousel .slide-text .slide-buttons {
-        margin-top: 30px;
-        text-align: left;
+    /* A altura do bloco é a do slide mais alto (os que têm faixa de texto).
+       Nos que são só arte, a imagem fica centrada nesse espaço em vez de
+       deixar um vão escuro embaixo. */
+    .wc_slide_item:not(.has-text) {
+        justify-content: center;
     }
 
-    .owl-carousel .slide-text .slide-buttons a.ind_btn {
-        font-size: 1.2rem;
-        height: 60px;
-        min-width: 180px;
-        padding: 20px 20px;
-        text-align: center;
-        line-height: .9;
-        margin-bottom: 6px;
-    }
-}
-
-
-
-@media screen and (min-width: 100em) {
-
-    .owl-carousel .slide-text h1 {
-        font-size: 4.3rem;
-        text-align: left;
-        margin: 0 0 30px 0;
+    .wc_slide_item:not(.has-text) .wc_slide_link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
     }
 
-    .owl-carousel .slide-text p {
-        font-size: 1.8rem;
-        text-align: left;
+    .wc_slide_media img {
+        height: auto;
+        aspect-ratio: 1920 / 900;
     }
 
-    .owl-carousel .slide-text .slide-buttons {
-        margin-top: 30px;
-        text-align: left;
+    .wc_slide_scrim,
+    .wc_slide_wave {
+        display: none;
     }
 
-    .owl-carousel .slide-text .slide-buttons a.ind_btn {
-        font-size: 1.3rem;
-        height: 60px;
-        min-width: 180px;
-        padding: 20px 20px;
-        text-align: center;
-        line-height: .9;
-        margin-bottom: 6px;
-    }
-}
-
-@media screen and (min-width: 150em) {
-    .owl-carousel .slide-text {
-        top: 35%;
-        left: 20%
+    .wc_slide_content {
+        position: static;
+        flex: 1 1 auto;
+        align-items: flex-start;
+        padding: var(--space-5, 24px) var(--gutter, 1.5rem) calc(var(--tap-min, 44px) + var(--space-3, 12px));
+        background: var(--icc-ink-900, #152024);
     }
 
-    .owl-carousel .slide-text h1 {
-        font-size: 4.6rem;
-        text-align: left;
-        margin: 0 0 30px 0;
+    .wc_slide_title,
+    .wc_slide_headline,
+    .wc_slide_text,
+    .wc_slide_cta {
+        max-width: none;
     }
 
-    .owl-carousel .slide-text p {
-        font-size: 2rem;
-        text-align: left;
-    }
-
-    .owl-carousel .slide-text .slide-buttons {
-        margin-top: 30px;
-        text-align: left;
-    }
-
-    .owl-carousel .slide-text .slide-buttons a.ind_btn {
-        font-size: 1.3rem;
-        height: 65px;
-        min-width: 200px;
-        padding: 25px 25px;
-        text-align: center;
-        line-height: .9;
-        margin-bottom: 6px;
+    .wc_slide_controls {
+        justify-content: center;
+        bottom: var(--space-1, 4px);
     }
 }
 
-@media screen and (min-width: 180em) {
-
-    .owl-carousel .slide-text {
-        top: 45%;
-        left: 30%
-    }
-
-    .owl-carousel .slide-text h1 {
-        font-size: 5rem;
-        text-align: left;
-        margin: 0 0 30px 0;
-    }
-
-    .owl-carousel .slide-text p {
-        font-size: 2.4rem;
-        text-align: left;
-    }
-
-    .owl-carousel .slide-text .slide-buttons {
-        margin-top: 30px;
-        text-align: left;
-    }
-
-    .owl-carousel .slide-text .slide-buttons a.ind_btn {
-        font-size: 1.3rem;
-        height: 65px;
-        min-width: 200px;
-        padding: 25px 25px;
-        text-align: center;
-        line-height: .9;
-        margin-bottom: 6px;
+@media (prefers-reduced-motion: reduce) {
+    .wc_slide_pager button::after,
+    .wc_slide_item {
+        transition: none;
     }
 }

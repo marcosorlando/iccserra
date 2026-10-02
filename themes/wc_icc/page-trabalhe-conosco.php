@@ -63,7 +63,7 @@ extract($Read->getResult()[0]);
 					</div>
 
 					<div class="clear">
-						<label class="curriculum" for="cv_pdf" tabindex="5">
+						<label class="curriculum" for="cv_pdf">
 							<input type="file" name="cv_pdf" id="cv_pdf" required>
 							<img src="<?= INCLUDE_PATH ?>/images/curriculo-pdf.svg" title="CLIQUE OU ARRASTE SEU
 								CURRÍCULO DENTRO DA ÁREA PONTILHADA"
@@ -103,5 +103,5 @@ extract($Read->getResult()[0]);
 	</div>
 
 </div>
-<script src="<?= INCLUDE_PATH;?>/lp/js/lp.js"></script>
-<script src="<?= BASE;?>/_cdn/formattext.js"></script>
+<script defer src="<?= INCLUDE_PATH;?>/lp/js/lp.js"></script>
+<script defer src="<?= BASE;?>/_cdn/formattext.js"></script>

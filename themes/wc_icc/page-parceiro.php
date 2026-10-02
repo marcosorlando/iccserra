@@ -32,15 +32,14 @@ extract($Read->getResult()[0]);
             require './_cdn/widgets/share/share.wc.php';
         ?>
         <div class="clear"></div>
-        <section class="wc_line">
-          <?php require REQUIRE_PATH . '/inc/linha_microcredito_produtivo.php'; ?>
-          <?php require REQUIRE_PATH . '/inc/linha_reforma.php'; ?>
-          <?php require REQUIRE_PATH . '/inc/linha_agricola.php'; ?>
-        </section>
+        <?php
+            $LinhasEmbutido = true;
+            require REQUIRE_PATH . '/inc/linhas-comparativo.php';
+        ?>
       </div>
     </div><?php require REQUIRE_PATH . '/inc/sidebar_lines.php'; ?>
     <div class="clear"></div>
   </div>
 </div>
 
-<script src="<?= INCLUDE_PATH; ?>/lp/js/lp.js"></script>
+<script defer src="<?= INCLUDE_PATH; ?>/lp/js/lp.js"></script>

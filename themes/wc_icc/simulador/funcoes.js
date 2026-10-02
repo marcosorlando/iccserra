@@ -24,8 +24,7 @@ function showDiv() {
 //        for (i = 1; i <= 12; i++) {
 //            parcelas.innerHTML += "<option value=" + i + ">" + i + "</option>";
 //        }
-//    }
-//
+//    }//
 //    //Capital de Fixo Projeto Banrisul 2,5%
 //    if ((document.getElementById('modalidade').value == "fixo") && (document.getElementById('tipo_credito').value == "banrisul")) {
 //        document.getElementById("p_msg").innerHTML = "Até 15X -  30% do valor a 0.79%  e 70% do valor a 3.20% ao mês<br>Mais de 15X -  30% do valor a 0.79% e 70% do valor a 3.90% ao mês<br> + TAC de <strong>3%</strong>";

@@ -8,7 +8,7 @@
 		?>
 		<aside class="partners">
 			<header class="site_header">
-				<h1>Alguns de nossos <b>Parceiros</b></h1>
+				<h2>Alguns de nossos <b>Parceiros</b></h2>
 				<p>Transformando vidas por meio de microcrédito produtivo, capacitação e orientação.</p>
 			</header>
 			<div class="clients-area">
@@ -19,7 +19,8 @@
 
 							echo "<li><a href='{$partner_page}' target='_blank'><img src='" . BASE
 								. "/tim.php?src=uploads/{$partner_image}&w=200&h=100' title='{$partner_name}'"
-								. " alt='Logotipo | {$partner_name}'/></a></li>";
+								. " alt='Logotipo | {$partner_name}' width='200' height='100'"
+								. " loading='lazy' decoding='async'/></a></li>";
 						}
 					?>
 				</ul>

@@ -2,6 +2,7 @@
 
 use App\Helpers\Check;
 use App\Helpers\DateHelper;
+use App\Models\Crm;
 use App\Models\Email;
 
 require_once __DIR__ . '/../../../vendor/autoload.php';
@@ -211,6 +212,15 @@ require_once __DIR__ . '/../../../vendor/autoload.php';
                     $Simulacao['valor_parcela'] = number_format($valor_parcela, 2, '.', '');
                     $Simulacao['valor'] = number_format($Simulacao['valor'], 2, '.', '');
                     $Simulacao['tac'] = number_format($tac, 2, '.', '');
+
+                    // REGISTRA NO CRM (falha no banco não pode impedir o envio da simulação)
+                    if (APP_CRM) {
+                        try {
+                            (new Crm())->registerSimulation($Simulacao);
+                        } catch (Throwable $e) {
+                            error_log('[CRM] Falha ao registrar simulação: ' . $e->getMessage());
+                        }
+                    }
 
                     $meses = [
                         "1" => "Janeiro",

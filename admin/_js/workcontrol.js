@@ -6,6 +6,21 @@
 
 $(
     function () {
+        //AJAX ERROR: encerra loaders e exibe o erro (evita "loading infinito" quando o endpoint falha)
+        $(document).ajaxError(function (event, jqXHR, settings) {
+            if (!settings.url || settings.url.indexOf('.ajax.php') === -1 || settings.url.indexOf('Dashboard.ajax.php') !== -1) {
+                return;
+            }
+
+            $('.form_load').fadeOut('fast');
+            $('.workcontrol_upload').fadeOut('fast', function () {
+                $('.workcontrol_upload_progrees').text('0%');
+            });
+
+            var detail = (jqXHR.responseJSON && jqXHR.responseJSON.type ? ' (' + jqXHR.responseJSON.type + ')' : '');
+            Trigger("<div class='trigger trigger_ajax trigger_error'><span><b>OPPSSS:</b> A requisição falhou" + detail + ". Recarregue a página e tente novamente. Se persistir, contate o suporte! <small>HTTP " + jqXHR.status + "</small></span></div>");
+        });
+
         //MOBILE MENU CONTROL
         $('.mobile_menu').click(function () {
             if ($('.dashboard_nav, .dashboard_nav_normalize').css('left') !== '-220px') {

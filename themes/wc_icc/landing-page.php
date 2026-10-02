@@ -15,7 +15,7 @@ extract($Read->getResult()[0]);
 ?>
 <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
 <link href="<?= INCLUDE_PATH; ?>/lp/css/style.min.css" rel="stylesheet">
-<script src="<?= INCLUDE_PATH; ?>/lp/js/lp.js"></script>
+<script defer src="<?= INCLUDE_PATH; ?>/lp/js/lp.js"></script>
 <style>#conversion-modal .modal-content section div.actions button.call_button, #fixed-form #conversion .actions .call_button {
         background-color: <?= $page_btn_bg_color ?>;
         color: <?= $page_btn_text_color ?>;
@@ -66,52 +66,48 @@ extract($Read->getResult()[0]);
 					<p>Preencha corretamente os campos marcados (*).</p>
 				</div>
 				<div class="field">
-					<label><b class="text-red font_medium">*</b> Nome</label>
+					<label>Nome</label>
 					<input type="text"
 					       name="lead_name"
 					       value=""
-					       class="form-control required"
-					       tabindex="1" autofocus
+					       class="form-control required" autofocus
 					       required>
 				</div>
 				<div class="field">
-					<label><b class="text-red font_medium">*</b> Email</label>
+					<label>Email</label>
 					<input type="email"
 					       name="lead_email"
 					       value=""
-					       class="form-control required"
-					       tabindex="2" required>
+					       class="form-control required" required>
 				</div>
 				<div class="field">
-					<label><b class="text-red font_medium">*</b> Cidade</label>
+					<label>Cidade</label>
 					<input type="text"
 					       name="lead_city"
 					       value=""
 					       class="form-control  required"
-					       tabindex="3"
 					       required>
 				</div>
 				<div class="field">
-					<label><b class="text-red font_medium">*</b> Profissão</label>
+					<label>Profissão</label>
 					<input type="text"
 					       name="lead_job_title"
 					       value=""
 					       class="form-control  required"
-					       tabindex="4"
 					       required>
 				</div>
 
 				<!-- security start -->
 				<div class="field sum">
-					<label><b class="text-red font_medium">*</b> Realize a Soma</label>
+					<label>Realize a Soma</label>
 					<input type="text" name="senderHuman" id="senderHuman" class="input-md input-rounded form-control"
-					       placeholder="" tabindex="5" required>
+					       placeholder="" required>
 					<input type="hidden" name="checkHuman_a" id="checkHuman_a">
 					<input type="hidden" name="checkHuman_b" id="checkHuman_b">
 				</div>
 				<div class="clear" id="sugestao">
 					<label for="privacy">
-						<input type="checkbox" value="1" id="privacy" name="privacy" tabindex="6" required>
+						<input type="checkbox" value="1" id="privacy" name="privacy" required>
 						<span><b class="text-red font_medium">*</b> Consinto com a <a rel="shadowbox"
 						                                                                          href="<?= BASE;
 						                                                                          ?>/politicas.html"
@@ -150,4 +146,4 @@ extract($Read->getResult()[0]);
 	</div>
 </section>
 </body>
-<script src="<?= BASE ?>/_cdn/formattext.js">
+<script defer src="<?= BASE ?>/_cdn/formattext.js"></script>

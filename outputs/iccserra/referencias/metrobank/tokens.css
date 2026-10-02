@@ -1,0 +1,56 @@
+/* tokens extraídos de https://azim.hostlin.com/Metrobank/
+ * gerado por za-web-design/capture.mjs em 2026-09-17
+ * PONTO DE PARTIDA, não verdade absoluta: revise nomes, arredonde valores e troque
+ * a cor/tipo da referência pela marca do cliente quando for tema derivado. */
+:root {
+  /* cor · semântica */
+  --ref-color-primary: #eb292c;
+  --ref-color-on-primary: #ffffff;
+  --ref-color-bg: #f6f6f6;
+  --ref-color-surface: #ffffff;
+  --ref-color-text: #676767;
+  --ref-color-text-muted: #ffffff;
+  --ref-color-border: #e6e6e6;
+  /* cor · paleta bruta (por peso de uso) */
+  --ref-brand-1: #eb292c;
+  --ref-neutral-100: #ffffff;
+  --ref-neutral-200: #f6f6f6;
+  --ref-neutral-300: #e6e6e6;
+  --ref-neutral-400: #676767;
+  --ref-neutral-500: #212226;
+  --ref-neutral-600: #141417;
+  --ref-neutral-700: #0a0f20;
+  /* tipografia */
+  --ref-font-display: Manrope, system-ui, sans-serif;
+  --ref-font-body: Inter, system-ui, sans-serif;
+  --ref-fs-1: 0.75rem; /* 12px */
+  --ref-fs-2: 1rem; /* 16px */
+  --ref-fs-3: 1.125rem; /* 18px */
+  --ref-fs-4: 1.25rem; /* 20px */
+  --ref-fs-5: 1.375rem; /* 22px */
+  --ref-fs-6: 1.5rem; /* 24px */
+  --ref-fs-7: 2.5rem; /* 40px */
+  --ref-fs-8: 3.375rem; /* 54px */
+  --ref-fs-9: 4.375rem; /* 70px */
+  /* espaçamento */
+  --ref-space-1: 0.625rem; /* 10px */
+  --ref-space-2: 0.9375rem; /* 15px */
+  --ref-space-3: 1.125rem; /* 18px */
+  --ref-space-4: 1.25rem; /* 20px */
+  --ref-space-5: 1.5625rem; /* 25px */
+  --ref-space-6: 1.875rem; /* 30px */
+  --ref-space-7: 2.1875rem; /* 35px */
+  --ref-space-8: 2.3125rem; /* 37px */
+  --ref-space-9: 2.5rem; /* 40px */
+  --ref-space-10: 3.125rem; /* 50px */
+  /* forma e profundidade */
+  --ref-radius-xs: 30px;
+  --ref-radius-round: 50%;
+  --ref-shadow-1: rgba(0, 0, 0, 0.1) 0px 0px 10px 0px;
+  --ref-shadow-2: rgba(0, 0, 0, 0.07) 0px 20px 60px 10px;
+  --ref-shadow-3: rgba(0, 0, 0, 0.1) 0px 10px 50px 0px;
+  /* layout e movimento */
+  --ref-container: 1320px;
+  --ref-duration: 0.5s;
+  --ref-ease: ease;
+}

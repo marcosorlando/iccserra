@@ -43,16 +43,10 @@ extract($Read->getResult()[0]);
 				require './_cdn/widgets/share/share.wc.php';
 				?>
 				<div class="clear"></div>
-				<section class="wc_line">
-					<?php
-					require REQUIRE_PATH . '/inc/linha_microcredito_produtivo.php'; ?>
-					<?php
-					require REQUIRE_PATH . '/inc/linha_microcredito_mulher.php'; ?>
-					<?php
-					require REQUIRE_PATH . '/inc/linha_reforma.php'; ?>
-					<?php
-					require REQUIRE_PATH . '/inc/linha_agricola.php'; ?>
-				</section>
+				<?php
+				$LinhasNoSimulador = true;
+				require REQUIRE_PATH . '/inc/linhas-comparativo.php';
+				?>
 			</div>
 		</div><?php
 		require REQUIRE_PATH . '/inc/sidebar_lines.php'; ?>
@@ -60,5 +54,5 @@ extract($Read->getResult()[0]);
 	</div>
 </div>
 <script src="<?= INCLUDE_PATH; ?>/simulador/funcoes.js"></script>
-<script src="<?= BASE; ?>/_cdn/formattext.js"></script>
-<script src="<?= INCLUDE_PATH; ?>/lp/js/lp.js"></script>
+<script defer src="<?= BASE; ?>/_cdn/formattext.js"></script>
+<script defer src="<?= INCLUDE_PATH; ?>/lp/js/lp.js"></script>

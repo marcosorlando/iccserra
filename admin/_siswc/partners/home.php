@@ -20,11 +20,10 @@ if (DB_AUTO_TRASH !== 0) {
         ''
     );
 
-    if ($Read->getResult()) {
-        extract($Read->getResult());
-
-        if (file_exists("../uploads/{$partner_image}") && !is_dir("../uploads/{$partner_image}")) {
-            unlink("../uploads/{$partner_image}");
+    foreach ($Read->getResult() ?? [] as $TrashPartner) {
+        $TrashImage = (string)($TrashPartner["partner_image"] ?? "");
+        if ("" !== $TrashImage && file_exists("../uploads/{$TrashImage}") && !is_dir("../uploads/{$TrashImage}")) {
+            unlink("../uploads/{$TrashImage}");
         }
     }
     $Delete->exeDelete(DB_PARTNERS, 'WHERE partner_image IS NULL AND partner_date IS NULL', '');
@@ -37,8 +36,9 @@ $S = filter_input(INPUT_GET, 's', FILTER_DEFAULT);
 $Search = filter_input_array(INPUT_POST);
 if ($Search && (isset($Search['s']) || isset($Search['status']))) {
     $S = (isset($Search['s']) ? urlencode($Search['s']) : $S);
-    $SearchCat = (empty($Search['searchcat']) ? null : $Search['searchcat']);
-    header(sprintf('Location: dashboard.php?wc=partners/home&s=%s&cat=%s&tag=%s', $S, $SearchCat, $T));
+    header(sprintf('Location: dashboard.php?wc=partners/home&s=%s', $S));
+
+    exit;
 }
 ?>
 
@@ -112,18 +112,17 @@ if ($Search && (isset($Search['s']) || isset($Search['status']))) {
 
             $partner_name = (empty($partner_name) ? 'Edite esse rascunho para poder exibir como parceiro em seu site!' : $partner_name);
 
-            $CourseDragAndDrop = (empty($segment_title) ? 'wc_draganddrop' : null);
-
-            echo "<article class='box box25 post_single {$CourseDragAndDrop}' callback='Depositions' callback_action='partner_order' id='{$partner_id}'>
+            echo "<article class='box box25 post_single' id='{$partner_id}'>
                 <div class='post_single_cover box_content'>
-                   <img alt='{$partner_name}' title='{$partner_name}' src='../tim.php?src={$PartnerCover}&w=300&h=200'/></a>
+                   <img alt='{$partner_name}' title='{$partner_name}' src='../tim.php?src={$PartnerCover}&w=300&h=200'/>
+                </div>
                    
                 <div class='post_single_content wc_normalize_height'>
                     <h1 class='title' style='font-size:1.25em;'>{$partner_name}</h1>
                 </div>
                 
                 <div class='post_single_actions'>
-                    <a title='Editar Prceiro' href='dashboard.php?wc=partners/create&id={$partner_id}' class='post_single_center icon-pencil btn btn_blue'>Editar</a>
+                    <a title='Editar Parceiro' href='dashboard.php?wc=partners/create&id={$partner_id}' class='post_single_center icon-pencil btn btn_blue'>Editar</a>
                     <span rel='post_single' class='j_delete_action icon-cancel-circle btn btn_red' id='{$partner_id}'>Deletar</span>
                     <span rel='post_single' callback='Partners' callback_action='delete' class='j_delete_action_confirm icon-warning btn btn_yellow' style='display: none' id='{$partner_id}'>Deletar Parceiro?</span>
                     

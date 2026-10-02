@@ -2,6 +2,8 @@
 
 use App\Conn\Delete;
 use App\Models\Pager;
+use App\Conn\Read;
+use App\Helpers\Check;
 
 $AdminLevel = LEVEL_WC_SLIDES;
 if (!APP_SLIDE || empty($DashboardLogin) || empty($Admin) || $Admin['user_level'] < $AdminLevel) {
