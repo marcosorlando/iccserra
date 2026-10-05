@@ -1,5 +1,4 @@
-@import "wc-legacy.css";
-@import "tokens.css";
+/* wc-legacy.css e tokens.css são carregados pelo index.php (com ?v=) antes deste arquivo */
 
 .invisivel {
     display: none;
