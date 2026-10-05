@@ -162,31 +162,98 @@ input.btn{width: auto; cursor: pointer;}
 .htmlchars .btn:hover{text-decoration: none !Important;}
 
 
-/*
-TRIGGER
-Personaliza mensagens do sistema
-*/
-.trigger{
-  display: block;
-  width: 100%;
-  padding: 15px;
-  background: #333;
-  font-size: 0.9em;
-  color: #fff;
-  margin-bottom: 20px;
+/*TRIGGER*/
+.trigger {
+    position: relative;
+    width: 100%;
+    padding: 15px;
+    background: #333333;
+    font-size: 1em;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.15), inset 2px 2px 8px 2px rgba(0, 0, 0, 0.15);
+    align-items: center;
 }
 
+.trigger_none {
+    margin-bottom: 0;
+}
 .trigger p{
-  margin-top: 8px;
+    display: block;
+    font-size: 1em !important;
+    line-height: 1em;
+    margin: 0;
+    padding: 0 !important;
+}
+.trigger b{
+    color: #2a2a2a !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    flex-wrap: nowrap;
 }
 
-.trigger_success{background-color: #00B494;}
-.trigger_info{background-color: #0E96E5;}
-.trigger_alert{background-color: #FAAD50;}
-.trigger_error{background-color: #F45563;}
+.trigger_ajax {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+}
+.trigger_success {background-color: #00B494;}
+.trigger_info {background-color: #0E96E5;}
+.trigger_alert {background-color: #FAAD50;}
+.trigger_error {background-color: #F45563;}
 
-.trigger_none{
-  margin-bottom: 0;
+.trigger:before{
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Font Awesome 5 Pro';
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.3);
+    text-shadow: -2px -2px 3px rgba(0,0,0,0.2);
+    box-shadow: -2px -2px 4px rgba(0,0,0,0.2), inset 1px 1px 3px rgba(0,0,0,0.1);
+}
+.trigger_success:before {
+    content: '\f00c';
+    font-size: 2em;
+}
+
+.trigger_info:before {
+      content: '\f129';
+    font-size: 2em;
+}
+
+.trigger_alert:before {
+    content: '\f071';
+    font-size: 1.6em;
+}
+
+.trigger_error:before {
+    content: '\f05e';
+    font-size: 2em;
+}
+
+.trigger_modal {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 460px;
+    max-width: 80%;
+    padding: 20px 20px 0 0;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.trigger_modal .trigger {
+    padding: 20px;
+    margin: auto 30px auto auto;
 }
 
 .paginator{

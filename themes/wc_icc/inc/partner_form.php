@@ -5,58 +5,58 @@
 
 	<div class="container flex">
 		<label class="grow2">
-			<span><b class="font_red">*</b>Nome:</span>
+			<span>Nome:</span>
 			<input type="text" placeholder="Seu Nome" name="name" required/>
 		</label>
 
 		<label class="grow0">
-			<span><b class="font_red">*</b>CPF:</span>
+			<span>CPF:</span>
 			<input type="text" class="formCpf" placeholder="Infome seu CPF" name="cpf" required/>
 		</label>
 	</div>
 
 	<div class="container flex">
 		<label>
-			<span><b class="font_red">*</b>E-mail:</span>
+			<span>E-mail:</span>
 			<input type="text" placeholder="E-mail" name="email" required/>
 		</label>
 
 		<label>
-			<span><b class="font_red">*</b>Telefone/WhatsApp:</span>
+			<span>Telefone/WhatsApp:</span>
 			<input type="text" class="formPhone" placeholder="WhatsApp" name="telephone" required/>
 		</label>
 	</div>
 
 	<div class="container flex">
 		<label class="grow0">
-			<span><b class="font_red">*</b><span id="doc">CNPJ:</span></span>
+			<span><span id="doc">CNPJ:</span></span>
 			<input type="text" class="formCnpj wc_getCnpj" placeholder="Infome seu CNPJ" name="cnpj" maxlength="18"
 			       required/>
 		</label>
 		<label class="grow2">
-			<span><b class="font_red">*</b>Nome da Empresa:</span>
+			<span>Nome da Empresa:</span>
 			<input type="text" placeholder="Informe a empresa" name="company" class="wc_nome" required/>
 		</label>
 
 		<label class="grow0" id="cep">
-			<span><b class="font_red">*</b>CEP:</span>
+			<span>CEP:</span>
 			<input type="text" class="formCep wc_getCep wc_cep" placeholder="Infome seu CEP" name="cep" required/>
 		</label>
 	</div>
 
 	<div class="container flex">
 		<label class="grow2">
-			<span><b class="font_red">*</b>Endereço:</span>
+			<span>Endereço:</span>
 			<input type="text" placeholder="Qual o seu endereço?" name="address" class="wc_logradouro" required/>
 		</label>
 
 		<label class="grow0">
-			<span><b class="font_red">*</b>Nº:</span>
+			<span>Nº:</span>
 			<input type="number" min="1" placeholder="Qual o número?" name="number" class="wc_numero" required/>
 		</label>
 
 		<label class="grow0">
-			<span><b class="font_red">*</b>Complemento:</span>
+			<span>Complemento:</span>
 			<input type="text" placeholder="Ex. Térreo, Sala, Apto, Casa" name="complement" class="wc_complemento"
 			       required/>
 		</label>
@@ -64,17 +64,17 @@
 
 	<div class="container flex">
 		<label class="grow2">
-			<span><b class="font_red">*</b>Bairro:</span>
+			<span>Bairro:</span>
 			<input type="text" placeholder="Qual o seu bairro?" name="neigthborhood" class="wc_bairro" required/>
 		</label>
 
 		<label class="grow2">
-			<span><b class="font_red">*</b>Cidade:</span>
+			<span>Cidade:</span>
 			<input type="text" placeholder="Qual a cidade?" name="city" class="wc_municipio" required/>
 		</label>
 
 		<label class="grow0">
-			<span><b class="font_red">*</b>UF: (Sigla)</span>
+			<span>UF: (Sigla)</span>
 			<input type="text" placeholder="Qual o estado?" maxlength="2" name="state" class="wc_uf" required/>
 		</label>
 	</div>
@@ -90,7 +90,7 @@
 
 
 	<label>
-		<span><b class="font_red">*</b>Informe porque quer ser nosso Parceiro:</span>
+		<span>Informe porque quer ser nosso Parceiro:</span>
 		<textarea name="message" rows="5" placeholder="Deixe sua mensagem:" required></textarea>
 	</label>
 

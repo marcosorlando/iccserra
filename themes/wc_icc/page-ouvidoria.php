@@ -90,12 +90,12 @@ extract($Read->getResult()[0]);
 					</div>
 					<div class="label_50">
 						<label>
-							<span><b class="font_red">*</b> E-mail:</span>
+							<span>E-mail:</span>
 							<input class="required" type="email" name="email" id="email"
 							       placeholder="E-MAIL DE CONTATO" required/>
 						</label>
 						<label>
-							<span><b class="font_red">*</b> Denuncia:</span>
+							<span>Denuncia:</span>
 							<select name="sector" id="sector" required>
 								<option selected value="DENÚNCIA">DENÚNCIA</option>
 							</select>
@@ -104,7 +104,7 @@ extract($Read->getResult()[0]);
 
 					<div class="clear">
 						<label><br/>
-							<span><b class="font_red">*</b> Descreva sua denúncia:</span>
+							<span>Descreva sua denúncia:</span>
 							<textarea class="required" rows="6" name="complaint"
 							          placeholder="Digite nesse espaço sua denúncia..." required></textarea>
 						</label>
@@ -168,12 +168,12 @@ extract($Read->getResult()[0]);
 					</div>
 					<div class="label_50">
 						<label>
-							<span><b class="font_red">*</b> E-mail:</span>
+							<span>E-mail:</span>
 							<input class="required" type="email" name="email" id="email"
 							       placeholder="E-MAIL DE CONTATO" required/>
 						</label>
 						<label>
-							<span><b class="font_red">*</b> Denuncia:</span>
+							<span>Denuncia:</span>
 							<select name="sector" id="sector" required>
 								<option selected value="RECLAMAÇÃO">RECLAMAÇÃO</option>
 							</select>
@@ -182,7 +182,7 @@ extract($Read->getResult()[0]);
 
 					<div class="clear">
 						<label><br/>
-							<span><b class="font_red">*</b> Descreva sua reclamação:</span>
+							<span>Descreva sua reclamação:</span>
 							<textarea class="required" rows="6" name="complaint"
 							          placeholder="Digite nesse espaço sua reclamação..." required></textarea>
 						</label>
@@ -245,12 +245,12 @@ extract($Read->getResult()[0]);
 					</div>
 					<div class="label_50">
 						<label>
-							<span><b class="font_red">*</b> E-mail:</span>
+							<span>E-mail:</span>
 							<input class="required" type="email" name="email" id="email"
 							       placeholder="E-MAIL DE CONTATO" required/>
 						</label>
 						<label>
-							<span><b class="font_red">*</b> Sugestão:</span>
+							<span>Sugestão:</span>
 							<select name="sector" id="sector" required>
 								<option selected value="SUGESTÃO">SUGESTÃO</option>
 							</select>
@@ -259,7 +259,7 @@ extract($Read->getResult()[0]);
 
 					<div class="clear">
 						<label><br/>
-							<span><b class="font_red">*</b> Descreva sua sugestão:</span>
+							<span>Descreva sua sugestão:</span>
 							<textarea class="required" rows="6" name="complaint"
 							          placeholder="Digite nesse espaço sua sugestão..." required></textarea>
 						</label>

@@ -8,7 +8,7 @@ if (empty($WcSocialRequired)) {
 }
 
 echo "<ul class='workcontrol_socialshare'>";
-echo "<li class='workcontrol_socialshare_cta'><strong>Compartilhe</strong> </li>";
+echo "<li class='workcontrol_socialshare_cta'><strong>Compartilhe</strong> essa Página</li>";
 
 $WcShareText = (empty($WC_TITLE_LINK) ? null : $WC_TITLE_LINK);
 $WcShareLink = (empty($WC_SHARE_LINK) ? BASE : $WC_SHARE_LINK);

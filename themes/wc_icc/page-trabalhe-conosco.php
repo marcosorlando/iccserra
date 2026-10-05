@@ -35,12 +35,12 @@ extract($Read->getResult()[0]);
 
 					<div class="label_50">
 						<label for="">
-							<span><b class="font_red">*</b> Digite seu nome completo</span>
+							<span>Digite seu nome completo</span>
 							<input type="text" name="full_name" id="full_name"
 							       placeholder="Nome completo" required/>
 						</label>
 						<label for="">
-							<span><b class="font_red">*</b> Área de interesse</span>
+							<span>Área de interesse</span>
 							<select name="area" id="area" required>
 								<option value="" selected disabled>Selecione a área:</option>
 								<option value="Administrativa">Administrativa</option>
@@ -51,12 +51,12 @@ extract($Read->getResult()[0]);
 
 					<div class="label_50">
 						<label for="">
-							<span><b class="font_red">*</b> Digite seu número de celular</span>
+							<span>Digite seu número de celular</span>
 							<input class="formPhone" type="text" name="phone" id="phone"
 							       placeholder="Número para contato" required/>
 						</label>
 						<label for="">
-							<span><b class="font_red">*</b> Digite seu e-mail</span>
+							<span>Digite seu e-mail</span>
 							<input class="required" type="email" name="email" id="email"
 							       placeholder="Informe seu melhor e-mail" required/>
 						</label>

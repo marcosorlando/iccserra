@@ -11,6 +11,7 @@
     --icc-red-500: #d12421;
     --icc-red-800: #781f1c;
     --icc-ink-900: #152024;
+    --icc-links: #0e96e5;
 
     /* ---------- Primitivos · neutros ---------- */
     --icc-white: #ffffff;
@@ -46,13 +47,13 @@
     --icc-teal-900: #005e4b;
 
     /* ---------- Primitivos · Design System ICC (templates/zen-design-system) ---------- */
-    --icc-red-text-dark: #dd302d;   /* vermelho de texto do DS para fundo escuro (só título grande nos escuros do site) */
-    --icc-red-glow: #d1403b;        /* parada do --grad-shimmer do DS */
-    --icc-ds-slate: #517c8b;        /* parada fria do --grad-shimmer do DS (só dentro do gradiente animado) */
-    --icc-ink-hover: #1f3038;       /* deep-hover do DS */
-    --icc-paper: #f4f4f1;           /* fundo claro do DS */
-    --icc-gray-600: #6b6b6b;        /* 5.33:1 no branco */
-    --icc-gray-560: #858585;        /* borda de campo: 3.7:1 no branco (WCAG 1.4.11) */
+    --icc-red-text-dark: #dd302d; /* vermelho de texto do DS para fundo escuro (só título grande nos escuros do site) */
+    --icc-red-glow: #d1403b; /* parada do --grad-shimmer do DS */
+    --icc-ds-slate: #517c8b; /* parada fria do --grad-shimmer do DS (só dentro do gradiente animado) */
+    --icc-ink-hover: #1f3038; /* deep-hover do DS */
+    --icc-paper: #f4f4f1; /* fundo claro do DS */
+    --icc-gray-600: #6b6b6b; /* 5.33:1 no branco */
+    --icc-gray-560: #858585; /* borda de campo: 3.7:1 no branco (WCAG 1.4.11) */
     --icc-line-light: rgba(0, 0, 0, 0.1);
     --icc-line-light-strong: rgba(0, 0, 0, 0.28);
     --icc-line-dark: rgba(255, 255, 255, 0.16);
@@ -70,22 +71,22 @@
     /* ---------- Semânticos · cor ---------- */
     /* Ação: uma cor só para CTA primário. #d12421/branco = 5.27:1 (AA). */
     --color-action: var(--icc-red-500);
-    --color-action-hover: var(--icc-red-800);   /* accent do DS */
+    --color-action-hover: var(--icc-red-800); /* accent do DS */
     --color-on-action: var(--icc-white);
-    --color-whatsapp: var(--icc-teal-700);          /* 4.90:1 com branco */
+    --color-whatsapp: var(--icc-teal-700); /* 4.90:1 com branco */
     --color-whatsapp-hover: var(--icc-teal-900);
     --color-on-whatsapp: var(--icc-white);
 
-    --color-text-muted: var(--icc-gray-700);        /* 7.46:1 no branco · 5.97:1 no #e6e6e6 */
+    --color-text-muted: var(--icc-gray-700); /* 7.46:1 no branco · 5.97:1 no #e6e6e6 */
     --color-text-on-dark: var(--icc-white);
     --color-text-on-dark-muted: var(--icc-gray-300); /* ≥ 6.16:1 em bordô, grafite e tinta */
 
     /* Destaque (palavra em vermelho nos títulos) por superfície */
-    --color-highlight-on-gray: var(--icc-red-800);  /* accent do DS · 8.37:1 no #e6e6e6 */
+    --color-highlight-on-gray: var(--icc-red-800); /* accent do DS · 8.37:1 no #e6e6e6 */
     --color-highlight-on-dark: var(--icc-red-text-dark); /* DS brand-text · só em texto grande (≥ 24px): 3.59:1 no #152024 */
-    --color-highlight-on-wine: var(--icc-white);    /* texto pequeno sobre bordô: branco (≥ 8:1) */
+    --color-highlight-on-wine: var(--icc-white); /* texto pequeno sobre bordô: branco (≥ 8:1) */
 
-    --color-overlay-strong: var(--icc-overlay-70);  /* legenda sobre foto: branco ≥ 8:1 */
+    --color-overlay-strong: var(--icc-overlay-70); /* legenda sobre foto: branco ≥ 8:1 */
 
     --color-focus: var(--icc-ink-900);
     --color-focus-on-dark: var(--icc-white);
@@ -102,10 +103,10 @@
     --color-surface-muted: var(--icc-fill-light);
     --color-surface-on-dark: var(--icc-fill-dark);
     --color-field-border: var(--icc-gray-560);
-    --color-error: var(--icc-red-500);              /* brand do DS · 5.27:1 no branco */
-    --color-action-text: var(--icc-red-500);         /* 5.27:1 no branco; ~4.6:1 sobre o fundo rosado do número */
-    --color-link: var(--icc-red-800);               /* accent do DS · 10.44:1 no branco */
-    --color-link-hover: var(--icc-red-500);         /* brand do DS · 5.27:1 no branco */
+    --color-error: var(--icc-red-500); /* brand do DS · 5.27:1 no branco */
+    --color-action-text: var(--icc-red-500); /* 5.27:1 no branco; ~4.6:1 sobre o fundo rosado do número */
+    --color-link: var(--icc-red-800); /* accent do DS · 10.44:1 no branco */
+    --color-link-hover: var(--icc-red-500); /* brand do DS · 5.27:1 no branco */
     --color-highlight-on-silver: var(--icc-red-800); /* faixa #ccc do Facebook: 6.7:1 */
 
     /* ---------- Semânticos · tipografia (DS) ---------- */
@@ -114,8 +115,8 @@
     --tracking-display: -0.02em;
     --tracking-label: 0.06em;
     --tracking-button: 0.1em;
-    --font-size-min: 0.875rem;      /* piso do DS: 14px */
-    --font-size-field: 1rem;        /* 16px evita zoom no iOS */
+    --font-size-min: 0.875rem; /* piso do DS: 14px */
+    --font-size-field: 1rem; /* 16px evita zoom no iOS */
 
     /* ---------- Semânticos · movimento (DS · seção 05 Motion) ---------- */
     --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);

@@ -1,6 +1,6 @@
 <?php
 
-echo "
+    echo "
     <link rel='stylesheet' href='" . BASE . "/_cdn/widgets/accessibility/css/buttons.css'/>
      <link rel='stylesheet' href='" . BASE . "/_cdn/widgets/accessibility/css/highcontrast.css'/>
       <link rel='stylesheet' href='" . BASE . "/_cdn/widgets/accessibility/css/daltonism.css'/> ";
@@ -11,7 +11,7 @@ echo "
 	<!--CONTRAST: HIGTHCONTRAST / DALTONISM / RESET-->
 	<li class="higth-contrast">
 		<a title="ALTO CONTRASTE" class="link-alto-contraste btn-lat-rigth" data-class="contrast">
-			<span class="fa fa-adjust"></span>
+			<span class="icon-contrast"></span>
 			<span class="btn-text">CONTRASTE</span>
 		</a>
 	</li>
@@ -23,7 +23,7 @@ echo "
     </li>-->
 	<li class="contrast-default">
 		<a title="Resetar - Voltar as cores padrão" class="link-alto-contraste btn-lat-rigth" data-class="">
-			<span class="fa fa-recycle"></span>
+			<span class="icon-paint-format"></span>
 			<span class="btn-text">RESTAURAR CORES</span>
 		</a>
 	</li>
@@ -31,19 +31,19 @@ echo "
 	<!--ZOOM IN / OUT / RESET-->
 	<li class="access-font-size-a-plus no-zoomm">
 		<a class="btn-lat-rigth" id="In" accesskey="A" title="Aumenta 10%">
-			<span class="fa fa-search-plus"></span>
+			<span class="icon-zoom-in"></span>
 			<span class="btn-text">AUMENTAR ZOOM</span>
 		</a>
 	</li>
 	<li class="access-font-size-a-minus">
 		<a class="btn-lat-rigth" id="Out" accesskey="D" title="Diminui 10%">
-			<span class="fa fa-search-minus"></span>
+			<span class="icon-zoom-out"></span>
 			<span class="btn-text">DIMINUIR ZOOM</span>
 		</a>
 	</li>
 	<li class="access-font-size-a-reset">
 		<a class="btn-lat-rigth" id="Rst" accesskey="R" title="Restaurar tamanho normal">
-			<span class="fa fa-search-location"></span>
+			<span class="icon-search"></span>
 			<span class="btn-text">RESTAURAR ZOOM</span>
 		</a>
 	</li>

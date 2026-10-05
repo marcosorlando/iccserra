@@ -1,20 +1,17 @@
 <?php
 
-use App\Conn\Read;
-use App\Helpers\Check;
+    use App\Conn\Read;
+    use App\Helpers\Check;
 
-$Read ??= new Read();
+    $Read ??= new Read();
 ?>
 <footer class="main_footer">
 	<article id="footeroptin">
 		<div class="content">
 			<div class="content_left box box2">
-				<img
-						src="<?= INCLUDE_PATH; ?>/images/ebook-metas.jpg" width="350" height="402" loading="lazy"
-						decoding="async"
-						alt="Metas - O segredo das pessoas bem sucedidas"
-						title="Metas - O segredo das pessoas bem sucedidas"
-				/>
+				<img src="<?= INCLUDE_PATH; ?>/images/metas-o-segredo-das-pessoas-bem-sucedidas-mkp.png" width="350"
+				     height="402" loading="lazy" decoding="async" alt="Metas - O segredo das pessoas bem sucedidas"
+				     title="Metas - O segredo das pessoas bem sucedidas"/>
 				<div>
 					<h2>E-BOOK <b>METAS</b></h2>
 					<p> Preparamos um excelente e-book com <b>CONTEÚDO PREMIUM</b> deguste ele foi feito carinhosamente
@@ -22,9 +19,10 @@ $Read ??= new Read();
 				</div>
 			</div>
 			<div class="content_right box box2">
-				<p>O SEGREDO DAS PESSOAS<b> BEM SUCEDIDAS</b></p><br>
+				<p>O SEGREDO DAS PESSOAS <b>BEM SUCEDIDAS</b></p><br>
 				<a href="https://iccserra.org.br/metas-o-segredo-das-pessoas-bem-sucedidas" title="Clique para baixar!"
-				   style="display: block; text-align: center;" target="_blank" rel="noopener" class="cta cta-red">DOWNLOAD GRATUITO</a>
+				   style="display: block; text-align: center;" target="_blank" rel="noopener" class="cta cta-red">DOWNLOAD
+					GRATUITO</a>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -104,7 +102,8 @@ $Read ??= new Read();
 
 			</ul>
 			<button type="button" class="icc_postos_toggle" aria-controls="icc-postos-lista" aria-expanded="false"
-			        hidden>Ver todos os postos</button>
+			        hidden>Ver todos os postos
+			</button>
 		</div>
 	</section>
 	<div class="clear"></div>
@@ -129,8 +128,8 @@ $Read ??= new Read();
                 );
                 foreach (($Read->getResult() ?? []) as $Bora) {
                     extract($Bora);
-                    echo "<article><h3><a href='" . BASE
-                        . "/artigo/{$post_name}' title='{$post_title}'>{$post_title}</a></h3></article>";
+                    echo "<article><p><a href='" . BASE
+                        . "/artigo/{$post_name}' title='{$post_title}'>{$post_title}</a></p></article>";
                 }
             ?>
 		</section>
@@ -144,8 +143,8 @@ $Read ??= new Read();
                 );
                 foreach (($Read->getResult() ?? []) as $Bora) {
                     extract($Bora);
-                    echo "<article><h3><a href='" . BASE
-                        . "/artigo/{$post_name}' title='{$post_title}'>{$post_title}</a></h3></article>";
+                    echo "<article><p><a href='" . BASE
+                        . "/artigo/{$post_name}' title='{$post_title}'>{$post_title}</a></p></article>";
                 }
             ?>
 		</section>
@@ -189,7 +188,7 @@ $Read ??= new Read();
 			<div class="clear"></div>
 		</div>
 	</div>
-	<?php
+    <?php
         $WhatsFabMsg = urlencode(
             'Olá estou no site da ICC SERRA agora, e quero conversar com um Agente de Crédito '
             . "para ter mais informações sobre *MICROCRÉDITO*. \n\n *Aguardo um retorno em breve!*"

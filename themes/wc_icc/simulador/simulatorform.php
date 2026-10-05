@@ -6,12 +6,12 @@
 
 	<div class="label_50">
 		<label>
-			<span>*E-mail:</span>
+			<span>E-mail:</span>
 			<input type="email" name="email" value="<?= isset($email) ? $email : ''; ?>"
 			       placeholder="Informe seu E-mail:" required/>
 		</label>
 		<label>
-			<span>*Selecione seu enquadramento:</span>
+			<span>Selecione seu enquadramento:</span>
 			<select id="cb_enquadramento" name="cb_enquadramento" required="required">
 				<option value="" disabled selected>Escolha a aqui!</option>
 				<option value="mei" <?= isset($cb_enquadramento) && $cb_enquadramento == 'mei' ? 'selected' : '';
@@ -28,12 +28,12 @@
 
 	<div class="label_50">
 		<label>
-			<span>*Nome:</span>
+			<span>Nome:</span>
 			<input type="text" name="nome" value="<?= empty($nome) ? '' : $nome; ?>" placeholder="Informe seu Nome:"
 			       required/>
 		</label>
 		<label>
-			<span>*Telefone:</span>
+			<span>Telefone:</span>
 			<input type="text" class="formPhone" name="telefone" value="<?= empty($telefone) ? '' : $telefone; ?>"
 			       placeholder="Informe seu Telefone:" required/>
 		</label>
@@ -41,13 +41,13 @@
 
 	<div class="label_50">
 		<label>
-			<span>*Cidade:</span>
+			<span>Cidade:</span>
 			<input type="text" name="cidade" value="<?= empty($cidade) ? '' : $cidade; ?>"
 			       placeholder="Informe sua cidade:" required/>
 		</label>
 		<label>
-			<span>*Estado:</span>
-			<select name="estado" id="estado">
+			<span>Estado:</span>
+			<select name="estado" id="estado" required="required">
 				<option value="AC">AC</option>
 				<option value="AL">AL</option>
 				<option value="AP">AP</option>
@@ -79,7 +79,7 @@
 	</div>
 	<div class="label_50">
 		<label>
-			<span>*Tipo de Capital:</span>
+			<span>Tipo de Capital:</span>
 			<select id="modalidade" name="modalidade" onChange="showDiv();" required="required">
 				<option value="" disabled selected>Escolha a finalidade</option>
 				<option value="giro">Capital de Giro</option>
@@ -88,7 +88,7 @@
 		</label>
 
 		<label>
-			<span>*Linha de Crédito:</span>
+			<span>Linha de Crédito:</span>
 			<select name="tipo_credito" id="tipo_credito" onChange="showDiv();" required="required">
 				<option value="" disabled selected>Escolha a Modalidade</option>
 				<option value="microcredito">Microcrédito Produtivo</option>
@@ -102,12 +102,12 @@
 	</div>
 	<div class="label_50">
 		<label>
-			<span>*Valor em R$:</span>
+			<span>Valor em R$:</span>
 			<input name="valor" id="valor" type="number" min="600" max="30000" maxlength="5" required>
 		</label>
 
 		<label id="n_parcelas" class="invisivel">
-			<span>*Número de Parcelas:</span>
+			<span>Número de Parcelas:</span>
 			<select name="parcelas" id="parcelas" required="required"> </select>
 		</label>
 	</div>
