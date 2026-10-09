@@ -1,3 +1,6 @@
+<?php
+
+    use App\Helpers\Check; ?>
 <form class="j_formsubmit form_capitalize" id="simulador-credito" novalidate method="post"
       enctype="multipart/form-data">
 
@@ -21,6 +24,9 @@
 				</option>
 				<option value="pj" <?= isset($cb_enquadramento) && $cb_enquadramento == 'pj' ? 'selected' : '';
                 ?>>Microempresário
+				</option>
+				<option value='pf' <?= isset($cb_enquadramento) && $cb_enquadramento == 'pf' ? 'selected' : '';
+                ?>>Pessoa Física
 				</option>
 			</select>
 		</label>
@@ -134,9 +140,11 @@
 		</div>
 	</div>
 	<div class="clear"></div>
+
 	<div class="btn_simulator">
-		<p id="p_msg" style="font-size: 14px; margin:10px auto;" class="invisivel"></p>
-		<button class="btn btn_red" style="margin-top: 30px;">
+		<p id="p_msg" class="invisivel"></p>
+
+		<button class="btn btn_red">
 			<i class="icon-calculator"></i> <img class="form_load" style="margin-left: 10px;"
 			                                     src="<?= BASE; ?>/themes/wc_icc/images/icons/load_w.gif"
 			                                     alt="Aguarde, enviando simulação!"
@@ -144,10 +152,11 @@
 		</button>
 	</div>
 
-	<h5 style="font-size: 0.95em; text-align: center;">CASO TENHA ALGUMA DÚVIDA SOBRE O SIMULADOR LIGUE<b> (54)
-			3217-8787</b> QUE AJUDAREMOS.</h5>
-
-	<h6 style="font-size: 0.95em; text-align: center;"><b>HORÁRIO DE ATENDIMENTO:</b> DE SEGUNDA À SEXTA-FEIRA DAS 9:00H
-		AS 17:00H</h6>
-
+	<div class="infos">
+		<h5>CASO TENHA ALGUMA DÚVIDA SOBRE O SIMULADOR LIGUE <a href='tel:<?= Check::clearNumber(SITE_ADDR_PHONE_A) ?>'
+		                                                        title='Clique para ligar!'><?= SITE_ADDR_PHONE_A ?></a>
+			QUE AJUDAREMOS.</h5>
+		<h6><b>HORÁRIO DE ATENDIMENTO:</b> DE SEGUNDA À SEXTA-FEIRA DAS 9:00H
+			AS 17:00H</h6>
+	</div>
 </form>

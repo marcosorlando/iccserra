@@ -1,6 +1,6 @@
 /*
  * WC SLIDE · carrossel de destaque em tela cheia.
- * Usa os tokens do tema quando existem (themes/<tema>/css/tokens.css), com fallback
+ * Usa os tokens do tema quando existem (seção 00 de themes/<tema>/css/style.css), com fallback
  * para quem usar o widget fora do tema ICC.
  */
 .wc_slides {

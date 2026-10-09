@@ -165,11 +165,9 @@
                     echo '<link rel="stylesheet" href="' . INCLUDE_PATH . '/css/icc-icons.min.css"/>' . "\r\n";
                 }
 
-                // wc-legacy + tokens antes do style.css (sem @import, para o ?v= furar o cache de cada um)
-                foreach (['wc-legacy.css', 'tokens.css', 'style.css'] as $themeCss) {
-                    if (file_exists(REQUIRE_PATH . '/css/' . $themeCss)) {
-                        echo '<link rel="stylesheet" href="' . INCLUDE_PATH . '/css/' . $themeCss . '?v=' . filemtime(REQUIRE_PATH . '/css/' . $themeCss) . '"/>' . "\r\n";
-                    }
+                // folha única do tema (tokens + legado do WC + páginas); ?v= fura o cache a cada alteração
+                if (file_exists(REQUIRE_PATH . '/css/style.css')) {
+                    echo '<link rel="stylesheet" href="' . INCLUDE_PATH . '/css/style.css?v=' . filemtime(REQUIRE_PATH . '/css/style.css') . '"/>' . "\r\n";
                 }
 
                 // WC THEME CSS FILES (extras do tema em /wc_css)

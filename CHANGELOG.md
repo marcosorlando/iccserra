@@ -1,4 +1,12 @@
 #Work Control php@8.X.X Changelog
+# 05/10/2026 - Folha única do tema e formulários padronizados
+
++ NEW `themes/wc_icc/css/style.css` é a folha única do tema: tokens (`tokens.css`) e legado do WC (`wc-legacy.css`) incorporados, organizada por seções numeradas (00 Tokens … 14 Impressão) e por página (Home, Blog, Simulador, Trabalhe conosco, Ouvidoria, Institucional);
++ NEW bloco único de formulários (seção 03.4) com variáveis `--form-*` e `--field-*`: legenda mais perto do campo, campos com 44px, espaçamento menor; vale para todos os forms do front e para as buscas;
++ FIX formulário do Parceiro passa a usar linhas (`.flex` com `.grow0`/`.grow2`) em vez de empilhar 16 campos; botões de envio centralizados em todos os formulários;
++ FIX `<br>` soltos nos formulários e o estilo de citação do blog no texto do simulador;
++ DEL `tokens.css`, `wc-legacy.css` e seus `.min`; regras sem uso (`.panel`, `.dashboard`, `.course_segment`, `.wc_conversion_content`, utilitários `bg_*`/`border_color_*` sem uso). Backup em `css/_backup/2026-10-05/*.bak`.
+
 # 02/10/2026 - CRM do Simulador
 
 + NEW módulo `crm` no admin (Funil, Etapas, Mensagens) com quadro Kanban e drag and drop entre etapas;

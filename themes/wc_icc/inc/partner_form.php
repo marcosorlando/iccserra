@@ -1,4 +1,4 @@
-<form name="form_contact" class="j_formsubmit padding-top-0" action="" method="post" enctype="multipart/form-data">
+<form name="form_contact" class="j_formsubmit" action="" method="post" enctype="multipart/form-data">
 
 	<input type="hidden" name="callback" class="callback" value="Contact"/>
 	<input type="hidden" name="callback_action" class="callback_action" value="partner"/>
