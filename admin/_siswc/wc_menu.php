@@ -227,6 +227,21 @@
 		</li>
         <?php
     }
+    if (APP_GADS_LPS && $Admin['user_level'] >= LEVEL_WC_GADS_LPS) {
+        ?>
+		<li class="dashboard_nav_menu_li <?= strstr((string)$getViewInput, 'gadslps/') ? 'dashboard_nav_menu_active' : ''; ?>">
+			<a class="icon-target" title="LPs de Destino (Google Ads)" href="dashboard.php?wc=gadslps/home">LPs Google Ads</a>
+			<ul class="dashboard_nav_menu_sub">
+				<li class="dashboard_nav_menu_sub_li <?= 'gadslps/create' == $getViewInput ? 'dashboard_nav_menu_active' : ''; ?>">
+					<a href="dashboard.php?wc=gadslps/create">&raquo; Nova LP</a>
+				</li>
+				<li class="dashboard_nav_menu_sub_li <?= 'gadslps/home' == $getViewInput ? 'dashboard_nav_menu_active' : ''; ?>">
+					<a href="dashboard.php?wc=gadslps/home">&raquo; Ver LPs</a>
+				</li>
+			</ul>
+		</li>
+        <?php
+    }
     if (APP_MATERIALS !== 0) {
         ?>
 		<li class="dashboard_nav_menu_li <?php

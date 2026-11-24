@@ -283,6 +283,7 @@
                 'APP_DOCUMENTS' => 1,
                 'APP_SERVICES_STATIONS' => 1,
                 'APP_CRM' => 1,
+                'APP_GADS_LPS' => 1,
                 'APP_DEBUG' => self::env('APP_DEBUG'),
             ];
 
@@ -297,6 +298,7 @@
                 'LEVEL_WC_DOCUMENTS' => 6,
                 'LEVEL_WC_SERVICES_STATIONS' => 6,
                 'LEVEL_WC_CRM' => 6,
+                'LEVEL_WC_GADS_LPS' => 6,
 
                 'LEVEL_WC_POSTS' => 6,
                 'LEVEL_WC_COMMENTS' => 6,
@@ -444,6 +446,7 @@
                 'DB_CRM_SIMULATIONS' => 'ws_crm_simulations',
                 'DB_CRM_HISTORY' => 'ws_crm_history',
                 'DB_CRM_TEMPLATES' => 'ws_crm_templates',
+                'DB_GADS_LPS' => 'ws_gads_lps',
             ];
 
             self::defineConstants(self::withEnvOverrides($tables));

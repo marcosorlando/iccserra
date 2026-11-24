@@ -1,4 +1,15 @@
 #Work Control php@8.X.X Changelog
+# 23/11/2026 - LPs de Destino para campanhas Google
+
++ NEW módulo `gadslps` no admin (Nova LP, Ver LPs) para gerir as páginas de destino das campanhas Google Ads, sem formulário: os CTAs levam ao `/simulador` (fim do funil);
++ NEW tags Google dinâmicas por página (GA4 `G-`, Google Ads `AW-` + rótulo de conversão, GTM `GTM-`) injetadas no `<head>` da LP, com fallback para as tags globais do site;
++ NEW conversão do Google Ads disparada na etapa final do simulador (simulação concluída, em `scripts.js`), usando o `send_to` da LP de origem (cookie `gads_conv`, 90 dias); o CTA só repassa `gclid` e UTMs na URL;
++ NEW conteúdo da LP editável por campos no admin (topo, selos, dores, passos, detalhes e condições, prova social, FAQ, chamada final, rodapé legal, WhatsApp) com repetidores e upload da imagem do topo; salvo em `page_data` (JSON) e `uploads/gadslps/`;
++ NEW `themes/wc_icc/gads-lp.php` (documento próprio, fora do layout do site) e `themes/wc_icc/gads/inc/lp-body.php` (estrutura fixa, igual em todas as LPs), assets em `themes/wc_icc/gads/`; menu e rodapé listam as LPs publicadas;
++ NEW `database/2026-11-23_gads_lps_seed.sql` popula as 5 LPs sem precisar de PHP (idempotente, pelo slug);
++ NEW `bin/import-gads-lps.php` lê os HTMLs de `lp/` e preenche os campos estruturados e a imagem do topo;
++ NEW constantes `APP_GADS_LPS`, `LEVEL_WC_GADS_LPS`, `DB_GADS_LPS`; SQL em `database/2026-11-23_gads_lps.sql`.
+
 # 05/10/2026 - Folha única do tema e formulários padronizados
 
 + NEW `themes/wc_icc/css/style.css` é a folha única do tema: tokens (`tokens.css`) e legado do WC (`wc-legacy.css`) incorporados, organizada por seções numeradas (00 Tokens … 14 Impressão) e por página (Home, Blog, Simulador, Trabalhe conosco, Ouvidoria, Institucional);

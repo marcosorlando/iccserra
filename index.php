@@ -60,6 +60,9 @@
     $URL = explode('/', $setURL);
     $SEO = new Seo($setURL);
 
+// LP DE DESTINO (GOOGLE ADS): documento próprio, fora do layout do site
+    $GadsPage = APP_GADS_LPS ? \App\Models\GadsLp::find($URL[0]) : null;
+
 // CHECK IF THIS POST IS ABLE TO AMP
     $IsArticle = isset($URL[0]) && 'artigo' === $URL[0];
     $HasAmpTemplate = file_exists(REQUIRE_PATH . '/amp.php');
@@ -70,8 +73,10 @@
         $PostAmp = (bool)($Read->getResult()[0]['post_amp'] ?? false);
     }
 
-// INSTANCE AMP (valid single article only)
-    if (
+// INSTANCE LP GOOGLE ADS (documento próprio) OU AMP (valid single article only)
+    if ($GadsPage && file_exists(REQUIRE_PATH . '/gads-lp.php')) {
+        require REQUIRE_PATH . '/gads-lp.php';
+    } elseif (
         APP_POSTS_AMP
         && $IsArticle
         && $HasAmpTemplate

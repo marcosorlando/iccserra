@@ -1,0 +1,79 @@
+/**
+ * LP Google Ads: CTAs levam ao simulador (fim do funil).
+ * - guarda gclid/UTMs (cookie gads_attr, 90 dias) e os repassa na URL do simulador;
+ * - guarda o send_to da conversão da LP (cookie gads_conv, 90 dias): quem dispara a conversão
+ *   é a etapa final do simulador (scripts.js), não o clique no CTA.
+ */
+(function () {
+    'use strict';
+
+    var KEYS = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    var EXPIRES = new Date(Date.now() + 90 * 864e5).toUTCString();
+
+    function setCookie(name, value) {
+        try {
+            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + EXPIRES + '; path=/; SameSite=Lax';
+        } catch (e) { /* cookies bloqueados: segue sem persistir */ }
+    }
+
+    function readAttr() {
+        try {
+            var m = document.cookie.match(/(?:^|; )gads_attr=([^;]*)/);
+            return m ? JSON.parse(decodeURIComponent(m[1])) : {};
+        } catch (e) {
+            return {};
+        }
+    }
+
+    var attr = readAttr();
+    var params = new URLSearchParams(window.location.search);
+    var changed = false;
+    KEYS.forEach(function (k) {
+        var v = params.get(k);
+        if (v) {
+            attr[k] = v.slice(0, 255);
+            changed = true;
+        }
+    });
+    if (changed) {
+        setCookie('gads_attr', JSON.stringify(attr));
+    }
+
+    function withAttr(href) {
+        try {
+            var url = new URL(href, window.location.href);
+            KEYS.forEach(function (k) {
+                if (attr[k] && !url.searchParams.has(k)) {
+                    url.searchParams.set(k, attr[k]);
+                }
+            });
+            return url.toString();
+        } catch (e) {
+            return href;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var sendTo = document.body.getAttribute('data-send-to') || '';
+        var ctaUrl = document.body.getAttribute('data-cta-url') || '';
+
+        // a LP de origem define qual conversão o simulador dispara
+        if (sendTo) {
+            setCookie('gads_conv', sendTo);
+        }
+        if (!ctaUrl) {
+            return;
+        }
+
+        var ctaPath;
+        try { ctaPath = new URL(ctaUrl, window.location.href).pathname; } catch (e) { return; }
+
+        document.querySelectorAll('a[href]').forEach(function (a) {
+            try {
+                if (new URL(a.getAttribute('href'), window.location.href).pathname === ctaPath) {
+                    a.setAttribute('href', withAttr(a.getAttribute('href')));
+                }
+            } catch (e) { /* href inválido: ignora */ }
+        });
+    });
+})();

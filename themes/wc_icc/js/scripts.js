@@ -354,6 +354,18 @@ $(function () {
                     if (data.tracking){
                         window.dataLayer = window.dataLayer || [];
                         dataLayer.push(data.tracking);
+
+                        // CONVERSÃO GOOGLE ADS: simulação concluída por quem veio de uma LP (cookie gads_conv)
+                        var gadsConv = (document.cookie.match(/(?:^|; )gads_conv=([^;]*)/) || [])[1];
+                        gadsConv = gadsConv ? decodeURIComponent(gadsConv) : '';
+                        if (typeof window.gtag === 'function' && /^AW-\d{6,15}\/[A-Za-z0-9_-]{6,60}$/.test(gadsConv)) {
+                            window.gtag('event', 'conversion', {
+                                send_to: gadsConv,
+                                value: parseFloat(data.tracking.value) || 0,
+                                currency: 'BRL',
+                                transaction_id: 'sim-' + Date.now()
+                            });
+                        }
                     }
                     
                     if (data.redirect) {
