@@ -1,4 +1,11 @@
 #Work Control php@8.X.X Changelog
+# 24/11/2026 - Ajustes de QA
+
++ FIX faixa `#footeroptin` (rodapé e chamada do simulador no Institucional) empilha no mobile (≤34em): antes as caixas ficavam espremidas lado a lado e o botão "Simular agora" ultrapassava a tela;
++ FIX `_cdn/widgets/comments/comments.js` carregado com `defer`: rodava antes do jQuery e gerava `$ is not defined` nos artigos;
++ FIX favicon das LPs Google Ads passa a ser o do site (`images/favicon.png`);
++ DEL cópia duplicada `_app/Config/Config/`; `constants_stub.php` regenerado.
+
 # 23/11/2026 - LPs de Destino para campanhas Google
 
 + NEW módulo `gadslps` no admin (Nova LP, Ver LPs) para gerir as páginas de destino das campanhas Google Ads, sem formulário: os CTAs levam ao `/simulador` (fim do funil);

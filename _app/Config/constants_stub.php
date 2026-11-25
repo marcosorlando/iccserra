@@ -101,12 +101,20 @@ if (!defined('APP_CV')) {
     define('APP_CV', 1);
 }
 
+if (!defined('APP_DEBUG')) {
+    define('APP_DEBUG', 'false');
+}
+
 if (!defined('APP_DEPOSITIONS')) {
     define('APP_DEPOSITIONS', 1);
 }
 
 if (!defined('APP_DOCUMENTS')) {
     define('APP_DOCUMENTS', 1);
+}
+
+if (!defined('APP_GADS_LPS')) {
+    define('APP_GADS_LPS', 1);
 }
 
 if (!defined('APP_HELLO')) {
@@ -202,7 +210,7 @@ if (!defined('AVATAR_W')) {
 }
 
 if (!defined('BASE')) {
-    define('BASE', 'https://seu-dominio.com.br');
+    define('BASE', 'https://iccserra.org.br');
 }
 
 if (!defined('COMMENT_MODERATE')) {
@@ -309,6 +317,10 @@ if (!defined('DB_CRM_TEMPLATES')) {
     define('DB_CRM_TEMPLATES', 'ws_crm_templates');
 }
 
+if (!defined('DB_CTAS')) {
+    define('DB_CTAS', 'ws_ctas');
+}
+
 if (!defined('DB_CURIOSITIES')) {
     define('DB_CURIOSITIES', 'ws_curiosities');
 }
@@ -321,12 +333,20 @@ if (!defined('DB_DEPOSITIONS')) {
     define('DB_DEPOSITIONS', 'ws_depositions');
 }
 
+if (!defined('DB_DOCS_CATEGORIES')) {
+    define('DB_DOCS_CATEGORIES', 'ws_docs_categories');
+}
+
 if (!defined('DB_DOCUMENTS')) {
     define('DB_DOCUMENTS', 'ws_docs');
 }
 
 if (!defined('DB_DOCUMENTS_CATEGORIES')) {
     define('DB_DOCUMENTS_CATEGORIES', 'ws_docs_categories');
+}
+
+if (!defined('DB_GADS_LPS')) {
+    define('DB_GADS_LPS', 'ws_gads_lps');
 }
 
 if (!defined('DB_HELLO')) {
@@ -510,7 +530,7 @@ if (!defined('IMAGE_W')) {
 }
 
 if (!defined('INCLUDE_PATH')) {
-    define('INCLUDE_PATH', 'https://seu-dominio.com.br/themes/personal');
+    define('INCLUDE_PATH', 'https://iccserra.org.br/themes/wc_icc');
 }
 
 if (!defined('LEVEL_WC_ALBUMS')) {
@@ -551,6 +571,10 @@ if (!defined('LEVEL_WC_DEPOSITIONS')) {
 
 if (!defined('LEVEL_WC_DOCUMENTS')) {
     define('LEVEL_WC_DOCUMENTS', 6);
+}
+
+if (!defined('LEVEL_WC_GADS_LPS')) {
+    define('LEVEL_WC_GADS_LPS', 6);
 }
 
 if (!defined('LEVEL_WC_HELLO')) {
@@ -642,7 +666,7 @@ if (!defined('MAIL_USER')) {
 }
 
 if (!defined('REQUIRE_PATH')) {
-    define('REQUIRE_PATH', 'themes/personal');
+    define('REQUIRE_PATH', 'themes/wc_icc');
 }
 
 if (!defined('SEGMENT_FB_PAGE_ID')) {
@@ -686,19 +710,19 @@ if (!defined('SIS_CONFIG_WC')) {
 }
 
 if (!defined('SIS_DB_HOST')) {
-    define('SIS_DB_HOST', '');
+    define('SIS_DB_HOST', 'localhost');
 }
 
 if (!defined('SIS_DB_NAME')) {
-    define('SIS_DB_NAME', '');
+    define('SIS_DB_NAME', 'iccserra20_db');
 }
 
 if (!defined('SIS_DB_PASS')) {
-    define('SIS_DB_PASS', '');
+    define('SIS_DB_PASS', 'W3bM4$t3r@#2018');
 }
 
 if (!defined('SIS_DB_USER')) {
-    define('SIS_DB_USER', '');
+    define('SIS_DB_USER', 'iccserra20_root');
 }
 
 if (!defined('SITE_ADDR_ADDR')) {
@@ -758,7 +782,7 @@ if (!defined('SITE_ADDR_WHATS')) {
 }
 
 if (!defined('SITE_ADDR_WHATS_TRIM')) {
-    define('SITE_ADDR_WHATS_TRIM', '555554999300824');
+    define('SITE_ADDR_WHATS_TRIM', '5554999300824');
 }
 
 if (!defined('SITE_ADDR_ZIP')) {
@@ -834,7 +858,7 @@ if (!defined('SLIDE_W')) {
 }
 
 if (!defined('THEME')) {
-    define('THEME', 'personal');
+    define('THEME', 'wc_icc');
 }
 
 if (!defined('THUMB_H')) {

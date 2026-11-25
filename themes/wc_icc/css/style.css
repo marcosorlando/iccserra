@@ -1756,6 +1756,17 @@ button.mobile_menu[aria-expanded="true"] {
     font-size: 1.5em;
 }
 
+/* mobile: o .box2 vira 100% (reset.css), então empilha em vez de espremer lado a lado */
+@media (max-width: 34em) {
+    #footeroptin .content {
+        flex-direction: column;
+    }
+
+    #footeroptin .content > .box {
+        margin-left: 0;
+    }
+}
+
 @media (prefers-reduced-motion: no-preference) {
     #footeroptin .content_left img {
         animation: float 4s ease-in-out infinite;
